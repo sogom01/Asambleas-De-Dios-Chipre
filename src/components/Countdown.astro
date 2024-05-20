@@ -1,8 +1,10 @@
 <section
   id="countdown"
-  class="mb-5 bg-gradient-to-b from-gray-800 via-gray-900 to-black text-white py-12 rounded-lg shadow-lg"
+  class="mb-5 bg-gradient-to-b from-gray-800 via-gray-900 to-black text-white py-5 rounded-lg shadow-lg"
 >
-  <h2 class="text-4xl font-bold text-center mb-6">Próxima Reunión</h2>
+  <h2 class="text-4xl font-bold text-center mb-6">
+    Nuestra proxima reunion es en:
+  </h2>
   <div class="text-center text-lg italic mb-6" id="next-meeting-label"></div>
   <div
     class="flex flex-wrap justify-center items-center space-x-4 sm:space-x-8 px-4"
@@ -27,7 +29,7 @@
 </section>
 
 <script>
-  const nextMeetingDate = new Date("May 20, 2024 09:53:00").getTime();
+  const nextMeetingDate = new Date("May 22, 2024 19:00:00").getTime();
 
   const countdownInterval = setInterval(() => {
     const now = new Date().getTime();
