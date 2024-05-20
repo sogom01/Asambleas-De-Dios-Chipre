@@ -1,0 +1,45 @@
+<section id="events" class="bg-white text-black rounded-lg shadow-lg">
+  <h2 class="text-4xl font-bold text-center mb-6">Anuncios y Eventos</h2>
+  <div
+    class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6"
+  >
+    <div class="event-card relative overflow-hidden rounded-lg shadow-lg">
+      <a href="#event-1">
+        <img
+          src="/img/anuncio1.jpg"
+          alt="Event 1"
+          class="w-full h-full object-cover transition-transform duration-300"
+        />
+      </a>
+    </div>
+    <div class="event-card relative overflow-hidden rounded-lg shadow-lg">
+      <a href="#event-2">
+        <img
+          src="/img/anuncio2.jpg"
+          alt="Event 2"
+          class="w-full h-full object-cover transition-transform duration-300"
+        />
+      </a>
+    </div>
+    <div class="event-card relative overflow-hidden rounded-lg shadow-lg">
+      <a href="#event-3">
+        <img
+          src="/img/anuncio3.jpg"
+          alt="Event 3"
+          class="w-full h-full object-cover transition-transform duration-300"
+        />
+      </a>
+    </div>
+    <!-- Añadir más tarjetas de eventos según sea necesario -->
+  </div>
+</section>
+
+<style>
+  .event-card img {
+    transition: transform 0.3s ease;
+  }
+
+  .event-card:hover img {
+    transform: scale(1.05);
+  }
+</style>
