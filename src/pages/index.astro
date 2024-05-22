@@ -1,7 +1,9 @@
 ---
 import Header from "../components/Header.astro";
 import Event from "../components/Event.astro";
-import Navegation from "../components/Navegation.astro";
+import Involved from "../components/Involved.astro";
+import SocialMedia from "../components/SocialMedia.astro";
+import Content from "../components/Content.astro";
 import Countdown from "../components/Countdown.astro";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../styles/global.css";
@@ -26,7 +28,9 @@ import "../styles/style.css";
   </head>
   <body>
     <Header />
-    <main class="w-full p-4">
+    <main
+      class="w-full p-4 bg-gradient-to-t from-black via-gray-900 to-gray-800"
+    >
       <Countdown />
       <div class="w-full px-6 py-12">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -34,8 +38,9 @@ import "../styles/style.css";
             <Event />
           </div>
           <div class="lg:col-span-1">
-            <Navegation />
-            <Navegation />
+            <Involved />
+            <Content />
+            <SocialMedia />
           </div>
         </div>
       </div>
