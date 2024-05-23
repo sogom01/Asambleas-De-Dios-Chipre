@@ -2,26 +2,26 @@
   id="countdown"
   class="mb-5 bg-gradient-to-b from-gray-800 via-gray-900 to-black text-white py-5 rounded-lg shadow-lg"
 >
-  <h2 class="text-3xl font- text-center mb-6">
-    Nuestra proxima reunion es en:
+  <h2 class="text-3xl font-normal text-center mb-6">
+    Nuestra próxima reunión es en:
   </h2>
   <div class="text-center text-lg italic mb-6" id="next-meeting-label"></div>
   <div
     class="flex flex-wrap justify-center items-center space-x-4 sm:space-x-8 px-4"
   >
-    <div class="countdown-element">
+    <div class="countdown-element text-center">
       <div id="days" class="countdown-time">0</div>
       <div class="countdown-label">Días</div>
     </div>
-    <div class="countdown-element">
+    <div class="countdown-element text-center">
       <div id="hours" class="countdown-time">0</div>
       <div class="countdown-label">Horas</div>
     </div>
-    <div class="countdown-element">
+    <div class="countdown-element text-center">
       <div id="minutes" class="countdown-time">0</div>
       <div class="countdown-label">Minutos</div>
     </div>
-    <div class="countdown-element">
+    <div class="countdown-element text-center">
       <div id="seconds" class="countdown-time">0</div>
       <div class="countdown-label">Segundos</div>
     </div>
@@ -29,33 +29,39 @@
 </section>
 
 <script>
-  const nextMeetingDate = new Date("May 25, 2024 18:00:00").getTime();
+  document.addEventListener("DOMContentLoaded", function () {
+    const nextMeetingDate = new Date("May 25, 2024 18:00:00").getTime();
 
-  const countdownInterval = setInterval(() => {
-    const now = new Date().getTime();
-    const distance = nextMeetingDate - now;
+    const countdownInterval = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = nextMeetingDate - now;
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor(
-      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    );
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    document.getElementById("days").innerText = days;
-    document.getElementById("hours").innerText = hours;
-    document.getElementById("minutes").innerText = minutes;
-    document.getElementById("seconds").innerText = seconds;
+      document.getElementById("days").innerText = days.toString();
+      document.getElementById("hours").innerText = hours.toString();
+      document.getElementById("minutes").innerText = minutes.toString();
+      document.getElementById("seconds").innerText = seconds.toString();
 
-    if (distance < 0) {
-      clearInterval(countdownInterval);
-      document.getElementById("countdown").innerHTML =
-        "<div class='text-center text-4xl font-bold text-withe'>¡La reunión ha comenzado!</div>";
-    }
-  }, 1000);
+      if (distance < 0) {
+        clearInterval(countdownInterval);
+        document.getElementById("countdown").innerHTML =
+          "<div class='text-center text-4xl font-bold text-white'>¡La reunión ha comenzado!</div>";
+      }
+    }, 1000);
+  });
 </script>
 
 <style>
+  .countdown-element {
+    margin-bottom: 1rem; /* Margin between elements on smaller screens */
+  }
+
   @media (min-width: 640px) {
     .countdown-time {
       font-size: 2rem; /* Increase font size on larger screens */
