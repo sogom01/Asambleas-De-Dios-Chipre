@@ -1,10 +1,10 @@
 <header
-  class="bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 text-white"
+  class="header bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 text-white"
 >
   <nav class="container flex flex-wrap items-center">
     <!-- Logo centrado en móviles y a la izquierda en escritorio -->
     <div
-      class="w-full md:w-2/5 flex justify-center md:justify-start order-1 md:order-2 bg-transparent py-2 md:py-0"
+      class="w-full md:w-2/5 flex justify-center md:justify-start order-1 md:order-2 bg-transparent py-2 md:py-0 logo"
     >
       <a
         href="/"
@@ -19,9 +19,9 @@
         />
       </a>
     </div>
-    <!-- Navegación - 60% -->
+    <!-- Navegación - solo visible en escritorio -->
     <div
-      class="w-full md:w-3/5 flex justify-center md:justify-around order-2 md:order-1 md:rounded-r-lg md:py-4 md:flex"
+      class="w-full md:w-3/5 hidden md:flex justify-center md:justify-around order-2 md:order-1 md:rounded-r-lg md:py-4 nav-links"
     >
       <ul class="flex space-x-6 text-lg font-medium">
         <li>
@@ -56,13 +56,15 @@
     </div>
   </nav>
   <!-- Segunda barra de navegación solo para pantallas pequeñas con iconos y menú hamburguesa -->
-  <div class="md:hidden bg-transparent w-full px-4 left-0 right-0 top-12 z-50">
+  <div
+    class="md:hidden bg-transparent w-full px-4 left-0 right-0 top-12 z-50 mobile-nav"
+  >
     <nav class="text-center py-2 flex items-center relative">
       <!-- Botón de menú hamburguesa solo en móvil -->
       <div class="absolute left-2">
         <button
           id="mobile-menu-button"
-          class="text-white focus:outline-none"
+          class="text-white focus:outline-none menu-button"
           aria-label="Abrir menú móvil"
         >
           <svg

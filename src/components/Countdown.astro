@@ -11,7 +11,7 @@
   <div class="text-center text-lg italic mb-6" id="next-meeting-label"></div>
   <div
     id="countdown-timer"
-    class="flex flex-wrap justify-center items-center space-x-4 sm:space-x-8 px-4"
+    class="flex justify-center items-center space-x-2 sm:space-x-8 px-2"
   >
     <div class="countdown-element text-center">
       <div id="days" class="countdown-time-wrapper">
@@ -222,6 +222,20 @@
 
     .countdown-label {
       font-size: 1.4rem; /* Increase font size on larger screens */
+    }
+  }
+
+  @media (max-width: 639px) {
+    .countdown-time {
+      font-size: 1.5rem; /* Smaller font size for smaller screens */
+    }
+
+    .countdown-label {
+      font-size: 1rem; /* Smaller font size for labels on smaller screens */
+    }
+
+    .countdown-element {
+      min-width: 60px; /* Ensure each element has enough width */
     }
   }
 

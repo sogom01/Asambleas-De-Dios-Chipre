@@ -1,0 +1,68 @@
+.header {
+  background: linear-gradient(
+    to top,
+    #333,
+    #444,
+    #555
+  ); /* Ensure gradient matches your desired colors */
+  color: white;
+}
+
+.header nav.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.header .logo {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.header .nav-links {
+  flex: 2 1 auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.header .nav-links ul {
+  display: flex;
+  list-style: none;
+}
+
+.header .nav-links ul li {
+  margin: 0 15px;
+}
+
+.header .nav-links ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.header .nav-links ul li a:hover {
+  color: #ffcc00; /* Hover color */
+}
+
+.header .mobile-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .header .nav-links {
+    display: none;
+  }
+
+  .header .mobile-nav {
+    display: block;
+    text-align: center;
+  }
+
+  .header .mobile-nav .menu-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+  }
+}
