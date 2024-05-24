@@ -1,0 +1,78 @@
+---
+import "../styles/form.css"; // Crea este archivo si necesitas estilos personalizados para el formulario
+---
+
+<div class="container mx-auto py-8 px-4">
+  <h1 class="text-3xl font-semibold text-center mb-8">Peticiones de Oración</h1>
+  <form
+    id="prayerForm"
+    class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg"
+    onsubmit="sendEmail(event)"
+  >
+    <div class="mb-4">
+      <label for="name" class="block text-gray-700 text-sm font-bold mb-2"
+        >Nombre</label
+      >
+      <input
+        type="text"
+        id="name"
+        name="name"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        required
+      />
+    </div>
+    <div class="mb-4">
+      <label for="phone" class="block text-gray-700 text-sm font-bold mb-2"
+        >Teléfono</label
+      >
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        required
+      />
+    </div>
+    <div class="mb-6">
+      <label for="message" class="block text-gray-700 text-sm font-bold mb-2"
+        >Petición</label
+      >
+      <textarea
+        id="message"
+        name="message"
+        rows="4"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        required></textarea>
+    </div>
+    <div class="flex items-center justify-between">
+      <button
+        type="submit"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      >
+        Enviar
+      </button>
+    </div>
+  </form>
+</div>
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function () {
+    emailjs.init("YOUR_USER_ID"); // Sustituye YOUR_USER_ID por tu User ID de EmailJS
+  })();
+
+  function sendEmail(event) {
+    event.preventDefault();
+
+    emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", "#prayerForm").then(
+      function (response) {
+        alert("Mensaje enviado exitosamente!");
+      },
+      function (error) {
+        alert(
+          "Hubo un error al enviar el mensaje, por favor inténtalo de nuevo."
+        );
+      }
+    );
+  }
+</script>
