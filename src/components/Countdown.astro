@@ -2,7 +2,7 @@
   id="countdown"
   class="mb-5 bg-gradient-to-b from-gray-800 via-gray-900 to-black text-white py-5 rounded-lg shadow-lg"
 >
-  <h2 class="text-3xl font-normal text-center mb-6 px-4 font-mono">
+  <h2 class="text-3xl font-normal text-center mb-6 px-4">
     Nuestra próxima reunión es en:
   </h2>
   <div class="text-center text-lg italic mb-6" id="next-meeting-label"></div>
@@ -10,19 +10,27 @@
     class="flex flex-wrap justify-center items-center space-x-4 sm:space-x-8 px-4"
   >
     <div class="countdown-element text-center">
-      <div id="days" class="countdown-time">0</div>
+      <div id="days" class="countdown-time-wrapper">
+        <div class="countdown-time" aria-live="polite">0</div>
+      </div>
       <div class="countdown-label">Días</div>
     </div>
     <div class="countdown-element text-center">
-      <div id="hours" class="countdown-time">0</div>
+      <div id="hours" class="countdown-time-wrapper">
+        <div class="countdown-time" aria-live="polite">0</div>
+      </div>
       <div class="countdown-label">Horas</div>
     </div>
     <div class="countdown-element text-center">
-      <div id="minutes" class="countdown-time">0</div>
+      <div id="minutes" class="countdown-time-wrapper">
+        <div class="countdown-time" aria-live="polite">0</div>
+      </div>
       <div class="countdown-label">Minutos</div>
     </div>
     <div class="countdown-element text-center">
-      <div id="seconds" class="countdown-time">0</div>
+      <div id="seconds" class="countdown-time-wrapper">
+        <div class="countdown-time" aria-live="polite">0</div>
+      </div>
       <div class="countdown-label">Segundos</div>
     </div>
   </div>
@@ -33,10 +41,14 @@
     const nextMeetingDate = new Date("May 25, 2024 18:00:00").getTime();
 
     const elements = {
-      days: document.getElementById("days"),
-      hours: document.getElementById("hours"),
-      minutes: document.getElementById("minutes"),
-      seconds: document.getElementById("seconds"),
+      days: document.getElementById("days").querySelector(".countdown-time"),
+      hours: document.getElementById("hours").querySelector(".countdown-time"),
+      minutes: document
+        .getElementById("minutes")
+        .querySelector(".countdown-time"),
+      seconds: document
+        .getElementById("seconds")
+        .querySelector(".countdown-time"),
     };
 
     let prevValues = {
@@ -61,9 +73,12 @@
 
       Object.keys(newValues).forEach((key) => {
         if (newValues[key].toString() !== prevValues[key]) {
-          elements[key].innerText = newValues[key];
-          elements[key].classList.add("changing");
-          setTimeout(() => elements[key].classList.remove("changing"), 500);
+          const element = elements[key];
+          element.classList.add("changing");
+          setTimeout(() => {
+            element.innerText = newValues[key];
+            element.classList.remove("changing");
+          }, 250);
           prevValues[key] = newValues[key].toString();
         }
       });
@@ -78,14 +93,18 @@
 </script>
 
 <style>
-  @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
 
   .font-mono {
-    font-family: "Roboto Mono", monospace;
+    font-family: "Orbitron", monospace;
   }
 
   .countdown-element {
     margin-bottom: 1rem; /* Margin between elements on smaller screens */
+  }
+
+  .countdown-time-wrapper {
+    perspective: 1000px; /* Perspective for the 3D effect */
   }
 
   .countdown-time {
@@ -101,21 +120,25 @@
     text-shadow:
       0 0 10px rgba(255, 215, 0, 0.7),
       0 0 20px rgba(255, 153, 0, 0.5);
+    display: inline-block;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    font-family: "Orbitron", monospace;
   }
 
   .countdown-time.changing {
-    animation: scale-up 0.5s ease;
+    animation: flip-up 0.5s;
   }
 
-  @keyframes scale-up {
+  @keyframes flip-up {
     0% {
-      transform: scale(1);
+      transform: rotateX(0);
     }
     50% {
-      transform: scale(1.2);
+      transform: rotateX(-90deg);
     }
     100% {
-      transform: scale(1);
+      transform: rotateX(0);
     }
   }
 
