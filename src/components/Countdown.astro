@@ -1,12 +1,16 @@
 <section
   id="countdown"
-  class="mb-5 bg-gradient-to-b from-gray-800 via-gray-900 to-black text-white py-5 rounded-lg shadow-lg"
+  class="relative bg-gradient-to-b from-gray-800 via-gray-900 to-black text-white py-5 rounded-lg shadow-lg"
 >
-  <h2 class="text-3xl font-normal text-center mb-6 px-4">
+  <h2
+    id="countdown-title"
+    class="text-3xl font-normal text-center mb-6 px-4 font-mono"
+  >
     Nuestra próxima reunión es en:
   </h2>
   <div class="text-center text-lg italic mb-6" id="next-meeting-label"></div>
   <div
+    id="countdown-timer"
     class="flex flex-wrap justify-center items-center space-x-4 sm:space-x-8 px-4"
   >
     <div class="countdown-element text-center">
@@ -34,11 +38,27 @@
       <div class="countdown-label">Segundos</div>
     </div>
   </div>
+  <div
+    id="live-notification"
+    class="hidden flex flex-col items-center justify-center text-center"
+  >
+    <h2 class="text-4xl font-bold text-red-600 mb-4 animate-pulse mt-4">
+      ¡La reunión ha comenzado!
+    </h2>
+    <a
+      href="https://www.youtube.com/@adchipremanizales2529/streams"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="bg-red-600 text-white px-3 rounded shadow-lg transition transform hover:bg-red-700 text-lg absolute top-4 left-4"
+    >
+      EN VIVO
+    </a>
+  </div>
 </section>
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const nextMeetingDate = new Date("May 25, 2024 18:00:00").getTime();
+    const nextMeetingDate = new Date("May 2, 2024 18:00:00").getTime();
 
     const elements = {
       days: document.getElementById("days").querySelector(".countdown-time"),
@@ -52,10 +72,10 @@
     };
 
     let prevValues = {
-      days: elements.days.innerText,
-      hours: elements.hours.innerText,
-      minutes: elements.minutes.innerText,
-      seconds: elements.seconds.innerText,
+      days: elements.days.textContent,
+      hours: elements.hours.textContent,
+      minutes: elements.minutes.textContent,
+      seconds: elements.seconds.textContent,
     };
 
     const countdownInterval = setInterval(() => {
@@ -76,7 +96,7 @@
           const element = elements[key];
           element.classList.add("changing");
           setTimeout(() => {
-            element.innerText = newValues[key];
+            element.textContent = newValues[key];
             element.classList.remove("changing");
           }, 250);
           prevValues[key] = newValues[key].toString();
@@ -85,8 +105,9 @@
 
       if (distance < 0) {
         clearInterval(countdownInterval);
-        document.getElementById("countdown").innerHTML =
-          "<div class='text-center text-4xl font-bold text-white'>¡La reunión ha comenzado!</div>";
+        document.getElementById("countdown-title").style.display = "none";
+        document.getElementById("countdown-timer").style.display = "none";
+        document.getElementById("live-notification").classList.remove("hidden");
       }
     }, 1000);
   });
@@ -154,6 +175,24 @@
 
     .countdown-label {
       font-size: 1.4rem; /* Increase font size on larger screens */
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .animate-pulse {
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
     }
   }
 </style>
