@@ -1,0 +1,15 @@
+.sidebar-button {
+  width: 50px;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: width 0.3s ease-in-out;
+  z-index: 50;
+}
+
+.group:hover .sidebar-button {
+  width: 200px; /* Ajusta el ancho según tus necesidades */
+}
+
+.group-hover\:opacity-100:hover .group-hover\:opacity-100 {
+  opacity: 1 !important;
+}

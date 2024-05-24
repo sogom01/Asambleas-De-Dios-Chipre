@@ -5,9 +5,14 @@ import Involved from "../components/Involved.astro";
 import SocialMedia from "../components/SocialMedia.astro";
 import Content from "../components/Content.astro";
 import Countdown from "../components/Countdown.astro";
+import Meets from "../components/Meets.astro";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../styles/global.css";
 import "../styles/style.css";
+import "../styles/sidebar-buttons.css";
+import SidebarButtonAddres from "../components/SidebarButtonAddres.astro";
+import SidebarButtonPray from "../components/SidebarButtonPray.astro";
+// Importa los estilos del nuevo componente si es necesario
 ---
 
 <html lang="es">
@@ -33,6 +38,9 @@ import "../styles/style.css";
   </head>
   <body>
     <Header />
+    <SidebarButtonAddres />
+    <SidebarButtonPray />
+    <!-- Utiliza el nuevo componente aquí -->
     <main
       class="w-full p-4 bg-gradient-to-t from-black via-gray-900 to-gray-800"
     >
@@ -45,6 +53,7 @@ import "../styles/style.css";
           <div class="lg:col-span-1">
             <Involved />
             <Content />
+            <Meets />
             <SocialMedia />
           </div>
         </div>
