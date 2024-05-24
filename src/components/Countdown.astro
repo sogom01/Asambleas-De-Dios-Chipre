@@ -1,8 +1,11 @@
 <section
   id="countdown"
-  class="relative bg-gradient-to-b from-gray-800 via-gray-900 to-black text-white py-5 rounded-lg shadow-lg"
+  class="relative bg-gradient-to-b from-gray-800 via-gray-900 to-black text-white py-5 mx-2 rounded-lg shadow-lg"
 >
-  <h2 id="countdown-title" class="text-3xl font-normal text-center mb-0 px-4">
+  <h2
+    id="countdown-title"
+    class="text-3xl font-normal text-center mb-6 px-4 font-mono"
+  >
     Nuestra próxima reunión es en:
   </h2>
   <div class="text-center text-lg italic mb-6" id="next-meeting-label"></div>
@@ -35,22 +38,22 @@
       <div class="countdown-label">Segundos</div>
     </div>
   </div>
-  <div
+  <a
     id="live-notification"
+    href="https://www.youtube.com/@adchipremanizales2529/streams"
+    target="_blank"
+    rel="noopener noreferrer"
     class="hidden flex flex-col items-center justify-center text-center"
   >
     <h2 class="text-4xl font-bold text-red-600 mb-4 animate-pulse mt-4">
       ¡La reunión ha comenzado!
     </h2>
-    <a
-      href="https://www.youtube.com/@adchipremanizales2529/streams"
-      target="_blank"
-      rel="noopener noreferrer"
+    <div
       class="bg-red-600 text-white px-3 rounded shadow-lg transition transform hover:bg-red-700 text-lg absolute top-4 left-4"
     >
       EN VIVO
-    </a>
-  </div>
+    </div>
+  </a>
 </section>
 
 <script>
@@ -138,13 +141,10 @@
           clearInterval(countdownInterval);
           document.getElementById("countdown-title").style.display = "none";
           document.getElementById("countdown-timer").style.display = "none";
-          document
-            .getElementById("live-notification")
-            .classList.remove("hidden");
+          const liveNotification = document.getElementById("live-notification");
+          liveNotification.classList.remove("hidden");
           setTimeout(() => {
-            document
-              .getElementById("live-notification")
-              .classList.add("hidden");
+            liveNotification.classList.add("hidden");
             document.getElementById("countdown-title").style.display = "block";
             document.getElementById("countdown-timer").style.display = "flex";
             updateCountdown();
@@ -252,5 +252,14 @@
     50% {
       opacity: 0.5;
     }
+  }
+
+  #live-notification {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  #live-notification:hover {
+    color: inherit;
   }
 </style>
