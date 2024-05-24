@@ -2,7 +2,7 @@
   id="countdown"
   class="mb-5 bg-gradient-to-b from-gray-800 via-gray-900 to-black text-white py-5 rounded-lg shadow-lg"
 >
-  <h2 class="text-3xl font-normal text-center mb-6 px-4">
+  <h2 class="text-3xl font-normal text-center mb-6 px-4 font-mono">
     Nuestra próxima reunión es en:
   </h2>
   <div class="text-center text-lg italic mb-6" id="next-meeting-label"></div>
@@ -32,6 +32,20 @@
   document.addEventListener("DOMContentLoaded", function () {
     const nextMeetingDate = new Date("May 25, 2024 18:00:00").getTime();
 
+    const elements = {
+      days: document.getElementById("days"),
+      hours: document.getElementById("hours"),
+      minutes: document.getElementById("minutes"),
+      seconds: document.getElementById("seconds"),
+    };
+
+    let prevValues = {
+      days: elements.days.innerText,
+      hours: elements.hours.innerText,
+      minutes: elements.minutes.innerText,
+      seconds: elements.seconds.innerText,
+    };
+
     const countdownInterval = setInterval(() => {
       const now = new Date().getTime();
       const distance = nextMeetingDate - now;
@@ -43,10 +57,16 @@
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      document.getElementById("days").innerText = days.toString();
-      document.getElementById("hours").innerText = hours.toString();
-      document.getElementById("minutes").innerText = minutes.toString();
-      document.getElementById("seconds").innerText = seconds.toString();
+      const newValues = { days, hours, minutes, seconds };
+
+      Object.keys(newValues).forEach((key) => {
+        if (newValues[key].toString() !== prevValues[key]) {
+          elements[key].innerText = newValues[key];
+          elements[key].classList.add("changing");
+          setTimeout(() => elements[key].classList.remove("changing"), 500);
+          prevValues[key] = newValues[key].toString();
+        }
+      });
 
       if (distance < 0) {
         clearInterval(countdownInterval);
@@ -58,17 +78,59 @@
 </script>
 
 <style>
+  @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap");
+
+  .font-mono {
+    font-family: "Roboto Mono", monospace;
+  }
+
   .countdown-element {
     margin-bottom: 1rem; /* Margin between elements on smaller screens */
   }
 
+  .countdown-time {
+    font-size: 2.5rem; /* Font size for countdown time */
+    background: linear-gradient(
+      90deg,
+      rgba(255, 215, 0, 1) 0%,
+      rgba(255, 153, 0, 1) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+    text-shadow:
+      0 0 10px rgba(255, 215, 0, 0.7),
+      0 0 20px rgba(255, 153, 0, 0.5);
+  }
+
+  .countdown-time.changing {
+    animation: scale-up 0.5s ease;
+  }
+
+  @keyframes scale-up {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .countdown-label {
+    font-size: 1.2rem; /* Font size for countdown labels */
+    color: #d4d4d8; /* Soft white color for labels */
+  }
+
   @media (min-width: 640px) {
     .countdown-time {
-      font-size: 2rem; /* Increase font size on larger screens */
+      font-size: 3rem; /* Increase font size on larger screens */
     }
 
     .countdown-label {
-      font-size: 1rem; /* Increase font size on larger screens */
+      font-size: 1.4rem; /* Increase font size on larger screens */
     }
   }
 </style>
