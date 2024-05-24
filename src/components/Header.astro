@@ -1,11 +1,27 @@
 <header
-  class="bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 text-white py-4"
+  class="bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 text-white py-2"
 >
-  <nav
-    class="container mx-auto flex flex-wrap justify-between items-center px-6"
-  >
+  <nav class="container mx-auto flex flex-wrap items-center px-6">
+    <!-- Logo centrado en móviles y a la izquierda en escritorio -->
     <div
-      class="w-full md:w-3/5 flex justify-center md:justify-end order-2 md:order-1 md:rounded-r-lg md:py-4"
+      class="w-full md:w-2/5 flex justify-center md:justify-start order-1 md:order-2 bg-transparent md:py-0"
+    >
+      <a
+        href="/"
+        aria-label="Página principal"
+        class="flex items-center justify-center h-28 w-full md:h-40"
+      >
+        <img
+          src="/logo-white.png"
+          alt="Logo de la Iglesia"
+          class="h-28 md:h-32 w-auto"
+          loading="lazy"
+        />
+      </a>
+    </div>
+    <!-- Navegación - 60% -->
+    <div
+      class="w-full md:w-3/5 flex justify-center md:justify-end order-2 md:order-1 md:rounded-r-lg md:py-4 hidden md:flex"
     >
       <ul class="flex space-x-6 text-lg font-medium">
         <li>
@@ -38,26 +54,13 @@
         </li>
       </ul>
     </div>
-    <div
-      class="w-full md:w-2/5 flex justify-center md:justify-start order-1 md:order-2 bg-transparent"
-    >
-      <a
-        href="/"
-        aria-label="Página principal"
-        class="flex items-center justify-center h-32 w-full md:h-40"
-      >
-        <img
-          src="/logo-white.png"
-          alt="Logo de la Iglesia"
-          class="h-24 md:h-32 w-auto"
-          loading="lazy"
-        />
-      </a>
-    </div>
-    <div class="md:hidden order-3">
+  </nav>
+  <!-- Segunda barra de navegación solo para pantallas pequeñas con iconos y menú hamburguesa -->
+  <div class="md:hidden bg-transparent w-full px-4 left-0 right-0 top-12 z-50">
+    <nav class="text-center py-2 flex justify-center items-center relative">
       <button
         id="mobile-menu-button"
-        class="text-white focus:outline-none"
+        class="text-white focus:outline-none absolute left-0 ml-4"
         aria-label="Abrir menú móvil"
       >
         <svg
@@ -74,73 +77,68 @@
             d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
-    </div>
-  </nav>
-  <!-- Segunda barra de navegación solo para pantallas pequeñas con iconos -->
-  <div
-    class="md:hidden bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 w-full px-4 left-0 right-0 top-16 z-50"
-  >
-    <nav class="text-center py-2 flex justify-center space-x-8">
-      <a
-        href="/events"
-        class="text-white hover:text-yellow-500 transition duration-300 mx-2 inline-flex flex-col items-center text-xs"
-        aria-label="Eventos"
-      >
-        <svg
-          class="w-6 h-6 mb-1"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-          aria-hidden="true"
+      <div class="flex justify-center space-x-8 w-full">
+        <a
+          href="/events"
+          class="text-white hover:text-yellow-500 transition duration-300 mx-2 inline-flex flex-col items-center text-xs"
+          aria-label="Eventos"
         >
-          <path
-            d="M6 2a1 1 0 000 2h8a1 1 0 000-2H6zM5 5a1 1 0 00-1 1v1H3a1 1 0 000 2h14a1 1 0 100-2h-1V6a1 1 0 00-1-1H5zm2 4a1 1 0 011 1v6a1 1 0 102 0V10a1 1 0 012 0v6a1 1 0 102 0v-6a1 1 0 012 0v6a1 1 0 102 0v-6a1 1 0 011-1H7z"
-          ></path>
-        </svg>
-        Eventos
-      </a>
-      <a
-        href="/about"
-        class="text-white hover:text-yellow-500 transition duration-300 mx-2 inline-flex flex-col items-center text-xs"
-        aria-label="Nosotros"
-      >
-        <svg
-          class="w-6 h-6 mb-1"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-          aria-hidden="true"
+          <svg
+            class="w-6 h-6 mb-1"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            aria-hidden="true"
+          >
+            <path
+              d="M6 2a1 1 0 000 2h8a1 1 0 000-2H6zM5 5a1 1 0 00-1 1v1H3a1 1 0 000 2h14a1 1 0 100-2h-1V6a1 1 0 00-1-1H5zm2 4a1 1 0 011 1v6a1 1 0 102 0V10a1 1 0 012 0v6a1 1 0 102 0v-6a1 1 0 012 0v6a1 1 0 102 0v-6a1 1 0 011-1H7z"
+            ></path>
+          </svg>
+          Eventos
+        </a>
+        <a
+          href="/about"
+          class="text-white hover:text-yellow-500 transition duration-300 mx-2 inline-flex flex-col items-center text-xs"
+          aria-label="Nosotros"
         >
-          <path
-            d="M10 2a1 1 0 00-.89.55L7.59 5H3.5A1.5 1.5 0 002 6.5v7a1.5 1.5 0 001.5 1.5h3v1a1 1 0 102 0v-1h2v1a1 1 0 102 0v-1h3A1.5 1.5 0 0018 13.5v-7A1.5 1.5 0 0016.5 5h-4.09l-1.52-2.45A1 1 0 0010 2zm0 3.5L11.48 7h-2.96L10 5.5zM4 8h12v5.5a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5V8zm4 7h4v1H8v-1z"
-          ></path>
-        </svg>
-        Nosotros
-      </a>
-      <a
-        href="/sermons"
-        class="text-white hover:text-yellow-500 transition duration-300 mx-2 inline-flex flex-col items-center text-xs"
-        aria-label="Predicas"
-      >
-        <svg
-          class="w-6 h-6 mb-1"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
+          <svg
+            class="w-6 h-6 mb-1"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            aria-hidden="true"
+          >
+            <path
+              d="M10 2a1 1 0 00-.89.55L7.59 5H3.5A1.5 1.5 0 002 6.5v7a1.5 1.5 0 001.5 1.5h3v1a1 1 0 102 0v-1h2v1a1 1 0 102 0v-1h3A1.5 1.5 0 0018 13.5v-7A1.5 1.5 0 0016.5 5h-4.09l-1.52-2.45A1 1 0 0010 2zm0 3.5L11.48 7h-2.96L10 5.5zM4 8h12v5.5a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5V8zm4 7h4v1H8v-1z"
+            ></path>
+          </svg>
+          Nosotros
+        </a>
+        <a
+          href="/sermons"
+          class="text-white hover:text-yellow-500 transition duration-300 mx-2 inline-flex flex-col items-center text-xs"
+          aria-label="Predicas"
         >
-          <path
-            d="M12 2.5A9.5 9.5 0 002.5 12 9.5 9.5 0 0012 21.5 9.5 9.5 0 0021.5 12 9.5 9.5 0 0012 2.5zm3.8 10.7l-5.3 3a1 1 0 01-1.5-.9V9.7a1 1 0 011.5-.9l5.3 3a1 1 0 010 1.8z"
-          ></path>
-        </svg>
-        Predicas
-      </a>
+          <svg
+            class="w-6 h-6 mb-1"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              d="M12 2.5A9.5 9.5 0 002.5 12 9.5 9.5 0 0012 21.5 9.5 9.5 0 0021.5 12 9.5 9.5 0 0012 2.5zm3.8 10.7l-5.3 3a1 1 0 01-1.5-.9V9.7a1 1 0 011.5-.9l5.3 3a1 1 0 010 1.8z"
+            ></path>
+          </svg>
+          Predicas
+        </a>
+      </div>
     </nav>
   </div>
-  <!-- Menú móvil -->
+  <!-- Menú móvil lateral -->
   <div
     id="mobile-menu"
-    class="fixed inset-0 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 bg-opacity-90 hidden z-50"
+    class="fixed inset-y-0 left-0 w-7/12 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 bg-opacity-90 hidden z-50"
   >
-    <div class="container mx-auto px-6 py-8">
-      <div class="flex justify-end">
+    <div class="flex flex-col h-full">
+      <div class="flex justify-end p-4">
         <button
           id="close-menu-button"
           class="text-white focus:outline-none"
@@ -161,7 +159,7 @@
           </svg>
         </button>
       </div>
-      <ul class="space-y-6 text-center font-medium mt-8">
+      <ul class="space-y-6 text-center font-medium mt-8 px-4">
         <li>
           <a
             href="/"
