@@ -19,7 +19,7 @@ import SidebarButtonPray from "../components/SidebarButtonPray.astro";
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/logo-white.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <link
@@ -47,20 +47,17 @@ import SidebarButtonPray from "../components/SidebarButtonPray.astro";
     >
       <Countdown />
       <div class="w-full px-2 py-6">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div class="lg:col-span-2">
-            <Event />
-          </div>
-          <div class="lg:col-span-1">
-            <NewHere />
-            <SocialMedia />
-            <Involved />
-            <Content />
-          </div>
+        <div class="w-full mb-6">
+          <Event />
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <NewHere />
+          <SocialMedia />
+          <Involved />
+          <Content />
         </div>
       </div>
     </main>
-
     <Footer />
   </body>
 </html>

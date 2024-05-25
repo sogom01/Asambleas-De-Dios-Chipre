@@ -1,40 +1,145 @@
+---
+const events = [
+  { id: 1, imgSrc: "/anuncio1.jpg", alt: "Evento 1", link: "#event-1" },
+  { id: 2, imgSrc: "/anuncio2.jpg", alt: "Evento 2", link: "#event-2" },
+  { id: 3, imgSrc: "/anuncio3.jpg", alt: "Evento 3", link: "#event-3" },
+  // Añadir más eventos según sea necesario
+];
+---
+
 <section id="events" class="bg-transparent text-white rounded-lg shadow-lg">
-  <div
-    class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4"
-  >
-    <div class="event-card relative overflow-hidden rounded-lg shadow-lg">
-      <a href="#event-1" aria-label="Detalles del Evento 1">
-        <img
-          src="/anuncio1.jpg"
-          alt="Evento 1"
-          class="w-full h-full object-cover transition-transform duration-300"
-          loading="lazy"
-        />
-      </a>
+  <div class="relative overflow-hidden rounded-lg shadow-lg">
+    <div
+      id="slider"
+      class="flex transition-transform duration-1000 ease-in-out"
+    >
+      {
+        events.map((event) => (
+          <div
+            key={event.id}
+            class="min-w-full transition-transform duration-500 transform hover:scale-105"
+          >
+            <a href={event.link} aria-label={`Detalles del ${event.alt}`}>
+              <img
+                src={event.imgSrc}
+                alt={event.alt}
+                class="w-full h-full object-cover rounded-lg shadow-lg"
+                loading="lazy"
+              />
+            </a>
+          </div>
+        ))
+      }
     </div>
-    <div class="event-card relative overflow-hidden rounded-lg shadow-lg">
-      <a href="#event-2" aria-label="Detalles del Evento 2">
-        <img
-          src="/anuncio2.jpg"
-          alt="Evento 2"
-          class="w-full h-full object-cover transition-transform duration-300"
-          loading="lazy"
-        />
-      </a>
+    <button
+      id="prev"
+      class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-2 rounded-full hover:bg-gray-600 transition-all duration-300"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M15 19l-7-7 7-7"></path>
+      </svg>
+    </button>
+    <button
+      id="next"
+      class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-2 rounded-full hover:bg-gray-600 transition-all duration-300"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M9 5l7 7-7 7"></path>
+      </svg>
+    </button>
+    <div
+      class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2 w-full px-4"
+    >
+      {
+        events.map((_, index) => (
+          <div
+            key={index}
+            class="progress-bar h-1 flex-1 bg-gray-700 relative overflow-hidden rounded"
+          >
+            <div
+              class={`progress-fill absolute top-0 left-0 h-full ${index === 0 ? "w-full bg-gray-400" : "w-0"}`}
+              style={{ transition: "width 5s linear" }}
+            />
+          </div>
+        ))
+      }
     </div>
-    <div class="event-card relative overflow-hidden rounded-lg shadow-lg">
-      <a href="#event-3" aria-label="Detalles del Evento 3">
-        <img
-          src="/anuncio3.jpg"
-          alt="Evento 3"
-          class="w-full h-full object-cover transition-transform duration-300"
-          loading="lazy"
-        />
-      </a>
-    </div>
-    <!-- Añadir más tarjetas de eventos según sea necesario -->
   </div>
 </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const events = [
+      { id: 1, imgSrc: "/anuncio1.jpg", alt: "Evento 1", link: "#event-1" },
+      { id: 2, imgSrc: "/anuncio2.jpg", alt: "Evento 2", link: "#event-2" },
+      { id: 3, imgSrc: "/anuncio3.jpg", alt: "Evento 3", link: "#event-3" },
+      // Añadir más eventos según sea necesario
+    ];
+
+    let currentSlide = 0;
+    const totalSlides = events.length;
+    const slider = document.getElementById("slider");
+    const indicators = document.querySelectorAll(".progress-fill");
+
+    const updateSlider = () => {
+      slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+      indicators.forEach((indicator, index) => {
+        indicator.classList.toggle("bg-gray-400", index === currentSlide);
+        if (index === currentSlide) {
+          indicator.style.width = "100%";
+        } else {
+          indicator.style.width = "0%";
+        }
+      });
+    };
+
+    const nextSlide = () => {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateSlider();
+    };
+
+    const prevSlide = () => {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateSlider();
+    };
+
+    document.getElementById("next").addEventListener("click", () => {
+      clearInterval(slideInterval);
+      nextSlide();
+      slideInterval = setInterval(nextSlide, 5000);
+    });
+
+    document.getElementById("prev").addEventListener("click", () => {
+      clearInterval(slideInterval);
+      prevSlide();
+      slideInterval = setInterval(nextSlide, 5000);
+    });
+
+    let slideInterval = setInterval(nextSlide, 5000);
+
+    updateSlider();
+  });
+</script>
 
 <style>
   .event-card img {
@@ -43,5 +148,24 @@
 
   .event-card:hover img {
     transform: scale(1.05);
+  }
+
+  .progress-bar {
+    background-color: #2d3748; /* Tailwind's gray-700 */
+  }
+
+  .progress-fill {
+    background-color: #a0aec0; /* Tailwind's gray-400 */
+    transition: width 5s linear; /* Ensure transition matches the interval */
+  }
+
+  #prev,
+  #next {
+    transition: background 0.3s ease;
+  }
+
+  #prev:hover,
+  #next:hover {
+    background: rgba(0, 0, 0, 0.7);
   }
 </style>

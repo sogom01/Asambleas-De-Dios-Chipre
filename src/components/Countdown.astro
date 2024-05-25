@@ -2,37 +2,37 @@
   id="countdown"
   class="relative bg-gradient-to-b from-gray-800 via-gray-900 to-black text-white py-5 mx-2 rounded-lg shadow-lg"
 >
-  <h2 id="countdown-title" class="text-3xl font-normal text-center mb-6 px-4">
+  <h2 id="countdown-title" class="text-2xl font-normal text-center mb-0 px-4">
     Nuestra próxima reunión es en:
   </h2>
-  <div class="text-center text-lg italic mb-6" id="next-meeting-label"></div>
+  <div class="text-center text-lg italic" id="next-meeting-label"></div>
   <div
     id="countdown-timer"
-    class="flex justify-center items-center space-x-2 sm:space-x-8 px-2"
+    class="flex justify-center items-center space-x-2 sm:space-x-8"
   >
     <div class="countdown-element text-center">
       <div id="days" class="countdown-time-wrapper">
         <div class="countdown-time" aria-live="polite">0</div>
       </div>
-      <div class="countdown-label">D</div>
+      <div class="countdown-label">Días</div>
     </div>
     <div class="countdown-element text-center">
       <div id="hours" class="countdown-time-wrapper">
         <div class="countdown-time" aria-live="polite">0</div>
       </div>
-      <div class="countdown-label">H</div>
+      <div class="countdown-label">Horas</div>
     </div>
     <div class="countdown-element text-center">
       <div id="minutes" class="countdown-time-wrapper">
         <div class="countdown-time" aria-live="polite">0</div>
       </div>
-      <div class="countdown-label">M</div>
+      <div class="countdown-label">Minutos</div>
     </div>
     <div class="countdown-element text-center">
       <div id="seconds" class="countdown-time-wrapper">
         <div class="countdown-time" aria-live="polite">0</div>
       </div>
-      <div class="countdown-label">S</div>
+      <div class="countdown-label">Segundos</div>
     </div>
   </div>
   <a
@@ -40,15 +40,15 @@
     href="https://www.youtube.com/@adchipremanizales2529/streams"
     target="_blank"
     rel="noopener noreferrer"
-    class="hidden flex flex-col items-center justify-center text-center"
+    class="hidden flex flex-col items-center justify-center text-center mt-4"
   >
-    <h2 class="text-4xl font-bold text-red-600 mb-4 animate-pulse mt-4">
+    <h2 class="text-4xl font-bold text-red-600 mb-4 animate-pulse">
       ¡La reunión ha comenzado!
     </h2>
     <div
-      class="bg-red-600 text-white px-3 rounded shadow-lg transition transform hover:bg-red-700 text-lg absolute top-4 left-4"
+      class="bg-red-600 text-white px-3 py-2 rounded shadow-lg transition transform hover:bg-red-700 text-lg"
     >
-      EN VIVO
+      EN VIVO ( Ver transmisión )
     </div>
   </a>
 </section>
@@ -56,7 +56,7 @@
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const meetingTimes = [
-      { day: "Saturday", time: "19:11" }, // Saturday at 6 PM
+      { day: "Saturday", time: "18:00" }, // Saturday at 6 PM
       { day: "Sunday", time: "10:00" }, // Sunday at 10 AM
       { day: "Wednesday", time: "19:00" }, // Wednesday at 7 PM
     ];
@@ -225,11 +225,12 @@
     }
 
     .countdown-label {
-      font-size: 1rem; /* Smaller font size for labels on smaller screens */
+      font-size: 0.8rem; /* Smaller font size for labels on smaller screens */
     }
 
     .countdown-element {
-      min-width: 60px; /* Ensure each element has enough width */
+      min-width: 70px; /* Ensure each element has enough width */
+      margin-bottom: 0.5rem; /* Ensure enough space between elements */
     }
   }
 

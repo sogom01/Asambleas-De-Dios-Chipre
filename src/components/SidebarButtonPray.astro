@@ -24,7 +24,12 @@ import "../styles/sidebar-buttons.css"; // Si necesitas estilos específicos
     const prayButton = document.getElementById("pray-button");
 
     prayButton.addEventListener("click", function () {
-      prayButton.classList.remove("max-w-[200px]");
+      setTimeout(() => {
+        prayButton.style.pointerEvents = "none";
+        setTimeout(() => {
+          prayButton.style.pointerEvents = "auto";
+        }, 300);
+      }, 100);
     });
   });
 </script>
