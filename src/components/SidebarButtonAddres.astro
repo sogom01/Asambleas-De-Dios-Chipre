@@ -23,13 +23,16 @@ import "../styles/sidebar-buttons.css"; // Si necesitas estilos específicos
   document.addEventListener("DOMContentLoaded", function () {
     const addressButton = document.getElementById("address-button");
 
+    function resetButton() {
+      addressButton.classList.remove("expanded");
+    }
+
     addressButton.addEventListener("click", function () {
       setTimeout(() => {
         addressButton.style.pointerEvents = "none";
         setTimeout(() => {
           addressButton.style.pointerEvents = "auto";
-          // Restablecer el estado del botón después de un clic
-          addressButton.classList.remove("expanded");
+          resetButton();
         }, 300);
       }, 100);
     });
@@ -40,7 +43,13 @@ import "../styles/sidebar-buttons.css"; // Si necesitas estilos específicos
 
     addressButton.addEventListener("mouseout", function () {
       if (!addressButton.matches(":hover")) {
-        addressButton.classList.remove("expanded");
+        resetButton();
+      }
+    });
+
+    document.addEventListener("visibilitychange", function () {
+      if (document.visibilityState === "visible") {
+        resetButton();
       }
     });
   });

@@ -24,13 +24,16 @@ import "../styles/sidebar-buttons.css"; // Si necesitas estilos específicos
   document.addEventListener("DOMContentLoaded", function () {
     const whatsappButton = document.getElementById("whatsapp-button");
 
+    function resetButton() {
+      whatsappButton.classList.remove("expanded");
+    }
+
     whatsappButton.addEventListener("click", function () {
       setTimeout(() => {
         whatsappButton.style.pointerEvents = "none";
         setTimeout(() => {
           whatsappButton.style.pointerEvents = "auto";
-          // Restablecer el estado del botón después de un clic
-          whatsappButton.classList.remove("expanded");
+          resetButton();
         }, 300);
       }, 100);
     });
@@ -41,7 +44,13 @@ import "../styles/sidebar-buttons.css"; // Si necesitas estilos específicos
 
     whatsappButton.addEventListener("mouseout", function () {
       if (!whatsappButton.matches(":hover")) {
-        whatsappButton.classList.remove("expanded");
+        resetButton();
+      }
+    });
+
+    document.addEventListener("visibilitychange", function () {
+      if (document.visibilityState === "visible") {
+        resetButton();
       }
     });
   });

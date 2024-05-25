@@ -21,13 +21,16 @@ import "../styles/sidebar-buttons.css"; // Si necesitas estilos específicos
   document.addEventListener("DOMContentLoaded", function () {
     const prayButton = document.getElementById("pray-button");
 
+    function resetButton() {
+      prayButton.classList.remove("expanded");
+    }
+
     prayButton.addEventListener("click", function () {
       setTimeout(() => {
         prayButton.style.pointerEvents = "none";
         setTimeout(() => {
           prayButton.style.pointerEvents = "auto";
-          // Restablecer el estado del botón después de un clic
-          prayButton.classList.remove("expanded");
+          resetButton();
         }, 300);
       }, 100);
     });
@@ -38,7 +41,13 @@ import "../styles/sidebar-buttons.css"; // Si necesitas estilos específicos
 
     prayButton.addEventListener("mouseout", function () {
       if (!prayButton.matches(":hover")) {
-        prayButton.classList.remove("expanded");
+        resetButton();
+      }
+    });
+
+    document.addEventListener("visibilitychange", function () {
+      if (document.visibilityState === "visible") {
+        resetButton();
       }
     });
   });
