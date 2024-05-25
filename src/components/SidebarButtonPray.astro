@@ -10,7 +10,7 @@ import "../styles/sidebar-buttons.css"; // Si necesitas estilos específicos
   >
     <i class="fas fa-praying-hands text-2xl"></i>
     <span
-      class="ml-2 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition duration-300 whitespace-nowrap"
+      class="ml-2 opacity-0 group-hover:opacity-100 transition duration-300 whitespace-nowrap"
     >
       Peticiones de Oración
     </span>
@@ -26,8 +26,20 @@ import "../styles/sidebar-buttons.css"; // Si necesitas estilos específicos
         prayButton.style.pointerEvents = "none";
         setTimeout(() => {
           prayButton.style.pointerEvents = "auto";
+          // Restablecer el estado del botón después de un clic
+          prayButton.classList.remove("expanded");
         }, 300);
       }, 100);
+    });
+
+    prayButton.addEventListener("mouseover", function () {
+      prayButton.classList.add("expanded");
+    });
+
+    prayButton.addEventListener("mouseout", function () {
+      if (!prayButton.matches(":hover")) {
+        prayButton.classList.remove("expanded");
+      }
     });
   });
 </script>

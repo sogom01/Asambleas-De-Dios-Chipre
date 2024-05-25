@@ -12,7 +12,7 @@ import "../styles/sidebar-buttons.css"; // Si necesitas estilos específicos
   >
     <i class="fas fa-map-marker-alt text-2xl"></i>
     <span
-      class="ml-2 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition duration-300 whitespace-nowrap"
+      class="ml-2 opacity-0 group-hover:opacity-100 transition duration-300 whitespace-nowrap"
     >
       Dirección
     </span>
@@ -28,8 +28,20 @@ import "../styles/sidebar-buttons.css"; // Si necesitas estilos específicos
         addressButton.style.pointerEvents = "none";
         setTimeout(() => {
           addressButton.style.pointerEvents = "auto";
+          // Restablecer el estado del botón después de un clic
+          addressButton.classList.remove("expanded");
         }, 300);
       }, 100);
+    });
+
+    addressButton.addEventListener("mouseover", function () {
+      addressButton.classList.add("expanded");
+    });
+
+    addressButton.addEventListener("mouseout", function () {
+      if (!addressButton.matches(":hover")) {
+        addressButton.classList.remove("expanded");
+      }
     });
   });
 </script>

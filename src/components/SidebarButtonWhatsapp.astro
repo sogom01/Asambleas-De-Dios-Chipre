@@ -13,7 +13,7 @@ import "../styles/sidebar-buttons.css"; // Si necesitas estilos específicos
   >
     <i class="fab fa-whatsapp text-2xl"></i>
     <span
-      class="ml-2 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition duration-300 whitespace-nowrap"
+      class="ml-2 opacity-0 group-hover:opacity-100 transition duration-300 whitespace-nowrap"
     >
       WhatsApp
     </span>
@@ -29,8 +29,20 @@ import "../styles/sidebar-buttons.css"; // Si necesitas estilos específicos
         whatsappButton.style.pointerEvents = "none";
         setTimeout(() => {
           whatsappButton.style.pointerEvents = "auto";
+          // Restablecer el estado del botón después de un clic
+          whatsappButton.classList.remove("expanded");
         }, 300);
       }, 100);
+    });
+
+    whatsappButton.addEventListener("mouseover", function () {
+      whatsappButton.classList.add("expanded");
+    });
+
+    whatsappButton.addEventListener("mouseout", function () {
+      if (!whatsappButton.matches(":hover")) {
+        whatsappButton.classList.remove("expanded");
+      }
     });
   });
 </script>

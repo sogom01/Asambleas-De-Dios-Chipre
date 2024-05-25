@@ -10,7 +10,7 @@
 }
 
 .sidebar-button:hover,
-.sidebar-button:focus {
+.sidebar-button.expanded {
   width: auto; /* Expandir al hacer hover o foco */
   padding-right: 1rem; /* Añadir padding al expandirse */
 }
@@ -20,7 +20,7 @@
 }
 
 .sidebar-button:hover .opacity-0,
-.sidebar-button:focus .opacity-0 {
+.sidebar-button.expanded .opacity-0 {
   opacity: 100;
 }
 
