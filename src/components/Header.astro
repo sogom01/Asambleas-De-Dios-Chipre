@@ -1,10 +1,12 @@
 <header
   class="header bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 text-white"
 >
-  <nav class="container flex flex-wrap items-center">
-    <!-- Logo centrado en móviles y a la izquierda en escritorio -->
+  <nav
+    class="container mx-auto flex flex-wrap items-center justify-between px-8 md:px-16"
+  >
+    <!-- Logo centrado en móviles y a la derecha en escritorio -->
     <div
-      class="w-full md:w-2/5 flex justify-center md:justify-start order-1 md:order-2 bg-transparent py-2 md:py-0 logo"
+      class="w-full md:w-auto flex justify-center md:justify-end order-1 md:order-2 bg-transparent px-10 logo"
     >
       <a
         href="/"
@@ -21,9 +23,9 @@
     </div>
     <!-- Navegación - solo visible en escritorio -->
     <div
-      class="w-full md:w-3/5 hidden md:flex justify-center md:justify-around order-2 md:order-1 md:rounded-r-lg md:py-4 nav-links"
+      class="hidden md:flex w-full md:w-auto justify-start md:justify-between order-2 md:order-1 nav-links"
     >
-      <ul class="flex space-x-6 text-lg font-medium">
+      <ul class="flex space-x-10 text-lg font-medium ml-12">
         <li>
           <a
             href="/"
@@ -40,21 +42,21 @@
         </li>
         <li>
           <a
-            href="/event"
+            href="/events"
             class="relative hover:text-yellow-500 transition duration-300"
             >Eventos</a
           >
         </li>
         <li>
           <a
-            href="/event"
+            href="/sermons"
             class="relative hover:text-yellow-500 transition duration-300"
-            >Predicas</a
+            >Prédicas</a
           >
         </li>
         <li>
           <a
-            href="/event"
+            href="/schedule"
             class="relative hover:text-yellow-500 transition duration-300"
             >Horarios</a
           >
@@ -66,9 +68,9 @@
   <div
     class="md:hidden bg-transparent w-full left-0 right-0 top-12 z-50 mobile-nav"
   >
-    <nav class="text-center py-2 flex items-center relative">
+    <nav class="text-center py-2 flex items-center justify-between px-8">
       <!-- Botón de menú hamburguesa solo en móvil -->
-      <div class="absolute left-2">
+      <div class="absolute left-6">
         <button
           id="mobile-menu-button"
           class="text-white focus:outline-none menu-button"
@@ -95,24 +97,21 @@
           class="text-white hover:text-yellow-500 transition duration-300 mx-2 inline-flex flex-col items-center text-xs"
           aria-label="Eventos"
         >
-          <i class="fas fa-calendar-alt text-2xl"></i>
-          Eventos
+          <i class="fas fa-calendar-alt text-2xl"></i> Eventos
         </a>
         <a
           href="/about"
           class="text-white hover:text-yellow-500 transition duration-300 mx-2 inline-flex flex-col items-center text-xs"
           aria-label="Nosotros"
         >
-          <i class="fas fa-users text-2xl"></i>
-          Nosotros
+          <i class="fas fa-users text-2xl"></i> Nosotros
         </a>
         <a
           href="/sermons"
           class="text-white hover:text-yellow-500 transition duration-300 mx-2 inline-flex flex-col items-center text-xs"
-          aria-label="Predicas"
+          aria-label="Prédicas"
         >
-          <i class="fas fa-bible text-2xl"></i>
-          Predicas
+          <i class="fas fa-bible text-2xl"></i> Prédicas
         </a>
       </div>
     </nav>
@@ -168,14 +167,14 @@
         </li>
         <li>
           <a
-            href="/predicas"
+            href="/sermons"
             class="block text-white hover:text-yellow-500 transition duration-300"
-            >Predicas</a
+            >Prédicas</a
           >
         </li>
         <li>
           <a
-            href="/horarios"
+            href="/schedule"
             class="block text-white hover:text-yellow-500 transition duration-300"
             >Horarios</a
           >
