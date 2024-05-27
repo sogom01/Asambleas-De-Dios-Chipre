@@ -7,7 +7,7 @@ import "../styles/style.css";
 import "../styles/sidebar-buttons.css";
 ---
 
-<html>
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
@@ -27,7 +27,9 @@ import "../styles/sidebar-buttons.css";
     />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
   </head>
-  <body class="bg-gray-100 text-gray-900">
+  <body
+    class="bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 text-white"
+  >
     <Header />
 
     <div class="about-page">
@@ -49,7 +51,9 @@ import "../styles/sidebar-buttons.css";
         </div>
       </section>
 
-      <section class="bg-gray-800 text-gray-200 py-12 px-4">
+      <section
+        class="bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 text-gray-200 py-12 px-4"
+      >
         <div class="container mx-auto text-center">
           <h2 class="text-3xl font-bold text-gray-100 mb-8">
             Nuestra Historia
@@ -122,7 +126,7 @@ import "../styles/sidebar-buttons.css";
           </p>
         </div>
 
-        <div class="container mx-auto text-center">
+        <div class="container mx-auto text-center mb-0">
           <h2 class="text-3xl font-bold text-gray-100 mb-8">
             Enfoque Misionero
           </h2>
@@ -190,8 +194,8 @@ import "../styles/sidebar-buttons.css";
     object-fit: cover;
   }
 
-  .about-page .opacity-70 {
-    opacity: 0.7;
+  .about-page .opacity-30 {
+    opacity: 0.3;
   }
 
   .about-page .text-white {
@@ -206,16 +210,16 @@ import "../styles/sidebar-buttons.css";
     font-size: 1.875rem;
   }
 
-  .about-page .md\:text-5xl {
-    font-size: 3rem;
+  .about-page .md\:text-4xl {
+    font-size: 2.25rem;
   }
 
   .about-page .text-lg {
     font-size: 1.125rem;
   }
 
-  .about-page .md\:text-2xl {
-    font-size: 1.5rem;
+  .about-page .md\:text-3xl {
+    font-size: 1.875rem;
   }
 
   .about-page .text-center {
@@ -260,13 +264,17 @@ import "../styles/sidebar-buttons.css";
     color: #e2e8f0;
   }
 
+  .about-page .mb-0 {
+    margin-bottom: 0;
+  }
+
   @media (min-width: 768px) {
-    .about-page .md\:text-5xl {
-      font-size: 3rem;
+    .about-page .md\:text-4xl {
+      font-size: 2.25rem;
     }
 
-    .about-page .md\:text-2xl {
-      font-size: 1.5rem;
+    .about-page .md\:text-3xl {
+      font-size: 1.875rem;
     }
 
     .about-page .md\:h-80 {
