@@ -59,3 +59,29 @@ import SidebarButtonsContainer from "../components/SidebarButtonsContainer.astro
     <Footer />
   </body>
 </html>
+
+<script>
+  function handleButtonClick(event) {
+    // Aquí puedes agregar lógica adicional si es necesario
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll(".sidebar-button");
+
+    // Restablecer el estado de los botones al hacer clic
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        button.classList.remove("expanded");
+      });
+    });
+
+    // Restablecer el estado de los botones cuando la página se vuelve visible
+    document.addEventListener("visibilitychange", function () {
+      if (document.visibilityState === "visible") {
+        buttons.forEach((button) => {
+          button.classList.remove("expanded");
+        });
+      }
+    });
+  });
+</script>
