@@ -1,0 +1,71 @@
+---
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import "../../styles/global.css"; // Asegúrate de que la ruta del archivo CSS sea correcta
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalles del Evento - Iglesia Asambleas de Dios</title>
+    <meta
+      name="description"
+      content="Detalles del próximo evento de la Iglesia Asambleas de Dios en Chipre, Manizales."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body
+    class="bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 text-white"
+  >
+    <Header />
+    <main
+      class="flex flex-col items-center min-h-screen bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 p-4"
+    >
+      <div class="w-full max-w-4xl mt-8">
+        <img
+          src="/img/anuncio2.jpg"
+          alt="Ayuno congregacional"
+          class="w-full rounded"
+        />
+      </div>
+      <div class="w-full max-w-4xl mt-8 text-center">
+        <h1 class="text-3xl font-bold text-center mt-8 text-white">
+          Ayuno congregacional
+        </h1>
+        <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+          El ayuno congregacional es una oportunidad para acercarnos más a Dios
+          y buscar su guía y fortaleza. Nos reuniremos el 2 de Junio a las 10:00
+          a.m. en la iglesia para iniciar el ayuno juntos. A lo largo del día,
+          tendremos momentos de oración y adoración para fortalecer nuestra fe y
+          comunidad.
+        </p>
+        <div class="text-left p-4 bg-gray-800 rounded">
+          <h2 class="text-2xl font-bold mb-4 text-white">
+            Detalles del evento
+          </h2>
+          <p class="text-lg text-gray-300 mb-2">
+            <strong>Fecha:</strong> 2 de Junio
+          </p>
+          <p class="text-lg text-gray-300 mb-2">
+            <strong>Horario:</strong> 10:00 a.m.
+          </p>
+          <p class="text-lg text-gray-300 mb-2">
+            <strong>Lugar:</strong> Iglesia Asambleas de Dios, Chipre, Manizales
+          </p>
+          <p class="text-lg text-gray-300">
+            <strong>Condiciones:</strong> Se recomienda venir con una prenda blanca
+          </p>
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>

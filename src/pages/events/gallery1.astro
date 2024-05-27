@@ -1,0 +1,92 @@
+---
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import Carousel from "../../components/Carousel.astro";
+import "../../styles/global.css";
+
+const images = [
+  { src: "/anuncio1.jpg", alt: "Foto del Evento 1" },
+  { src: "/anuncio2.jpg", alt: "Foto del Evento 2" },
+  { src: "/anuncio3.jpg", alt: "Foto del Evento 3" },
+  // Agrega más imágenes aquí
+];
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galería del Evento - Iglesia Asambleas de Dios</title>
+    <meta
+      name="description"
+      content="Galería de fotos e información del evento pasado de la Iglesia Asambleas de Dios en Chipre, Manizales."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body
+    class="bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 text-white"
+  >
+    <Header />
+    <main
+      class="flex flex-col items-center min-h-screen bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 p-4"
+    >
+      <h1 class="text-3xl font-bold text-center mt-8 text-white">
+        Galería del Evento
+      </h1>
+      <div class="w-full max-w-4xl mt-8">
+        <Carousel images={images} />
+      </div>
+      <div class="mt-8 text-center">
+        <p class="text-lg text-gray-300 mb-4">
+          El <strong>Concierto Bautizados en Fuego</strong> fue un evento inolvidable
+          realizado con el propósito de buscar la llenura del Espíritu Santo. Este
+          evento congregó a numerosos fieles en nuestra iglesia, quienes se reunieron
+          con el deseo ferviente de experimentar una renovación espiritual y un avivamiento
+          en sus vidas.
+        </p>
+        <p class="text-lg text-gray-300 mb-4">
+          Durante el concierto, contamos con la participación de destacados
+          músicos y cantantes que elevaron nuestras almas con himnos y alabanzas
+          llenos de poder y devoción. Las canciones interpretadas tocaron
+          profundamente el corazón de los asistentes, creando un ambiente de
+          adoración y entrega total.
+        </p>
+        <p class="text-lg text-gray-300 mb-4">
+          El mensaje central del evento fue la importancia de estar llenos del
+          Espíritu Santo para vivir una vida cristiana victoriosa y fructífera.
+          Los predicadores invitados compartieron poderosos testimonios y
+          enseñanzas bíblicas que inspiraron a todos a buscar una relación más
+          íntima con Dios y a permitir que el Espíritu Santo guíe cada aspecto
+          de sus vidas.
+        </p>
+        <p class="text-lg text-gray-300 mb-4">
+          Además, se realizaron oraciones especiales por la llenura del Espíritu
+          Santo, donde muchos fieles experimentaron una renovación espiritual
+          profunda. Las lágrimas de gozo, las manos levantadas y los corazones
+          abiertos fueron una evidencia clara de la presencia del Espíritu Santo
+          moviéndose entre nosotros.
+        </p>
+        <p class="text-lg text-gray-300 mb-4">
+          El <strong>Concierto Bautizados en Fuego</strong> no solo fue un evento
+          musical, sino una poderosa experiencia espiritual que dejó una huella imborrable
+          en todos los asistentes. Nos sentimos agradecidos por la oportunidad de
+          haber vivido este momento de avivamiento y renovado compromiso con nuestra
+          fe.
+        </p>
+        <p class="text-lg text-gray-300 mb-4">
+          Agradecemos a todos los que asistieron y participaron en este evento,
+          y esperamos con ansias los próximos encuentros donde continuaremos
+          buscando la presencia y el poder del Espíritu Santo en nuestras vidas.
+        </p>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>

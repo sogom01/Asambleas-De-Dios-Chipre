@@ -3,9 +3,32 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import SidebarButtonsContainer from "../components/SidebarButtonsContainer.astro";
 import EventCard from "../components/EventCard.astro";
-import "../styles/global.css";
+import "../styles/global.css"; // Asegúrate de que la ruta del archivo CSS sea correcta
 import "../styles/sidebar-buttons.css";
 ---
+
+<style>
+  .event-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .event-grid-cols-1 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @media (min-width: 640px) {
+    .sm\:grid-cols-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .lg\:grid-cols-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>
 
 <html lang="es">
   <head>
@@ -29,6 +52,7 @@ import "../styles/sidebar-buttons.css";
     class="bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 text-white"
   >
     <Header />
+    <SidebarButtonsContainer />
     <main
       class="flex flex-col items-center min-h-screen bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 p-4"
     >
@@ -36,9 +60,9 @@ import "../styles/sidebar-buttons.css";
 
       <section class="w-full max-w-6xl mt-8 p-4">
         <h2 class="text-2xl font-bold mb-4 text-white">Eventos Pasados</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="event-grid event-grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           <EventCard
-            image="/anuncio1.jpg"
+            image="/img/anuncio1.jpg"
             title="Concierto Bautizados en fuego"
             date="25 de mayo"
             link="/events/gallery1"
@@ -49,9 +73,94 @@ import "../styles/sidebar-buttons.css";
 
       <section class="w-full max-w-6xl mt-16 p-4">
         <h2 class="text-2xl font-bold mb-4 text-white">Próximos Eventos</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="event-grid event-grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           <EventCard
-            image="/anuncio2.jpg"
+            image="/img/anuncio2.jpg"
+            title="Ayuno congregacional"
+            date="2 de Junio 10:00 a.m"
+            link="/events/event1"
+          />
+          <!-- Agrega más tarjetas de próximos eventos aquí -->
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>
+--- import Header from "../components/Header.astro"; import Footer from "../components/Footer.astro";
+import SidebarButtonsContainer from "../components/SidebarButtonsContainer.astro";
+import EventCard from "../components/EventCard.astro"; import "../styles/global.css";
+import "../styles/sidebar-buttons.css"; ---
+
+<style>
+  .event-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .event-grid-cols-1 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @media (min-width: 640px) {
+    .sm\:grid-cols-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .lg\:grid-cols-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eventos - Iglesia Asambleas de Dios</title>
+    <meta
+      name="description"
+      content="Página de eventos de la Iglesia Asambleas de Dios en Chipre, Manizales."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body
+    class="bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 text-white"
+  >
+    <Header />
+    <SidebarButtonsContainer />
+    <main
+      class="flex flex-col items-center min-h-screen bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 p-4"
+    >
+      <h1 class="text-3xl font-bold text-center mt-8 text-white">Eventos</h1>
+
+      <section class="w-full max-w-6xl mt-8 p-4">
+        <h2 class="text-2xl font-bold mb-4 text-white">Eventos Pasados</h2>
+        <div class="event-grid event-grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          <EventCard
+            image="/img/anuncio1.jpg"
+            title="Concierto Bautizados en fuego"
+            date="25 de mayo"
+            link="/events/gallery1"
+          />
+          <!-- Agrega más tarjetas de eventos pasados aquí -->
+        </div>
+      </section>
+
+      <section class="w-full max-w-6xl mt-16 p-4">
+        <h2 class="text-2xl font-bold mb-4 text-white">Próximos Eventos</h2>
+        <div class="event-grid event-grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          <EventCard
+            image="/img/anuncio2.jpg"
             title="Ayuno congregacional"
             date="2 de Junio 10:00 a.m"
             link="/events/event1"
