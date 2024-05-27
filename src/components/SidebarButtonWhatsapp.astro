@@ -10,6 +10,7 @@ import "../styles/sidebar-buttons.css"; // Si necesitas estilos específicos
     rel="noopener noreferrer"
     class="sidebar-button flex items-center p-3 rounded-l-full shadow-lg transition-all duration-300 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 text-white"
     aria-label="WhatsApp"
+    onclick="handleButtonClick(event)"
   >
     <i class="fab fa-whatsapp text-2xl"></i>
     <span
@@ -19,39 +20,3 @@ import "../styles/sidebar-buttons.css"; // Si necesitas estilos específicos
     </span>
   </a>
 </div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const whatsappButton = document.getElementById("whatsapp-button");
-
-    function resetButton() {
-      whatsappButton.classList.remove("expanded");
-    }
-
-    whatsappButton.addEventListener("click", function () {
-      setTimeout(() => {
-        whatsappButton.style.pointerEvents = "none";
-        setTimeout(() => {
-          whatsappButton.style.pointerEvents = "auto";
-          resetButton();
-        }, 300);
-      }, 100);
-    });
-
-    whatsappButton.addEventListener("mouseover", function () {
-      whatsappButton.classList.add("expanded");
-    });
-
-    whatsappButton.addEventListener("mouseout", function () {
-      if (!whatsappButton.matches(":hover")) {
-        resetButton();
-      }
-    });
-
-    document.addEventListener("visibilitychange", function () {
-      if (document.visibilityState === "visible") {
-        resetButton();
-      }
-    });
-  });
-</script>
