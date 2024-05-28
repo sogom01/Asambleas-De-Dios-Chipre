@@ -1,5 +1,4 @@
 ---
-// src/pages/prayer-request.astro
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import SidebarButtonsContainer from "../components/SidebarButtonsContainer.astro";
@@ -39,7 +38,7 @@ import "../styles/sidebar-buttons.css";
       <div
         class="max-w-xl w-full mx-auto bg-gray-800 rounded-lg shadow-lg mt-6 mb-8"
       >
-        <form action="#" method="POST" class="space-y-4">
+        <form id="prayerForm" class="space-y-4">
           <div>
             <label for="name" class="block text-white">Nombre</label>
             <input
@@ -74,12 +73,42 @@ import "../styles/sidebar-buttons.css";
             <button
               type="submit"
               class="w-full p-3 rounded bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >Enviar Petición</button
+              id="sendButton">Enviar Petición</button
             >
           </div>
         </form>
       </div>
     </main>
     <Footer />
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("prayerForm");
+        form.addEventListener("submit", async function (event) {
+          event.preventDefault();
+          const name = document.getElementById("name").value;
+          const phone = document.getElementById("phone").value;
+          const request = document.getElementById("request").value;
+
+          try {
+            const response = await fetch("http://localhost:5000/send", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ name, phone, request }),
+            });
+
+            if (response.ok) {
+              alert("Petición enviada con éxito");
+            } else {
+              alert("Error al enviar la petición");
+            }
+          } catch (error) {
+            alert("Error al enviar la petición");
+            console.error("Error:", error);
+          }
+        });
+      });
+    </script>
   </body>
 </html>
