@@ -24,9 +24,9 @@ const { image, title, date, link } = Astro.props;
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.5);
     color: white;
-    padding: 1rem;
+    padding: 0.2rem;
     text-align: center;
     opacity: 0;
     transition: opacity 0.3s;
@@ -41,7 +41,7 @@ const { image, title, date, link } = Astro.props;
   <a href={link}>
     <img src={image} alt={title} />
     <div class="event-card-info">
-      <h3 class="text-xl font-bold">{title}</h3>
+      <h3 class="text-base font-bold text-nowrap">{title}</h3>
       <p class="text-sm">{date}</p>
     </div>
   </a>

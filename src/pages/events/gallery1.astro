@@ -1,13 +1,14 @@
 ---
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import Carousel from "../../components/Carousel.astro";
+import Carousel from "../../components/CarouselEvents.astro";
 import "../../styles/global.css";
+import CarouselEvents from "../../components/CarouselEvents.astro";
 
 const images = [
-  { src: "/anuncio1.jpg", alt: "Foto del Evento 1" },
-  { src: "/anuncio2.jpg", alt: "Foto del Evento 2" },
-  { src: "/anuncio3.jpg", alt: "Foto del Evento 3" },
+  { src: "/img/anuncio1.jpg", alt: "Foto del Evento 1" },
+  { src: "/img/anuncio2.jpg", alt: "Foto del Evento 2" },
+  { src: "/img/anuncio2.jpg", alt: "Foto del Evento 3" },
   // Agrega más imágenes aquí
 ];
 ---
@@ -41,49 +42,23 @@ const images = [
         Galería del Evento
       </h1>
       <div class="w-full max-w-4xl mt-8">
-        <Carousel images={images} />
+        <CarouselEvents images={images} />
       </div>
       <div class="mt-8 text-center">
-        <p class="text-lg text-gray-300 mb-4">
-          El <strong>Concierto Bautizados en Fuego</strong> fue un evento inolvidable
-          realizado con el propósito de buscar la llenura del Espíritu Santo. Este
-          evento congregó a numerosos fieles en nuestra iglesia, quienes se reunieron
-          con el deseo ferviente de experimentar una renovación espiritual y un avivamiento
-          en sus vidas.
-        </p>
-        <p class="text-lg text-gray-300 mb-4">
-          Durante el concierto, contamos con la participación de destacados
-          músicos y cantantes que elevaron nuestras almas con himnos y alabanzas
-          llenos de poder y devoción. Las canciones interpretadas tocaron
-          profundamente el corazón de los asistentes, creando un ambiente de
-          adoración y entrega total.
-        </p>
-        <p class="text-lg text-gray-300 mb-4">
-          El mensaje central del evento fue la importancia de estar llenos del
-          Espíritu Santo para vivir una vida cristiana victoriosa y fructífera.
-          Los predicadores invitados compartieron poderosos testimonios y
-          enseñanzas bíblicas que inspiraron a todos a buscar una relación más
-          íntima con Dios y a permitir que el Espíritu Santo guíe cada aspecto
-          de sus vidas.
-        </p>
-        <p class="text-lg text-gray-300 mb-4">
-          Además, se realizaron oraciones especiales por la llenura del Espíritu
-          Santo, donde muchos fieles experimentaron una renovación espiritual
-          profunda. Las lágrimas de gozo, las manos levantadas y los corazones
-          abiertos fueron una evidencia clara de la presencia del Espíritu Santo
-          moviéndose entre nosotros.
-        </p>
-        <p class="text-lg text-gray-300 mb-4">
-          El <strong>Concierto Bautizados en Fuego</strong> no solo fue un evento
-          musical, sino una poderosa experiencia espiritual que dejó una huella imborrable
-          en todos los asistentes. Nos sentimos agradecidos por la oportunidad de
-          haber vivido este momento de avivamiento y renovado compromiso con nuestra
-          fe.
-        </p>
-        <p class="text-lg text-gray-300 mb-4">
-          Agradecemos a todos los que asistieron y participaron en este evento,
-          y esperamos con ansias los próximos encuentros donde continuaremos
-          buscando la presencia y el poder del Espíritu Santo en nuestras vidas.
+        <p class="text-lg text-gray-300">
+          Información del evento pasado: Concierto "Bautizados en Fuego". Este
+          evento se realizó el 25 de mayo con el fin de buscar la llenura del
+          Espíritu Santo. Fue una noche llena de adoración y presencia de Dios,
+          donde los asistentes pudieron experimentar una conexión profunda y
+          significativa.
+          <br /><br />
+          El concierto contó con la participación de varios artistas cristianos que
+          llevaron a la congregación a un tiempo de alabanza y reflexión. Hubo momentos
+          de oración y ministración, donde muchas personas fueron tocadas y transformadas
+          por el poder del Espíritu Santo.
+          <br /><br />
+          Agradecemos a todos los que asistieron y a los que colaboraron para que
+          este evento fuera posible. ¡Esperamos verlos en nuestros próximos eventos!
         </p>
       </div>
     </main>
