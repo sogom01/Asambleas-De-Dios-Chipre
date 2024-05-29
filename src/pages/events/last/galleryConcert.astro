@@ -1,14 +1,19 @@
 ---
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
-import Carousel from "../../components/CarouselEvents.astro";
-import "../../styles/global.css";
-import CarouselEvents from "../../components/CarouselEvents.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import "../../../styles/global.css";
+import CarouselRedGospel from "../../../components/CarouselsEvents/CarouselRedGospel.astro";
 
 const images = [
-  { src: "/img/anuncio1.jpg", alt: "Foto del Evento 1" },
-  { src: "/img/anuncio2.jpg", alt: "Foto del Evento 2" },
-  { src: "/anuncio3.jpg", alt: "Foto del Evento 3" },
+  { src: "/RedGospel/2.jpg", alt: "Foto del Evento 2" },
+  { src: "/RedGospel/3.jpg", alt: "Foto del Evento 3" },
+  { src: "/RedGospel/4.jpg", alt: "Foto del Evento 4" },
+  { src: "/RedGospel/5.jpg", alt: "Foto del Evento 5" },
+  { src: "/RedGospel/6.jpg", alt: "Foto del Evento 6" },
+  { src: "/RedGospel/7.jpg", alt: "Foto del Evento 7" },
+  { src: "/RedGospel/8.jpg", alt: "Foto del Evento 8" },
+  { src: "/RedGospel/9.jpg", alt: "Foto del Evento 9" },
+  { src: "/RedGospel/1.jpg", alt: "Foto del Evento 1" },
   // Agrega más imágenes aquí
 ];
 ---
@@ -38,22 +43,18 @@ const images = [
     <main
       class="flex flex-col items-center min-h-screen bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 p-4"
     >
-      <h1 class="text-3xl font-bold text-center mt-8 text-white">
-        Galería del Evento
-      </h1>
       <div class="w-full max-w-4xl mt-8">
-        <CarouselEvents images={images} />
+        <CarouselRedGospel images={images} />
       </div>
       <div class="mt-8 text-center">
         <p class="text-lg text-gray-300">
-          Información del evento pasado: Concierto "Bautizados en Fuego". Este
-          evento se realizó el 25 de mayo con el fin de buscar la llenura del
-          Espíritu Santo. Fue una noche llena de adoración y presencia de Dios,
-          donde los asistentes pudieron experimentar una conexión profunda y
-          significativa.
+          Concierto "Bautizados en Fuego". Este evento se realizó con el
+          objetivo de buscar la llenura del Espíritu Santo. Fue una noche llena
+          de adoración y presencia de Dios, donde los asistentes pudieron
+          experimentar una conexión profunda y significativa.
           <br /><br />
-          El concierto contó con la participación de varios artistas cristianos que
-          llevaron a la congregación a un tiempo de alabanza y reflexión. Hubo momentos
+          El concierto fue dirigido por el ministerio de alabanza de nuestra iglesia,
+          llevando a la congregación a un tiempo de alabanza y reflexión. Hubo momentos
           de oración y ministración, donde muchas personas fueron tocadas y transformadas
           por el poder del Espíritu Santo.
           <br /><br />

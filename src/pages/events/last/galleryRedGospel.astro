@@ -1,0 +1,69 @@
+---
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import "../../../styles/global.css";
+import CarouselRedGospel from "../../../components/CarouselsEvents/CarouselRedGospel.astro";
+
+const images = [
+  { src: "/RedGospel/2.jpg", alt: "Foto del Evento 2" },
+  { src: "/RedGospel/3.jpg", alt: "Foto del Evento 3" },
+  { src: "/RedGospel/4.jpg", alt: "Foto del Evento 4" },
+  { src: "/RedGospel/5.jpg", alt: "Foto del Evento 5" },
+  { src: "/RedGospel/6.jpg", alt: "Foto del Evento 6" },
+  { src: "/RedGospel/7.jpg", alt: "Foto del Evento 7" },
+  { src: "/RedGospel/8.jpg", alt: "Foto del Evento 8" },
+  { src: "/RedGospel/9.jpg", alt: "Foto del Evento 9" },
+  { src: "/RedGospel/1.jpg", alt: "Foto del Evento 1" },
+  // Agrega más imágenes aquí
+];
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galería del Evento - Iglesia Asambleas de Dios</title>
+    <meta
+      name="description"
+      content="Galería de fotos e información del evento pasado de la Iglesia Asambleas de Dios en Chipre, Manizales."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body
+    class="bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 text-white"
+  >
+    <Header />
+    <main
+      class="flex flex-col items-center min-h-screen bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 p-4"
+    >
+      <div class="w-full max-w-4xl mt-8">
+        <CarouselRedGospel images={images} />
+      </div>
+      <div class="mt-8 text-center">
+        <p class="text-lg text-gray-300">
+          "Red Gospel" fue una jornada juvenil llena de energía, donde los
+          jóvenes se reunieron para celebrar y compartir su fe. A lo largo del
+          evento, hubo momentos de adoración, reflexión y enseñanza sobre el
+          evangelio de salvación, resaltando la importancia de vivir una vida
+          dedicada a Cristo.
+          <br /><br />
+          El evento contó con dinámicas, música en vivo y mensajes inspiradores que
+          motivaron a los asistentes a profundizar su relación con Dios y a llevar
+          el mensaje de salvación a otros. Fue una experiencia transformadora que
+          fortaleció la comunidad juvenil de nuestra iglesia.
+          <br /><br />
+          Agradecemos a todos los que participaron y colaboraron para que este evento
+          fuera un éxito. ¡Esperamos verlos en nuestras próximas actividades!
+        </p>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>

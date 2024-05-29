@@ -1,8 +1,21 @@
 ---
 const events = [
-  { id: 1, imgSrc: "/anuncio1.jpg", alt: "Evento 1", link: "#event-1" },
-  { id: 2, imgSrc: "/anuncio2.jpg", alt: "Evento 2", link: "#event-2" },
-  { id: 3, imgSrc: "/anuncio3.jpg", alt: "Evento 3", link: "#event-3" },
+  {
+    id: 1,
+    imgSrc: "/img/Concierto.jpg",
+    alt: "Anuncio 1",
+    link: "/events/last/galleryConcert",
+  },
+  {
+    id: 2,
+    imgSrc: "/img/RedGospel.jpg",
+    alt: "Anuncio 2",
+    link: "/events/last/galleryRedGospel",
+  },
+  { id: 3, imgSrc: "/img/Predica1.jpg", alt: "Anuncio 4", link: "#anuncio-4" },
+  { id: 4, imgSrc: "/img/Predica2.jpg", alt: "Anuncio 5", link: "#anuncio-5" },
+  { id: 5, imgSrc: "/img/Predica3.jpg", alt: "Anuncio 6", link: "#anuncio-6" },
+
   // Añadir más eventos según sea necesario
 ];
 ---
@@ -133,9 +146,36 @@ const events = [
   if (typeof window !== "undefined") {
     document.addEventListener("DOMContentLoaded", () => {
       const events = [
-        { id: 1, imgSrc: "/anuncio1.jpg", alt: "Evento 1", link: "#event-1" },
-        { id: 2, imgSrc: "/anuncio2.jpg", alt: "Evento 2", link: "#event-2" },
-        { id: 3, imgSrc: "/anuncio3.jpg", alt: "Evento 3", link: "#event-3" },
+        {
+          id: 1,
+          imgSrc: "/img/Concierto.jpg",
+          alt: "Evento 1",
+          link: "#event-1",
+        },
+        {
+          id: 2,
+          imgSrc: "/img/Red Gospel.jpg",
+          alt: "Evento 2",
+          link: "#event-2",
+        },
+        {
+          id: 3,
+          imgSrc: "/img/Predica1.jpg",
+          alt: "Anuncio 3",
+          link: "#anuncio-3",
+        },
+        {
+          id: 4,
+          imgSrc: "/img/Predica2.jpg",
+          alt: "Anuncio 4",
+          link: "#anuncio-4",
+        },
+        {
+          id: 3,
+          imgSrc: "/img/Predica3.jpg",
+          alt: "Anuncio 5",
+          link: "#anuncio-5",
+        },
       ];
 
       let currentSlide = 0;
