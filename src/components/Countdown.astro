@@ -40,15 +40,15 @@
     href="https://www.youtube.com/@adchipremanizales2529/streams"
     target="_blank"
     rel="noopener noreferrer"
-    class="hidden flex flex-col items-center justify-center text-center mt-4"
+    class="hidden flex-col items-center justify-center text-center mt-4"
   >
     <h2 class="text-4xl font-bold text-red-600 mb-4 animate-pulse">
       ¡La reunión ha comenzado!
     </h2>
     <div
-      class="bg-red-600 text-white px-3 py-2 rounded shadow-lg transition transform hover:bg-red-700 text-lg"
+      class="bg-red-600 text-white m-auto w-fit px-3 py-2 rounded shadow-lg transition transform hover:bg-red-700 text-lg"
     >
-      EN VIVO ( Ver transmisión )
+      VER TRANSMISIÓN EN VIVO
     </div>
   </a>
 </section>
@@ -56,9 +56,9 @@
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const meetingTimes = [
-      { day: "Wednesday", time: "19:00" }, // Wednesday at 7 PM
-      { day: "Saturday", time: "18:30" }, // Saturday at 6 PM
+      { day: "Saturday", time: "18:00" }, // Saturday at 6 PM
       { day: "Sunday", time: "10:00" }, // Sunday at 10 AM
+      { day: "Wednesday", time: "19:00" }, // Wednesday at 7 PM
     ];
 
     const dayMap = {
@@ -71,22 +71,45 @@
       Saturday: 6,
     };
 
+    /**
+     * Obtiene la próxima fecha de reunión.
+     * @returns {Date} La próxima fecha de reunión.
+     */
     function getNextMeetingDate() {
       const now = new Date();
+      let nextMeeting = null;
+
       for (const meeting of meetingTimes) {
-        const nextMeeting = new Date();
-        nextMeeting.setDate(
+        const [hours, minutes] = meeting.time.split(":").map(Number); // Convertir a números
+        const meetingDate = new Date(now);
+
+        meetingDate.setDate(
           now.getDate() + ((dayMap[meeting.day] - now.getDay() + 7) % 7)
         );
-        const [hours, minutes] = meeting.time.split(":");
-        nextMeeting.setHours(hours, minutes, 0, 0);
-        if (nextMeeting > now) {
-          return nextMeeting;
+        meetingDate.setHours(hours, minutes, 0, 0);
+
+        if (meetingDate > now) {
+          nextMeeting = meetingDate;
+          break;
         }
       }
-      return new Date(); // fallback to avoid errors
+
+      if (!nextMeeting) {
+        // Si no se encontró una reunión futura, asumir que es la primera de la próxima semana.
+        const [hours, minutes] = meetingTimes[0].time.split(":").map(Number);
+        nextMeeting = new Date();
+        nextMeeting.setDate(
+          now.getDate() + ((dayMap[meetingTimes[0].day] - now.getDay() + 7) % 7)
+        );
+        nextMeeting.setHours(hours, minutes, 0, 0);
+      }
+
+      return nextMeeting;
     }
 
+    /**
+     * Actualiza el contador de la próxima reunión.
+     */
     function updateCountdown() {
       const nextMeetingDate = getNextMeetingDate().getTime();
       const elements = {
@@ -145,7 +168,7 @@
             document.getElementById("countdown-title").style.display = "block";
             document.getElementById("countdown-timer").style.display = "flex";
             updateCountdown();
-          }, 3600000); // 1 hour in milliseconds
+          }, 3600000); // 1 hora en milisegundos
         }
       }, 1000);
     }
