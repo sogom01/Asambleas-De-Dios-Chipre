@@ -17,6 +17,7 @@ const { image, title, date, link } = Astro.props;
   .event-card img {
     width: 100%;
     height: auto;
+    transition: transform 0.3s ease;
   }
 
   .event-card-info {
@@ -38,8 +39,8 @@ const { image, title, date, link } = Astro.props;
 </style>
 
 <div class="event-card">
-  <a href={link}>
-    <img src={image} alt={title} />
+  <a href={link} aria-label={`Ver detalles del evento ${title}`}>
+    <img src={image} alt={title} loading="lazy" />
     <div class="event-card-info">
       <h3 class="text-base font-bold text-nowrap">{title}</h3>
       <p class="text-sm">{date}</p>

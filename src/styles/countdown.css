@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
+
+.font-mono {
+  font-family: "Orbitron", monospace;
+}
+
+.countdown-element {
+  margin-bottom: 1rem; /* Margin between elements on smaller screens */
+}
+
+.countdown-time-wrapper {
+  perspective: 1000px; /* Perspective for the 3D effect */
+}
+
+.countdown-time {
+  font-size: 2.5rem; /* Font size for countdown time */
+  background: linear-gradient(
+    90deg,
+    rgba(255, 215, 0, 1) 0%,
+    rgba(255, 153, 0, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.7), 0 0 20px rgba(255, 153, 0, 0.5);
+  display: inline-block;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  font-family: "Orbitron", monospace;
+}
+
+.countdown-time.changing {
+  animation: flip-up 0.5s;
+}
+
+@keyframes flip-up {
+  0% {
+    transform: rotateX(0);
+  }
+  50% {
+    transform: rotateX(-90deg);
+  }
+  100% {
+    transform: rotateX(0);
+  }
+}
+
+.countdown-label {
+  font-size: 1.2rem; /* Font size for countdown labels */
+  color: #d4d4d8; /* Soft white color for labels */
+}
+
+@media (min-width: 640px) {
+  .countdown-time {
+    font-size: 3rem; /* Increase font size on larger screens */
+  }
+
+  .countdown-label {
+    font-size: 1.4rem; /* Increase font size on larger screens */
+  }
+}
+
+@media (max-width: 639px) {
+  .countdown-time {
+    font-size: 1.5rem; /* Smaller font size for smaller screens */
+  }
+
+  .countdown-label {
+    font-size: 0.8rem; /* Smaller font size for labels on smaller screens */
+  }
+
+  .countdown-element {
+    min-width: 70px; /* Ensure each element has enough width */
+    margin-bottom: 0.5rem; /* Ensure enough space between elements */
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+#live-notification {
+  text-decoration: none;
+  color: inherit;
+}
+
+#live-notification:hover {
+  color: inherit;
+}
