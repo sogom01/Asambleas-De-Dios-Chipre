@@ -1,25 +1,25 @@
 ---
 const events = [
-  {
-    id: 1,
-    imgSrc: "/img/Concierto.jpg",
-    alt: "Anuncio 1",
-    link: "/events/last/galleryConcert",
-  },
+  { id: 1, imgSrc: "/img/Venta.jpg", alt: "Anuncio 5", link: "#anuncio-5" },
   {
     id: 2,
-    imgSrc: "/img/RedGospel.jpg",
-    alt: "Anuncio 2",
-    link: "/events/last/galleryRedGospel",
+    imgSrc: "/img/SantaCena.jpg",
+    alt: "Anuncio 1",
+    link: "/events/futures/santaCena",
   },
   {
     id: 3,
-    imgSrc: "/img/Predica1.jpg",
+    imgSrc: "/img/Encuentro2024.jpg",
+    alt: "Anuncio 2",
+    link: "/events/futures/encuentro",
+  },
+  {
+    id: 4,
+    imgSrc: "/img/Concierto.jpg",
     alt: "Anuncio 4",
     link: "#anuncio-4",
   },
-  { id: 4, imgSrc: "/img/Predica2.jpg", alt: "Anuncio 5", link: "#anuncio-5" },
-  { id: 5, imgSrc: "/img/Predica3.jpg", alt: "Anuncio 6", link: "#anuncio-6" },
+  { id: 5, imgSrc: "/img/RedGospel.jpg", alt: "Anuncio 6", link: "#anuncio-6" },
   // Añadir más eventos según sea necesario
 ];
 ---
@@ -34,7 +34,10 @@ const events = [
     >
       {
         events.map((event) => (
-          <div class="min-w-full transition-transform duration-500 transform hover:scale-105">
+          <div
+            class="event-card min-w-full transition-transform duration-500 transform hover:scale-105"
+            key={event.id}
+          >
             <a href={event.link} aria-label={`Detalles del ${event.alt}`}>
               <img
                 src={event.imgSrc}
@@ -90,7 +93,10 @@ const events = [
     >
       {
         events.map((_, index) => (
-          <div class="progress-bar h-1 flex-1 bg-gray-700 relative overflow-hidden rounded">
+          <div
+            class="progress-bar h-1 flex-1 bg-gray-700 relative overflow-hidden rounded"
+            key={index}
+          >
             <div
               class={`progress-fill absolute top-0 left-0 h-full ${index === 0 ? "w-full bg-gray-400" : "w-0"}`}
               style="transition: width 5s linear"
@@ -103,6 +109,12 @@ const events = [
 </section>
 
 <style>
+  .event-card {
+    aspect-ratio: 16 / 9;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .event-card img {
     transition: transform 0.3s ease;
   }
@@ -137,94 +149,92 @@ const events = [
     }
 
     #slider {
-      height: 400px;
+      height: auto;
     }
 
     .event-card {
-      height: 400px;
+      height: auto;
     }
   }
 </style>
 
 <script>
-  if (typeof window !== "undefined") {
-    document.addEventListener("DOMContentLoaded", () => {
-      const events = [
-        {
-          id: 1,
-          imgSrc: "/img/Concierto.jpg",
-          alt: "Evento 1",
-          link: "#event-1",
-        },
-        {
-          id: 2,
-          imgSrc: "/img/Red Gospel.jpg",
-          alt: "Evento 2",
-          link: "#event-2",
-        },
-        {
-          id: 3,
-          imgSrc: "/img/Predica1.jpg",
-          alt: "Anuncio 3",
-          link: "#anuncio-3",
-        },
-        {
-          id: 4,
-          imgSrc: "/img/Predica2.jpg",
-          alt: "Anuncio 4",
-          link: "#anuncio-4",
-        },
-        {
-          id: 3,
-          imgSrc: "/img/Predica3.jpg",
-          alt: "Anuncio 5",
-          link: "#anuncio-5",
-        },
-      ];
+  document.addEventListener("DOMContentLoaded", () => {
+    const events = [
+      {
+        id: 1,
+        imgSrc: "/img/Venta.jpg",
+        alt: "Anuncio 5",
+        link: "#anuncio-5",
+      },
+      {
+        id: 2,
+        imgSrc: "/img/SantaCena.jpg",
+        alt: "Anuncio 1",
+        link: "/events/futures/santaCena",
+      },
+      {
+        id: 3,
+        imgSrc: "/img/Encuentro2024.jpg",
+        alt: "Anuncio 2",
+        link: "/events/futures/encuentro",
+      },
+      {
+        id: 4,
+        imgSrc: "/img/Concierto.jpg",
+        alt: "Anuncio 4",
+        link: "#anuncio-4",
+      },
+      {
+        id: 5,
+        imgSrc: "/img/RedGospel.jpg",
+        alt: "Anuncio 6",
+        link: "#/events/last/galleryRedGospel",
+      },
+    ];
 
-      let currentSlide = 0;
-      const totalSlides = events.length;
-      const slider = document.getElementById("slider");
-      const indicators = document.querySelectorAll(".progress-fill");
+    let currentSlide = 0;
+    const totalSlides = events.length;
+    const slider = document.getElementById("slider");
+    const indicators = document.querySelectorAll(".progress-fill");
 
-      const updateSlider = () => {
-        slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-        indicators.forEach((indicator, index) => {
-          indicator.classList.toggle("bg-gray-400", index === currentSlide);
-          const indicatorElement = indicator as HTMLElement;
-          if (index === currentSlide) {
-            indicatorElement.style.width = "100%";
-          } else {
-            indicatorElement.style.width = "0%";
-          }
-        });
-      };
-
-      const nextSlide = () => {
-        currentSlide = (currentSlide + 1) % totalSlides;
-        updateSlider();
-      };
-
-      const prevSlide = () => {
-        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-        updateSlider();
-      };
-
-      document.getElementById("next").addEventListener("click", () => {
-        clearInterval(slideInterval);
-        nextSlide();
-        slideInterval = setInterval(nextSlide, 5000);
+    const updateSlider = () => {
+      slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+      indicators.forEach((indicator, index) => {
+        indicator.classList.toggle("bg-gray-400", index === currentSlide);
+        const indicatorElement = indicator as HTMLElement;
+        if (index === currentSlide) {
+          indicatorElement.style.width = "100%";
+        } else {
+          indicatorElement.style.width = "0%";
+        }
       });
+    };
 
-      document.getElementById("prev").addEventListener("click", () => {
-        clearInterval(slideInterval);
-        prevSlide();
-        slideInterval = setInterval(nextSlide, 5000);
-      });
-
-      let slideInterval = setInterval(nextSlide, 5000);
-
+    const nextSlide = () => {
+      currentSlide = (currentSlide + 1) % totalSlides;
       updateSlider();
+    };
+
+    const prevSlide = () => {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateSlider();
+    };
+
+    document.getElementById("next").addEventListener("click", () => {
+      clearInterval(slideInterval);
+      nextSlide();
+      slideInterval = setInterval(nextSlide, 5000);
     });
-  }
+
+    document.getElementById("prev").addEventListener("click", () => {
+      clearInterval(slideInterval);
+      prevSlide();
+      slideInterval = setInterval(nextSlide, 5000);
+    });
+
+    let slideInterval = setInterval(nextSlide, 5000);
+
+    updateSlider();
+  });
 </script>

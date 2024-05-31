@@ -1,0 +1,84 @@
+---
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import "../../../styles/global.css"; // Asegúrate de que la ruta del archivo CSS sea correcta
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalles del Evento - Iglesia Asambleas de Dios</title>
+    <meta
+      name="description"
+      content="Detalles del próximo evento de la Iglesia Asambleas de Dios en Chipre, Manizales."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body
+    class="bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 text-white"
+  >
+    <Header />
+    <main
+      class="flex flex-col items-center min-h-screen bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 p-4"
+    >
+      <article class="w-full max-w-4xl mt-8">
+        <img
+          src="/img/SantaCena.jpg"
+          alt="Encuentro con Jesús 2024"
+          class="w-full rounded"
+          loading="lazy"
+        />
+        <div class="w-full max-w-4xl mt-8 text-center">
+          <h1 class="text-3xl font-bold text-center mt-8 text-white">
+            Santa Cena
+          </h1>
+          <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+            La Santa Cena, también conocida como la Comunión, es un momento
+            sagrado en nuestra iglesia Asambleas de Dios en Chipre. Es una
+            ceremonia de profundo significado espiritual que nos permite
+            recordar y celebrar el sacrificio de Jesucristo por nosotros.
+            <br />
+            <br />
+            Durante la Santa Cena, participamos del pan y el vino, simbolizando el
+            cuerpo y la sangre de Cristo, entregados por nuestra salvación. Este
+            acto de comunión no solo nos conecta con el sacrificio de Jesús, sino
+            que también fortalece nuestra fe y nos une como cuerpo de creyentes.
+            <br />
+            <br />
+            La ceremonia es una oportunidad para reflexionar sobre el amor incondicional
+            de Dios, examinar nuestros corazones y renovar nuestro compromiso de
+            vivir de acuerdo con los principios de Cristo. Es un momento de gracia
+            y renovación, donde cada participante puede experimentar la presencia
+            de Dios de una manera personal y poderosa.
+            <br />
+            <br />
+            Te invitamos cordialmente a unirte a nosotros en la próxima celebración.
+          </p>
+          <div class="text-left p-4 bg-gray-800 rounded">
+            <h2 class="text-2xl font-bold mb-4 text-white">
+              Detalles del evento
+            </h2>
+            <p class="text-lg text-gray-300 mb-2">
+              <strong>Fecha:</strong> 2 de Junio
+            </p>
+            <p class="text-lg text-gray-300 mb-2">
+              <strong>Horario:</strong> 10:00 a.m.
+            </p>
+            <p class="text-lg text-gray-300 mb-2">
+              <strong>Lugar:</strong> Iglesia Asambleas de Dios, Chipre, Manizales
+            </p>
+          </div>
+        </div>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>
