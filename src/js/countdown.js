@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const meetingTimes = [
-        { day: "Saturday", time: "14:55" }, // Saturday at 6 PM
+        { day: "Saturday", time: "18:00" }, // Saturday at 6 PM
         { day: "Sunday", time: "10:00" }, // Sunday at 10 AM
         { day: "Wednesday", time: "19:00" }, // Wednesday at 7 PM
     ];
