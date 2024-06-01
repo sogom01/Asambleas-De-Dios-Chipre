@@ -2,18 +2,14 @@
 import Header from "../../../components/Header.astro";
 import Footer from "../../../components/Footer.astro";
 import "../../../styles/global.css";
-import CarouselRedGospel from "../../../components/CarouselsEvents/CarouselRedGospel.astro";
+import CarouselRedGospel from "../../../components/Carousel.astro";
 
 const images = [
-  { src: "/redGospel/2.jpg", alt: "Foto del Evento 2" },
-  { src: "/redGospel/3.jpg", alt: "Foto del Evento 3" },
-  { src: "/redGospel/4.jpg", alt: "Foto del Evento 4" },
-  { src: "/redGospel/5.jpg", alt: "Foto del Evento 5" },
-  { src: "/redGospel/6.jpg", alt: "Foto del Evento 6" },
-  { src: "/redGospel/7.jpg", alt: "Foto del Evento 7" },
-  { src: "/redGospel/8.jpg", alt: "Foto del Evento 8" },
-  { src: "/redGospel/9.jpg", alt: "Foto del Evento 9" },
-  { src: "/redGospel/1.jpg", alt: "Foto del Evento 1" },
+  { src: "/concert/2.webp", alt: "Foto del Evento Bautizados en fuego" },
+  { src: "/concert/3.webp", alt: "Foto del Evento Bautizados en fuego" },
+  { src: "/concert/4.webp", alt: "Foto del Evento Bautizados en fuego" },
+  { src: "/concert/6.webp", alt: "Foto del Evento Bautizados en fuego" },
+
   // Agrega más imágenes aquí
 ];
 ---
@@ -22,6 +18,7 @@ const images = [
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <title>Galería del Evento - Iglesia Asambleas de Dios</title>
     <meta
       name="description"
