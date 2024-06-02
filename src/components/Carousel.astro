@@ -8,7 +8,7 @@ const { images } = Astro.props;
     overflow: hidden;
     width: 100%;
     height: 100%;
-    border-radius: 1rem; /* Añadir redondeo al carrusel */
+    border-radius: 1rem;
   }
 
   .carousel-inner {
@@ -19,7 +19,7 @@ const { images } = Astro.props;
   .carousel-item {
     min-width: 100%;
     transition: transform 0.5s ease-in-out;
-    border-radius: 1rem; /* Añadir redondeo a los items del carrusel */
+    border-radius: 1rem;
   }
 
   .carousel-button {
@@ -32,7 +32,7 @@ const { images } = Astro.props;
     padding: 0.5rem;
     cursor: pointer;
     z-index: 1;
-    border-radius: 50%; /* Hacer las flechas redondeadas */
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,16 +41,16 @@ const { images } = Astro.props;
   }
 
   .carousel-button.left {
-    left: 0.5rem; /* Ajustar la posición de las flechas */
+    left: 0.5rem;
   }
 
   .carousel-button.right {
-    right: 0.5rem; /* Ajustar la posición de las flechas */
+    right: 0.5rem;
   }
 
   .carousel-button svg {
-    width: 1.5rem; /* Ajustar el tamaño del icono */
-    height: 1.5rem; /* Ajustar el tamaño del icono */
+    width: 1.5rem;
+    height: 1.5rem;
   }
 
   .carousel-indicators {
@@ -92,11 +92,12 @@ const { images } = Astro.props;
   <div class="carousel-inner" id="carousel-inner">
     {
       images.map((image, index) => (
-        <div class="carousel-item">
+        <div class="carousel-item" key={index}>
           <img
             src={image.src}
             alt={image.alt}
             class="w-full h-full object-cover"
+            loading="lazy"
           />
         </div>
       ))
@@ -137,7 +138,7 @@ const { images } = Astro.props;
   <div class="carousel-indicators">
     {
       images.map((_, index) => (
-        <div class="carousel-indicator" id={`indicator-${index}`}>
+        <div class="carousel-indicator" id={`indicator-${index}`} key={index}>
           <div class="fill" />
         </div>
       ))
@@ -155,44 +156,55 @@ const { images } = Astro.props;
     );
     let currentIndex = 0;
     const totalImages = indicators.length;
+    let slideInterval;
 
     function updateCarousel() {
       const offset = -currentIndex * 100;
-      if (carouselInner instanceof HTMLElement) {
-        carouselInner.style.transform = `translateX(${offset}%)`;
-      }
+      carouselInner.style.transform = `translateX(${offset}%)`;
       indicators.forEach((indicator, index) => {
         const fill = indicator.querySelector(".fill");
-        if (fill instanceof HTMLElement) {
-          fill.style.width = index === currentIndex ? "100%" : "0%";
-        }
+        fill.style.width = index === currentIndex ? "100%" : "0%";
       });
     }
 
     function nextImage() {
-      currentIndex = currentIndex < totalImages - 1 ? currentIndex + 1 : 0;
+      currentIndex = (currentIndex + 1) % totalImages;
       updateCarousel();
     }
 
     function prevImage() {
-      currentIndex = currentIndex > 0 ? currentIndex - 1 : totalImages - 1;
+      currentIndex = (currentIndex - 1 + totalImages) % totalImages;
       updateCarousel();
     }
 
     prevButton.addEventListener("click", () => {
-      clearInterval(slideInterval);
       prevImage();
-      slideInterval = setInterval(nextImage, 5000);
+      resetInterval();
     });
 
     nextButton.addEventListener("click", () => {
-      clearInterval(slideInterval);
       nextImage();
-      slideInterval = setInterval(nextImage, 5000);
+      resetInterval();
     });
 
-    let slideInterval = setInterval(nextImage, 5000);
+    function resetInterval() {
+      clearInterval(slideInterval);
+      slideInterval = setInterval(nextImage, 5000);
+    }
 
+    // Add touch functionality
+    const hammer = new Hammer(carouselInner);
+    hammer.on("swipeleft", () => {
+      nextImage();
+      resetInterval();
+    });
+
+    hammer.on("swiperight", () => {
+      prevImage();
+      resetInterval();
+    });
+
+    slideInterval = setInterval(nextImage, 5000);
     updateCarousel();
   });
 </script>

@@ -62,11 +62,73 @@ import "../../../styles/global.css"; // Asegúrate de que la ruta del archivo CS
             <strong>Valor:</strong> 120.000 COP
           </p>
           <p class="text-lg text-gray-300">
-            <strong>Recuerda: </strong> Reservar tu cupo con anticiación
+            <strong>Cupos limitados.</strong>
           </p>
+        </div>
+        <div class="mt-8">
+          <a
+            href="https://wa.me/3126691924?text=Hola,%20Quiero%20asistir%20al%20encuentro."
+            class="whatsapp-button flex items-center justify-center"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i
+              class="fab fa-whatsapp text-3xl text-white whatsapp-icon mr-2"
+              aria-hidden="true"></i>
+            <span>Reserva tu cupo aquí</span>
+          </a>
         </div>
       </div>
     </main>
     <Footer />
   </body>
 </html>
+
+<style>
+  .whatsapp-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: #25d366;
+    color: white;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition:
+      transform 0.3s,
+      background-color 0.3s;
+  }
+  .whatsapp-button:hover {
+    background-color: #1ebe57;
+    transform: scale(1.1);
+  }
+  .whatsapp-button::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    bottom: -10px;
+    left: -10px;
+    background: rgba(37, 211, 102, 0.3);
+    border-radius: 0.5rem;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .whatsapp-button:hover::after {
+    opacity: 1;
+  }
+  .whatsapp-icon {
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+</style>
