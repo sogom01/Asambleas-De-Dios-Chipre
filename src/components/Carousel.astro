@@ -1,5 +1,6 @@
 ---
 const { images } = Astro.props;
+import Hammer from "hammerjs";
 ---
 
 <style>
@@ -92,7 +93,7 @@ const { images } = Astro.props;
   <div class="carousel-inner" id="carousel-inner">
     {
       images.map((image, index) => (
-        <div class="carousel-item" key={index}>
+        <div class="carousel-item">
           <img
             src={image.src}
             alt={image.alt}
@@ -138,7 +139,7 @@ const { images } = Astro.props;
   <div class="carousel-indicators">
     {
       images.map((_, index) => (
-        <div class="carousel-indicator" id={`indicator-${index}`} key={index}>
+        <div class="carousel-indicator" id={`indicator-${index}`}>
           <div class="fill" />
         </div>
       ))
@@ -160,10 +161,14 @@ const { images } = Astro.props;
 
     function updateCarousel() {
       const offset = -currentIndex * 100;
-      carouselInner.style.transform = `translateX(${offset}%)`;
+      if (carouselInner instanceof HTMLElement) {
+        carouselInner.style.transform = `translateX(${offset}%)`;
+      }
       indicators.forEach((indicator, index) => {
         const fill = indicator.querySelector(".fill");
-        fill.style.width = index === currentIndex ? "100%" : "0%";
+        if (fill instanceof HTMLElement) {
+          fill.style.width = index === currentIndex ? "100%" : "0%";
+        }
       });
     }
 

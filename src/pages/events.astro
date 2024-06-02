@@ -1,9 +1,9 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import SidebarButtonsContainer from "../components/SidebarButtonsContainer.astro";
 import EventCard from "../components/EventCard.astro";
-import "../styles/global.css"; // Asegúrate de que la ruta del archivo CSS sea correcta
+import "../styles/global.css";
+import "../styles/events.css";
 import "../styles/sidebar-buttons.css";
 ---
 
@@ -21,10 +21,7 @@ import "../styles/sidebar-buttons.css";
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
   <body
     class="bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 text-white"
@@ -39,22 +36,25 @@ import "../styles/sidebar-buttons.css";
         <h2 class="text-2xl font-bold mb-4 text-white">Eventos Pasados</h2>
         <div class="event-grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           <EventCard
-            image="/img/Madres.jpg"
-            title="Oracion por las Madres"
+            image="/img/Madres.webp"
+            title="Oración por las Madres"
             date="25 de Mayo"
             link="/events/last/galleryMothers"
+            alt="Imagen del evento Oración por las Madres"
           />
           <EventCard
-            image="/img/RedGospel.jpg"
+            image="/img/RedGospel.webp"
             title="Red Gospel"
             date="6 de Abril"
             link="/events/last/galleryRedGospel"
+            alt="Imagen del evento Red Gospel"
           />
           <EventCard
-            image="/img/Concierto.jpg"
+            image="/img/Concierto.webp"
             title="Concierto Bautizados en Fuego"
             date="25 de Mayo"
             link="/events/last/galleryConcert"
+            alt="Imagen del evento Concierto Bautizados en Fuego"
           />
           <!-- Agrega más tarjetas de eventos pasados aquí -->
         </div>
@@ -64,43 +64,27 @@ import "../styles/sidebar-buttons.css";
         <h2 class="text-2xl font-bold mb-4 text-white">Próximos Eventos</h2>
         <div class="event-grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           <EventCard
-            image="/img/Encuentro2024.jpg"
+            image="/img/Encuentro2024.webp"
             title="Encuentro con Jesús"
             date="7, 8 y 9 de Junio"
             link="/events/futures/encuentro"
+            alt="Imagen del evento Encuentro con Jesús"
           />
           <EventCard
-            image="/img/SantaCena.jpg"
+            image="/img/SantaCena.webp"
             title="Santa Cena"
             date="2 de Junio 10:00 a.m"
             link="/events/futures/santaCena"
+            alt="Imagen del evento Santa Cena"
           />
           <!-- Agrega más tarjetas de próximos eventos aquí -->
         </div>
       </section>
     </main>
     <Footer />
+    <!-- Cargar JavaScript de forma asíncrona -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"
+      async></script>
   </body>
 </html>
-<style>
-  .event-grid {
-    display: grid;
-    gap: 1rem;
-  }
-
-  .grid-cols-1 {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  @media (min-width: 640px) {
-    .sm\:grid-cols-2 {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .lg\:grid-cols-3 {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-</style>

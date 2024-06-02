@@ -1,0 +1,124 @@
+.about-page .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.about-page .relative {
+  position: relative;
+}
+
+.about-page .absolute {
+  position: absolute;
+}
+
+.about-page .inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.about-page .w-full {
+  width: 100%;
+}
+
+.about-page .h-64 {
+  height: 16rem;
+}
+
+.about-page .md\:h-80 {
+  height: 20rem;
+}
+
+.about-page .object-cover {
+  object-fit: cover;
+}
+
+.about-page .opacity-30 {
+  opacity: 0.3;
+}
+
+.about-page .text-white {
+  color: #fff;
+}
+
+.about-page .font-bold {
+  font-weight: 700;
+}
+
+.about-page .text-3xl {
+  font-size: 1.875rem;
+}
+
+.about-page .md\:text-4xl {
+  font-size: 2.25rem;
+}
+
+.about-page .text-lg {
+  font-size: 1.125rem;
+}
+
+.about-page .md\:text-3xl {
+  font-size: 1.875rem;
+}
+
+.about-page .text-center {
+  text-align: center;
+}
+
+.about-page .leading-relaxed {
+  line-height: 1.75;
+}
+
+.about-page .mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.about-page .mb-8 {
+  margin-bottom: 2rem;
+}
+
+.about-page .py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.about-page .px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.about-page .drop-shadow-lg {
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.about-page .bg-gray-800 {
+  background-color: #2d3748;
+}
+
+.about-page .text-gray-200 {
+  color: #edf2f7;
+}
+
+.about-page .text-gray-300 {
+  color: #e2e8f0;
+}
+
+.about-page .mb-0 {
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .about-page .md\:text-4xl {
+    font-size: 2.25rem;
+  }
+
+  .about-page .md\:text-3xl {
+    font-size: 1.875rem;
+  }
+
+  .about-page .md\:h-80 {
+    height: 20rem;
+  }
+}

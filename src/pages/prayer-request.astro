@@ -1,7 +1,6 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import SidebarButtonsContainer from "../components/SidebarButtonsContainer.astro";
 import "../styles/global.css";
 import "../styles/form.css";
 import "../styles/sidebar-buttons.css";
@@ -83,30 +82,6 @@ import "../styles/sidebar-buttons.css";
       </div>
     </main>
     <Footer />
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const form = document.getElementById("prayerForm");
-        form.addEventListener("submit", function (event) {
-          event.preventDefault();
-          const name = (document.getElementById("name") as HTMLInputElement)
-            .value;
-          const phone = (document.getElementById("phone") as HTMLInputElement)
-            .value;
-          const request = (
-            document.getElementById("request") as HTMLTextAreaElement
-          ).value;
-
-          const whatsappURL = `https://api.whatsapp.com/send?phone=573126691924&text=Nueva%20Petición%20de%20Oración%0A%0ANombre:%20${encodeURIComponent(name)}%0ATeléfono:%20${encodeURIComponent(phone)}%0APetición:%20${encodeURIComponent(request)}`;
-
-          window.open(whatsappURL, "_blank");
-
-          // Limpiar los campos del formulario
-          (document.getElementById("name") as HTMLInputElement).value = "";
-          (document.getElementById("phone") as HTMLInputElement).value = "";
-          (document.getElementById("request") as HTMLTextAreaElement).value =
-            "";
-        });
-      });
-    </script>
+    <script src="../js/prayer-request.js"></script>
   </body>
 </html>

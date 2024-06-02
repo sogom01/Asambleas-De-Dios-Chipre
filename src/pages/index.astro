@@ -7,12 +7,10 @@ import Content from "../components/Content.astro";
 import Countdown from "../components/Countdown.astro";
 import NewHere from "../components/NewHere.astro";
 import Footer from "../components/Footer.astro";
-import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../styles/global.css";
 import "../styles/style.css";
 import "../styles/sidebar-buttons.css";
 import SidebarButtonsContainer from "../components/SidebarButtonsContainer.astro";
-// Importa los estilos del nuevo componente si es necesario
 ---
 
 <html lang="es">
@@ -20,26 +18,20 @@ import SidebarButtonsContainer from "../components/SidebarButtonsContainer.astro
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
-    <meta name="generator" content={Astro.generator} />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
     <title>Asambleas de Dios | Manizales Caldas (Chipre)</title>
     <meta
       name="description"
       content="Página oficial de la Iglesia Asambleas de Dios en Manizales, Caldas (Chipre). Conéctate con nuestros eventos, ministerios y más."
     />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
   <body class="bg-gray-900 text-white">
     <Header />
     <SidebarButtonsContainer />
-    <!-- Utiliza el nuevo componente aquí -->
     <main
       class="w-full p-4 bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700"
     >
@@ -57,39 +49,13 @@ import SidebarButtonsContainer from "../components/SidebarButtonsContainer.astro
       </div>
     </main>
     <Footer />
+    <!-- Cargar JavaScript de forma asíncrona -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"
+      async></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"
+      async></script>
+    <script src="../js/index.js"></script>
   </body>
 </html>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const buttons = document.querySelectorAll(".sidebar-button");
-
-    // Restablecer el estado de los botones cuando la página se vuelve visible
-    document.addEventListener("visibilitychange", function () {
-      if (document.visibilityState === "visible") {
-        setTimeout(() => {
-          buttons.forEach((button) => {
-            button.classList.remove("expanded");
-          });
-        }, 100); // Retraso breve para asegurarse de que el DOM se actualice correctamente
-      }
-    });
-
-    // Manejar el estado de los botones al hacer clic
-    buttons.forEach((button) => {
-      button.addEventListener("click", () => {
-        button.classList.remove("expanded");
-      });
-
-      button.addEventListener("mouseover", () => {
-        button.classList.add("expanded");
-      });
-
-      button.addEventListener("mouseout", () => {
-        if (!button.matches(":hover")) {
-          button.classList.remove("expanded");
-        }
-      });
-    });
-  });
-</script>
