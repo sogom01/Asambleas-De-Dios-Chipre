@@ -1,11 +1,8 @@
 ---
+import Hammer from "hammerjs";
+import { useEffect } from "react";
+
 const events = [
-  // {
-  //   id: 1,
-  //   imgSrc: "/img/Venta.jpg",
-  //   alt: "Anuncio 1",
-  //   link: "/events/sales/lechona",
-  // },
   {
     id: 1,
     imgSrc: "/img/SantaCena.jpg",
@@ -25,7 +22,6 @@ const events = [
     link: "/events/last/galleryConcert",
   },
   { id: 4, imgSrc: "/redGospel/4.webp", alt: "Anuncio 4", link: "#anuncio-6" },
-  // Añadir más eventos según sea necesario
 ];
 ---
 
@@ -166,12 +162,6 @@ const events = [
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const events = [
-      // {
-      //   id: 1,
-      //   imgSrc: "/img/Venta.jpg",
-      //   alt: "Anuncio 1",
-      //   link: "#anuncio-1",
-      // },
       {
         id: 1,
         imgSrc: "/img/SantaCena.jpg",
@@ -239,6 +229,20 @@ const events = [
     });
 
     let slideInterval = setInterval(nextSlide, 5000);
+
+    // Integrating Hammer.js for swipe functionality
+    const hammer = new Hammer(slider);
+    hammer.on("swipeleft", () => {
+      clearInterval(slideInterval);
+      nextSlide();
+      slideInterval = setInterval(nextSlide, 5000);
+    });
+
+    hammer.on("swiperight", () => {
+      clearInterval(slideInterval);
+      prevSlide();
+      slideInterval = setInterval(nextSlide, 5000);
+    });
 
     updateSlider();
   });
