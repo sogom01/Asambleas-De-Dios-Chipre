@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const meetingTimes = [
-        { day: "Wednesday", time: "19:00" }, // Wednesday at 7 PM
-        { day: "Saturday", time: "18:00" }, // Saturday at 6 PM
-        { day: "Sunday", time: "10:00" }, // Sunday at 10 AM
+        { day: "Wednesday", time: "19:00" },
+        { day: "Saturday", time: "18:00" },
+        { day: "Sunday", time: "10:00" },
     ];
 
     const dayMap = {
@@ -15,58 +15,41 @@ document.addEventListener("DOMContentLoaded", function () {
         Saturday: 6,
     };
 
-    /**
-     * Obtiene la próxima fecha de reunión.
-     * @returns {Date} La próxima fecha de reunión.
-     */
     function getNextMeetingDate() {
         const now = new Date();
         let nextMeeting = null;
 
-        for (const meeting of meetingTimes) {
-            const [hours, minutes] = meeting.time.split(":").map(Number); // Convertir a números
+        // Revisar cada reunión y determinar la más cercana
+        meetingTimes.forEach(meeting => {
+            const [hours, minutes] = meeting.time.split(":").map(Number);
             const meetingDate = new Date(now);
 
-            meetingDate.setDate(
-                now.getDate() + ((dayMap[meeting.day] - now.getDay() + 7) % 7)
-            );
+            // Calcular el próximo día de la reunión
+            const dayDiff = (dayMap[meeting.day] - now.getDay() + 7) % 7;
+            meetingDate.setDate(now.getDate() + dayDiff);
             meetingDate.setHours(hours, minutes, 0, 0);
 
-            if (meetingDate > now) {
-                nextMeeting = meetingDate;
-                break;
+            // Si la reunión calculada es en el pasado, agregar 7 días
+            if (meetingDate <= now) {
+                meetingDate.setDate(meetingDate.getDate() + 7);
             }
-        }
 
-        if (!nextMeeting) {
-            // Si no se encontró una reunión futura, asumir que es la primera de la próxima semana.
-            const [hours, minutes] = meetingTimes[0].time.split(":").map(Number);
-            nextMeeting = new Date();
-            nextMeeting.setDate(
-                now.getDate() + ((dayMap[meetingTimes[0].day] - now.getDay() + 7) % 7)
-            );
-            nextMeeting.setHours(hours, minutes, 0, 0);
-        }
+            // Establecer la próxima reunión si es la más cercana
+            if (!nextMeeting || meetingDate < nextMeeting) {
+                nextMeeting = meetingDate;
+            }
+        });
 
         return nextMeeting;
     }
 
-    /**
-     * Actualiza el contador de la próxima reunión.
-     */
     function updateCountdown() {
         const nextMeetingDate = getNextMeetingDate().getTime();
         const elements = {
             days: document.getElementById("days").querySelector(".countdown-time"),
-            hours: document
-                .getElementById("hours")
-                .querySelector(".countdown-time"),
-            minutes: document
-                .getElementById("minutes")
-                .querySelector(".countdown-time"),
-            seconds: document
-                .getElementById("seconds")
-                .querySelector(".countdown-time"),
+            hours: document.getElementById("hours").querySelector(".countdown-time"),
+            minutes: document.getElementById("minutes").querySelector(".countdown-time"),
+            seconds: document.getElementById("seconds").querySelector(".countdown-time"),
         };
 
         let prevValues = {
@@ -80,10 +63,23 @@ document.addEventListener("DOMContentLoaded", function () {
             const now = new Date().getTime();
             const distance = nextMeetingDate - now;
 
+            if (distance <= 0) {
+                clearInterval(countdownInterval);
+                document.getElementById("countdown-title").style.display = "none";
+                document.getElementById("countdown-timer").style.display = "none";
+                const liveNotification = document.getElementById("live-notification");
+                liveNotification.classList.remove("hidden");
+                setTimeout(() => {
+                    liveNotification.classList.add("hidden");
+                    document.getElementById("countdown-title").style.display = "block";
+                    document.getElementById("countdown-timer").style.display = "flex";
+                    updateCountdown();
+                }, 3600000); // 1 hour
+                return;
+            }
+
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor(
-                (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-            );
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
@@ -100,20 +96,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     prevValues[key] = newValues[key].toString();
                 }
             });
-
-            if (distance < 0) {
-                clearInterval(countdownInterval);
-                document.getElementById("countdown-title").style.display = "none";
-                document.getElementById("countdown-timer").style.display = "none";
-                const liveNotification = document.getElementById("live-notification");
-                liveNotification.classList.remove("hidden");
-                setTimeout(() => {
-                    liveNotification.classList.add("hidden");
-                    document.getElementById("countdown-title").style.display = "block";
-                    document.getElementById("countdown-timer").style.display = "flex";
-                    updateCountdown();
-                }, 3600000);
-            }
         }, 1000);
     }
 
