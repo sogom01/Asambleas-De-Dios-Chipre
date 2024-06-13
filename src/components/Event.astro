@@ -1,4 +1,5 @@
 ---
+import { onMount } from "solid-js";
 import Hammer from "hammerjs";
 
 const events = [
@@ -22,6 +23,66 @@ const events = [
   },
   { id: 4, imgSrc: "/redGospel/4.webp", alt: "Anuncio 4", link: "#anuncio-6" },
 ];
+
+onMount(() => {
+  const slider = document.getElementById("slider");
+  const hammer = new Hammer(slider);
+
+  hammer.on("swipeleft", () => {
+    clearInterval(slideInterval);
+    nextSlide();
+    slideInterval = setInterval(nextSlide, 5000);
+  });
+
+  hammer.on("swiperight", () => {
+    clearInterval(slideInterval);
+    prevSlide();
+    slideInterval = setInterval(nextSlide, 5000);
+  });
+
+  let currentSlide = 0;
+  const totalSlides = events.length;
+  const indicators = document.querySelectorAll(".progress-fill");
+
+  const updateSlider = () => {
+    slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+    indicators.forEach((indicator, index) => {
+      indicator.classList.toggle("bg-gray-400", index === currentSlide);
+      const indicatorElement = indicator as HTMLElement;
+      if (index === currentSlide) {
+        indicatorElement.style.width = "100%";
+      } else {
+        indicatorElement.style.width = "0%";
+      }
+    });
+  };
+
+  const nextSlide = () => {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateSlider();
+  };
+
+  const prevSlide = () => {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateSlider();
+  };
+
+  document.getElementById("next").addEventListener("click", () => {
+    clearInterval(slideInterval);
+    nextSlide();
+    slideInterval = setInterval(nextSlide, 5000);
+  });
+
+  document.getElementById("prev").addEventListener("click", () => {
+    clearInterval(slideInterval);
+    prevSlide();
+    slideInterval = setInterval(nextSlide, 5000);
+  });
+
+  let slideInterval = setInterval(nextSlide, 5000);
+
+  updateSlider();
+});
 ---
 
 <section id="events" class="bg-transparent text-white rounded-lg shadow-lg">
@@ -157,92 +218,3 @@ const events = [
     }
   }
 </style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const events = [
-      {
-        id: 1,
-        imgSrc: "/img/SantaCena.jpg",
-        alt: "Anuncio 1",
-        link: "/events/futures/santaCena",
-      },
-      {
-        id: 2,
-        imgSrc: "/img/Encuentro2024.jpg",
-        alt: "Anuncio 2",
-        link: "/events/futures/encuentro",
-      },
-      {
-        id: 3,
-        imgSrc: "/concert/6.webp",
-        alt: "Anuncio 3",
-        link: "#anuncio-4",
-      },
-      {
-        id: 4,
-        imgSrc: "/redGospel/4.webp",
-        alt: "Anuncio 4",
-        link: "#/events/last/galleryRedGospel",
-      },
-    ];
-
-    let currentSlide = 0;
-    const totalSlides = events.length;
-    const slider = document.getElementById("slider");
-    const indicators = document.querySelectorAll(".progress-fill");
-
-    const updateSlider = () => {
-      slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-      indicators.forEach((indicator, index) => {
-        indicator.classList.toggle("bg-gray-400", index === currentSlide);
-        const indicatorElement = indicator as HTMLElement;
-        if (index === currentSlide) {
-          indicatorElement.style.width = "100%";
-        } else {
-          indicatorElement.style.width = "0%";
-        }
-      });
-    };
-
-    const nextSlide = () => {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      updateSlider();
-    };
-
-    const prevSlide = () => {
-      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-      updateSlider();
-    };
-
-    document.getElementById("next").addEventListener("click", () => {
-      clearInterval(slideInterval);
-      nextSlide();
-      slideInterval = setInterval(nextSlide, 5000);
-    });
-
-    document.getElementById("prev").addEventListener("click", () => {
-      clearInterval(slideInterval);
-      prevSlide();
-      slideInterval = setInterval(nextSlide, 5000);
-    });
-
-    let slideInterval = setInterval(nextSlide, 5000);
-
-    // Integrating Hammer.js for swipe functionality
-    const hammer = new Hammer(slider);
-    hammer.on("swipeleft", () => {
-      clearInterval(slideInterval);
-      nextSlide();
-      slideInterval = setInterval(nextSlide, 5000);
-    });
-
-    hammer.on("swiperight", () => {
-      clearInterval(slideInterval);
-      prevSlide();
-      slideInterval = setInterval(nextSlide, 5000);
-    });
-
-    updateSlider();
-  });
-</script>
