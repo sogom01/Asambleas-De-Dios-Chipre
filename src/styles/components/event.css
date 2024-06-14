@@ -1,0 +1,47 @@
+.event-card {
+  aspect-ratio: 16 / 9;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.event-card img {
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover img {
+  transform: scale(1.05);
+}
+
+.progress-bar {
+  background-color: #2d3748;
+}
+
+.progress-fill {
+  background-color: #a0aec0;
+  transition: width 5s linear;
+}
+
+#prev,
+#next {
+  transition: background 0.3s ease;
+}
+
+#prev:hover,
+#next:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+@media (min-width: 1024px) {
+  #events {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  #slider {
+    height: auto;
+  }
+
+  .event-card {
+    height: auto;
+  }
+}
