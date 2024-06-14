@@ -4,8 +4,17 @@
   font-family: "Orbitron", monospace;
 }
 
+#countdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
 .countdown-element {
   margin-bottom: 1rem; /* Margin between elements on smaller screens */
+  flex: 1;
+  min-width: 50px; /* Ensure elements have minimum width */
 }
 
 .countdown-time-wrapper {
@@ -27,6 +36,7 @@
   transform-style: preserve-3d;
   transition: transform 0.5s;
   font-family: "Orbitron", monospace;
+  word-wrap: break-word;
 }
 
 .countdown-time.changing {
@@ -70,8 +80,20 @@
   }
 
   .countdown-element {
-    min-width: 70px; /* Ensure each element has enough width */
+    min-width: 50px; /* Ensure each element has enough width */
     margin-bottom: 0.5rem; /* Ensure enough space between elements */
+  }
+
+  #countdown-timer {
+    flex-wrap: wrap; /* Allow elements to wrap on small screens */
+    justify-content: center;
+  }
+
+  #days,
+  #hours,
+  #minutes,
+  #seconds {
+    width: 70px; /* Ensure the countdown elements don't shrink too much */
   }
 }
 
