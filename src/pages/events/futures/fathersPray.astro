@@ -1,0 +1,131 @@
+---
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import "../../../styles/global.css"; // Asegúrate de que la ruta del archivo CSS sea correcta
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <title>Detalles del Evento - Iglesia Asambleas de Dios</title>
+    <meta
+      name="description"
+      content="Detalles del próximo evento de la Iglesia Asambleas de Dios en Chipre, Manizales."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body
+    class="bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 text-white"
+  >
+    <Header />
+    <main
+      class="flex flex-col items-center min-h-screen bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 p-4"
+    >
+      <div class="w-full max-w-4xl mt-8">
+        <img
+          src="/img/OraciónPadres.webp"
+          alt="Encuentro con Jesús 2024"
+          class="w-full rounded"
+        />
+      </div>
+      <div class="w-full max-w-4xl mt-8 text-center">
+        <h1 class="text-3xl font-bold text-center mt-8 text-white">
+          Oración por los Padres
+        </h1>
+        <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+          Te invitamos a unirte a nosotros en un momento especial dedicado a
+          ofrecer la vida de los padres a Dios. Este evento es una oportunidad
+          única para fortalecer nuestra fe y mostrar gratitud por los padres en
+          nuestras vidas.
+        </p>
+        <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+          Acompáñanos en este acto de fe y devoción. Juntos, elevemos nuestras
+          oraciones y agradecimientos al Señor. ¡Te esperamos con los brazos
+          abiertos!
+        </p>
+        <div class="text-left p-4 bg-gray-800 rounded">
+          <h2 class="text-2xl font-bold mb-4 text-white">
+            Detalles de interés:
+          </h2>
+          <p class="text-lg text-gray-300 mb-2">
+            <strong>Fecha:</strong> 7 de Junio
+          </p>
+          <p class="text-lg text-gray-300 mb-2">
+            <strong>Horario:</strong> 10:00 a.m.
+          </p>
+          <a
+            href="https://www.google.com/maps/place/Iglesia+Cristiana+Chipre+Asambleas+De+Dios/@5.0762186,-75.5291487,17z/data=!3m1!4b1!4m6!3m5!1s0x8e476fe21a7a6799:0x2fedc7fb65424c77!8m2!3d5.0762186!4d-75.5265738!16s%2Fg%2F11byckj2dg?entry=ttu"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-gray-300"
+          >
+            <p class="text-lg text-gray-300 mb-2">
+              <strong>Lugar:</strong>
+
+              Iglesia Asambleas de Dios, Chipre, Manizales
+            </p>
+          </a>
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .whatsapp-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: #25d366;
+    color: white;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition:
+      transform 0.3s,
+      background-color 0.3s;
+  }
+  .whatsapp-button:hover {
+    background-color: #1ebe57;
+    transform: scale(1.1);
+  }
+  .whatsapp-button::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    bottom: -10px;
+    left: -10px;
+    background: rgba(37, 211, 102, 0.3);
+    border-radius: 0.5rem;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .whatsapp-button:hover::after {
+    opacity: 1;
+  }
+  .whatsapp-icon {
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+</style>
