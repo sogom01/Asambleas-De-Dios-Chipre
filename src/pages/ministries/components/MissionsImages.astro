@@ -1,0 +1,20 @@
+---
+import Carousel from "../../../components/Carousel.astro";
+
+const images = [
+  { src: "/missions/1.webp", alt: "Foto del Evento Bautizados en fuego" },
+  { src: "/missions/2.webp", alt: "Foto del Evento Bautizados en fuego" },
+  { src: "/missions/3.webp", alt: "Foto del Evento Bautizados en fuego" },
+  { src: "/missions/4.webp", alt: "Foto del Evento Bautizados en fuego" },
+
+  // Agrega más imágenes aquí
+];
+---
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"
+></script>
+
+<div class="w-full max-w-4xl mt-8">
+  <Carousel images={images} />
+</div>

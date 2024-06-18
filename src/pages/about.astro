@@ -4,6 +4,10 @@ import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 import "../styles/style.css";
 import "../styles/pages/about.css";
+import Welcome from "./aboutComponents/Welcome.astro";
+import History from "./aboutComponents/History.astro";
+import CommitmentsTask from "./aboutComponents/CommitmentsTasks.astro";
+import Invitation from "./aboutComponents/Invitation.astro";
 ---
 
 <html lang="es">
@@ -21,190 +25,19 @@ import "../styles/pages/about.css";
       content="Página oficial de la Iglesia Asambleas de Dios en Manizales, Caldas (Chipre). Conéctate con nuestros eventos, ministerios y más."
     />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"></script>
   </head>
-  <body
-    class="bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 text-white"
-  >
+  <body class="bg-gray-900 text-white">
     <Header />
-
-    <div class="about-page">
-      <section class="relative w-full h-64 md:h-80">
-        <img
-          src="/iglesia.webp"
-          alt="Bienvenido a Asambleas de Dios"
-          class="w-full h-full object-cover opacity-30"
-        />
-        <div
-          class="absolute inset-0 flex flex-col items-center justify-center text-center px-4"
-        >
-          <h1 class="text-3xl md:text-4xl text-white font-bold drop-shadow-lg">
-            Asambleas de Dios Chipre
-          </h1>
-          <p class="mt-2 text-lg md:text-3xl text-white drop-shadow-lg">
-            Bienvenido a nuestra iglesia
-          </p>
-        </div>
-      </section>
-
-      <section
-        class="bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 text-gray-200 py-4 px-4"
-      >
-        <div class="container mx-auto text-center">
-          <h2 class="text-3xl font-bold text-gray-100 mb-4 mt-5">
-            Nuestra Historia
-          </h2>
-          <p class="text-lg text-gray-300 mb-8 leading-relaxed">
-            La historia de nuestra iglesia comienza en el año 1975, cuando un
-            grupo de misioneros estadounidenses llega a Manizales con el
-            propósito de compartir su fe y servir a la comunidad. A lo largo de
-            los años, hemos sido testigos de innumerables milagros y hemos visto
-            cómo Dios ha obrado en las familias y personas en nuestra casa de
-            oración.
-          </p>
-          <h2 class="text-3xl font-bold text-gray-100 mb-4">
-            Afiliación y Liderazgo
-          </h2>
-          <p class="text-lg text-gray-300 mb-6 leading-relaxed">
-            Formamos parte del Concilio de las Asambleas de Dios de Colombia,
-            una organización con presencia en más de doscientos países y con una
-            historia de más de cien años. Nuestros pastores presidentes, Edier
-            Izquierdo y Alexandra Núñez, han liderado nuestra congregación desde
-            el año 1998, guiándonos con sabiduría y dedicación en nuestro camino
-            de fe.
-          </p>
-          <h2 class="text-3xl font-bold text-gray-100 mb-4">
-            Expansión y Presencia
-          </h2>
-          <p class="text-lg text-gray-300 mb-6 leading-relaxed">
-            Hoy en día, contamos con iglesias hijas en diferentes municipios de
-            Caldas, como Riosucio, Filadelfia, Villamaría, Salamina y
-            Manzanares. Además, en nuestra ciudad estamos presentes en el barrio
-            La Enea, extendiendo nuestro alcance y llevando el mensaje de Cristo
-            a más comunidades.
-          </p>
-          <h2 class="text-3xl font-bold text-gray-100 mb-4">
-            Nuestro Compromiso
-          </h2>
-          <p class="text-lg text-gray-300 mb-6 leading-relaxed">
-            Como iglesia de Cristo, hemos mantenido un fuerte compromiso con la
-            enseñanza de la palabra de Dios, el apoyo a los necesitados y la
-            creación de un sentido de comunidad y pertenencia para todos
-            nuestros miembros. Nuestros programas y ministerios están diseñados
-            para fortalecer la fe, proporcionar ayuda tangible a quienes lo
-            necesitan y fomentar relaciones significativas entre los miembros de
-            nuestra congregación.
-          </p>
-          <h2 class="text-3xl font-bold text-gray-100 mb-4">
-            Mirando al Futuro
-          </h2>
-          <p class="text-lg text-gray-300 mb-2 leading-relaxed">
-            Hoy, miramos hacia el futuro con esperanza, confiando en que Dios
-            continuará guiándonos y bendiciéndonos mientras seguimos creciendo y
-            sirviéndole con amor, orden y excelencia para la exaltación de Su
-            nombre. Nuestra visión es seguir siendo un faro de luz en la
-            comunidad, reflejando el amor de Cristo en todo lo que hacemos.
-          </p>
-        </div>
-        <div class="container mx-auto text-center">
-          <h2 class="text-3xl font-bold text-gray-100 mb-4">Visión</h2>
-          <h3 class="text-lg font-bold text-gray-100 mb-4">
-            “SERVIR A DIOS CON AMOR, ORDEN Y EXCELENCIA”
-          </h3>
-          <p class="text-lg text-gray-300 mb-6 leading-relaxed">
-            Ser una iglesia que cuente con un liderazgo empoderado y miembros
-            enfocados en el servicio, lo cual se demuestra en un corazón
-            servicial, crecimiento en número de servidores y creyentes, y en la
-            capacitación a través del centro de formación, caracterizándose por
-            trabajar en equipo y por compartir dentro y fuera de nuestras
-            instalaciones el mensaje de salvación con amor, orden y excelencia.
-          </p>
-        </div>
-
-        <div class="container mx-auto text-center">
-          <h2 class="text-3xl font-bold text-gray-100 mb-4">Misión</h2>
-          <h3 class="text-lg font-bold text-gray-100 mb-4">
-            “CAPACITARNOS PARA SERVIR A DIOS CON AMOR, ORDEN Y EXCELENCIA”
-          </h3>
-          <p class="text-lg text-gray-300 mb-6 leading-relaxed">
-            Bajo la dirección del Espíritu Santo, consolidar el liderazgo a
-            través del centro de formación, capacitando a todos los creyentes,
-            guiándoles a descubrir su llamado, dones y talentos y animándoles a
-            servir con amor, orden y excelencia, extendiendo el Reino de Dios.
-          </p>
-        </div>
-
-        <div class="container mx-auto text-center">
-          <h2 class="text-3xl font-bold text-gray-100 mb-4">Nuestras tareas</h2>
-          <h3 class="text-lg font-bold text-gray-100 mb-2">Discipular</h3>
-          <p class="text-lg text-gray-300 mb-6 leading-relaxed">
-            Guiar a los nuevos creyentes en sus primeros pasos para conocer y
-            crecer en su relación con Dios.
-          </p>
-          <h3 class="text-lg font-bold text-gray-100 mb-8">Bautizar</h3>
-          <p class="text-lg text-gray-300 mb-6 leading-relaxed">
-            Cumplir con el mandato de Cristo y demostrar públicamente una nueva
-            vida en Él a través del bautismo.
-          </p>
-          <h3 class="text-lg font-bold text-gray-100 mb-8">Capacitar</h3>
-          <p class="text-lg text-gray-300 mb-6 leading-relaxed">
-            Brindar conocimiento y experiencia para equipar a los creyentes en
-            su servicio a Dios.
-          </p>
-          <h3 class="text-lg font-bold text-gray-100 mb-8">Empoderar</h3>
-          <p class="text-lg text-gray-300 mb-6 leading-relaxed">
-            Orar y consagrar, con el apoyo de nuestros pastores, a los miembros
-            para que sirvan eficazmente a Dios.
-          </p>
-          <h3 class="text-lg font-bold text-gray-100 mb-8">
-            Enviar al servicio
-          </h3>
-          <p class="text-lg text-gray-300 mb-6 leading-relaxed">
-            Poner en práctica lo aprendido, respondiendo al llamado de Dios y
-            sirviendo con dedicación.
-          </p>
-        </div>
-
-        <!-- Este esel enfoque misionero se deja porsi en algun momento se quiere vovler a incluir -->
-
-        <!-- <div class="container mx-auto text-center mb-0">
-          <h2 class="text-3xl font-bold text-gray-100 mb-8">
-            Enfoque Misionero
-          </h2>
-          <p class="text-lg text-gray-300 mb-6 leading-relaxed">
-            Nuestro enfoque misionero está en llegar a las comunidades más
-            necesitadas, ofreciendo ayuda y esperanza a aquellos que enfrentan
-            desafíos. Creemos que todos merecen conocer el amor de Dios y
-            experimentar Su gracia, y nos dedicamos a ser portadores de ese
-            mensaje a través de nuestras acciones y palabras.
-            <br /><br />
-            A través de nuestros programas misioneros, trabajamos para proporcionar
-            recursos esenciales, apoyo emocional y enseñanza espiritual a las personas
-            en situaciones difíciles. Ya sea a nivel local o internacional, nuestra
-            meta es hacer una diferencia tangible en las vidas de aquellos que servimos.
-            <br /><br />
-            Nos asociamos con otras organizaciones y congregaciones para maximizar
-            nuestro impacto y extender nuestro alcance. Juntos, podemos enfrentar
-            los desafíos del mundo con compasión y determinación, llevando la luz
-            de Cristo a los rincones más oscuros y ofreciendo esperanza donde más
-            se necesita.
-          </p>
-        </div> -->
-
-        <div class="container mx-auto text-center">
-          <h2 class="text-3xl font-bold text-gray-100 mb-4">Invitación</h2>
-          <p class="text-lg text-gray-300 mb-4 leading-relaxed">
-            Invitamos a todos a unirse a nosotros en este viaje de fe y a
-            experimentar el amor y la gracia de Dios en nuestra congregación.
-            Creemos que cada persona tiene un lugar en la familia de Dios y
-            estamos emocionados de dar la bienvenida a nuevos miembros que
-            deseen crecer espiritualmente y servir junto a nosotros.
-          </p>
-        </div>
-      </section>
-    </div>
-
+    <main class="about-page">
+      <Welcome />
+      <History />
+      <CommitmentsTask />
+      <Invitation />
+    </main>
     <Footer />
-    <!-- Cargar JavaScript de forma asíncrona -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"
       async></script>
