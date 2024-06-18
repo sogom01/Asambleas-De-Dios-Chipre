@@ -5,27 +5,23 @@ import "../../../styles/global.css";
 import Carousel from "../../../components/Carousel.astro";
 
 const images = [
-  { src: "/encuentro2024/1.webp", alt: "Foto encuentro 1" },
-  { src: "/encuentro2024/2.webp", alt: "Foto encuentro 2" },
-  { src: "/encuentro2024/3.webp", alt: "Foto encuentro 3" },
-  { src: "/encuentro2024/4.webp", alt: "Foto encuentro 4" },
-  { src: "/encuentro2024/5.webp", alt: "Foto encuentro 5" },
-  { src: "/encuentro2024/6.webp", alt: "Foto encuentro 6" },
-  { src: "/encuentro2024/7.webp", alt: "Foto encuentro 7" },
-  { src: "/encuentro2024/8.webp", alt: "Foto encuentro 8" },
-  { src: "/encuentro2024/9.webp", alt: "Foto encuentro 9" },
-  { src: "/bautizos2024/10.webp", alt: "Foto bautizos" },
-  { src: "/bautizos2024/11.webp", alt: "Foto bautizos" },
-  { src: "/bautizos2024/12.webp", alt: "Foto bautizos" },
-  { src: "/bautizos2024/13.webp", alt: "Foto bautizos" },
-  { src: "/bautizos2024/14.webp", alt: "Foto bautizos" },
-  { src: "/bautizos2024/15.webp", alt: "Foto bautizos" },
-  { src: "/bautizos2024/16.webp", alt: "Foto bautizos" },
-  { src: "/bautizos2024/17.webp", alt: "Foto bautizos" },
-  { src: "/bautizos2024/18.webp", alt: "Foto bautizos" },
-  { src: "/bautizos2024/19.webp", alt: "Foto bautizos" },
-  { src: "/bautizos2024/20.webp", alt: "Foto bautizos" },
-  // Agrega más imágenes aquí
+  { src: "/bautizos2024/1.webp", alt: "Foto del encuentro con Jesús" },
+  { src: "/bautizos2024/2.webp", alt: "Foto del encuentro con Jesús" },
+  { src: "/bautizos2024/3.webp", alt: "Foto del encuentro con Jesús" },
+  { src: "/bautizos2024/4.webp", alt: "Foto del encuentro con Jesús" },
+  { src: "/bautizos2024/5.webp", alt: "Foto del encuentro con Jesús" },
+  { src: "/bautizos2024/6.webp", alt: "Foto del encuentro con Jesús" },
+  { src: "/bautizos2024/7.webp", alt: "Foto del encuentro con Jesús" },
+  { src: "/bautizos2024/8.webp", alt: "Foto del encuentro con Jesús" },
+  { src: "/bautizos2024/9.webp", alt: "Foto del encuentro con Jesús" },
+  { src: "/bautizos2024/10.webp", alt: "Foto del encuentro con Jesús" },
+  { src: "/bautizos2024/11.webp", alt: "Foto del encuentro con Jesús" },
+  { src: "/bautizos2024/12.webp", alt: "Foto del encuentro con Jesús" },
+  { src: "/bautizos2024/13.webp", alt: "Foto del encuentro con Jesús" },
+  { src: "/bautizos2024/14.webp", alt: "Foto del encuentro con Jesús" },
+  { src: "/bautizos2024/15.webp", alt: "Foto del encuentro con Jesús" },
+  { src: "/bautizos2024/16.webp", alt: "Foto del encuentro con Jesús" },
+  { src: "/bautizos2024/17.webp", alt: "Foto del encuentro con Jesús" },
 ];
 ---
 
@@ -34,15 +30,10 @@ const images = [
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.webp" />
-    <title>Galería del Evento - Iglesia Asambleas de Dios</title>
+    <title>Encuentro con Jesús 2024 - Iglesia Asambleas de Dios</title>
     <meta
       name="description"
-      content="Galería de fotos e información del evento pasado de la Iglesia Asambleas de Dios en Chipre, Manizales."
-    />
-    <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
-      as="style"
+      content="Galería de fotos e información del encuentro con Jesús 2024."
     />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
@@ -53,8 +44,9 @@ const images = [
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <script
+      async
       src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"
-      defer></script>
+    ></script>
   </head>
   <body
     class="bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 text-white"
@@ -62,11 +54,7 @@ const images = [
     <Header />
     <main
       class="flex flex-col items-center min-h-screen bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 p-4"
-      role="main"
     >
-      <h1 class="text-3xl font-bold text-center mt-8 text-white">
-        Encuentro con Jesús 2024
-      </h1>
       <div class="mt-8 text-center">
         <p class="text-lg text-gray-300">
           El "Encuentro con Jesús" fue un evento especial de tres días
@@ -93,7 +81,7 @@ const images = [
       </div>
 
       <div class="w-full max-w-4xl mt-8">
-        <Carousel images={images} id="carousel1" />
+        <Carousel images={images} />
       </div>
 
       <div
