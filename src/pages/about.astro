@@ -4,11 +4,10 @@ import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 import "../styles/style.css";
 import "../styles/pages/about.css";
-import Welcome from "./aboutComponents/Welcome.astro";
-import History from "./aboutComponents/History.astro";
-import CommitmentsTask from "./aboutComponents/CommitmentsTasks.astro";
-import Invitation from "./aboutComponents/Invitation.astro";
----
+import Welcome from "./componentsAbout/Welcome.astro";
+import History from "./componentsAbout/History.astro";
+import CommitmentsTasks from "./componentsAbout/CommitmentsTasks.astro";
+import Invitation from "./componentsAbout/Invitation.astro";
 
 <html lang="es">
   <head>
@@ -27,19 +26,22 @@ import Invitation from "./aboutComponents/Invitation.astro";
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <script
       src="https://kit.fontawesome.com/a076d05399.js"
-      crossorigin="anonymous"></script>
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body class="bg-gray-900 text-white">
     <Header />
     <main class="about-page">
       <Welcome />
       <History />
-      <CommitmentsTask />
+      <CommitmentsTasks />
       <Invitation />
     </main>
     <Footer />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"
-      async></script>
+      async
+    ></script>
   </body>
-</html>
+</html>;
+---
