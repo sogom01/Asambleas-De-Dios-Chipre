@@ -11,6 +11,7 @@ import "../styles/global.css";
 import "../styles/style.css";
 import "../styles/sidebar-buttons.css";
 import SidebarButtonsContainer from "../components/SidebarButtonsContainer.astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
 ---
 
 <html lang="es">
@@ -30,6 +31,7 @@ import SidebarButtonsContainer from "../components/SidebarButtonsContainer.astro
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
   <body class="bg-gray-900 text-white">
+    <SpeedInsights />
     <Header />
     <SidebarButtonsContainer />
     <main
