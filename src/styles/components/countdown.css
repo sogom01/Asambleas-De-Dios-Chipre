@@ -1,16 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
 
 :root {
-  --primary-color: #ff6b6b;
-  --secondary-color: #f94d00;
-  --background-color: #2c3e50;
-  --text-color: #f8f8f2;
-  --highlight-color: rgba(255, 107, 107, 0.7);
-  --highlight-color-secondary: rgba(249, 77, 0, 0.5);
+  --primary-color: #00ff7f;
+  --secondary-color: #00c4ff;
+  --background-color: #1b1b32;
+  --text-color: #e0e0e0;
+  --highlight-color: rgba(0, 255, 127, 0.7);
+  --highlight-color-secondary: rgba(0, 196, 255, 0.5);
 }
 
 .countdown-container {
-  background: radial-gradient(circle at center, #1e2a38, #000000);
+  background: linear-gradient(135deg, #1b1b32, #222233);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 2rem;
@@ -20,6 +20,16 @@
   flex-direction: column;
   justify-content: center;
   height: 100%;
+  animation: bg-animation 10s infinite alternate;
+}
+
+@keyframes bg-animation {
+  0% {
+    background: linear-gradient(135deg, #1b1b32, #222233);
+  }
+  100% {
+    background: linear-gradient(135deg, #222233, #1b1b32);
+  }
 }
 
 #countdown-title {
