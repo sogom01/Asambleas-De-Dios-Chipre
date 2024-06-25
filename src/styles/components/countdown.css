@@ -21,6 +21,8 @@
   justify-content: center;
   height: 100%;
   animation: bg-animation 10s infinite alternate;
+  height: 100%; /* Match the height of the slider */
+  box-sizing: border-box;
 }
 
 @keyframes bg-animation {
@@ -36,13 +38,16 @@
   color: var(--text-color);
   font-family: "Orbitron", sans-serif;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-size: 1.5rem; /* Smaller title font size */
 }
 
 .countdown-element {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   flex: 1;
   animation: fadeIn 1s ease-in-out;
-  padding: 0.5rem;
+  padding: 0.25rem;
+  flex-basis: 20%; /* Ensure elements take up equal space */
+  box-sizing: border-box;
 }
 
 .countdown-time-wrapper {
@@ -50,7 +55,7 @@
 }
 
 .countdown-time {
-  font-size: 2rem;
+  font-size: 1.2rem; /* Smaller countdown font size */
   background: linear-gradient(
     90deg,
     var(--primary-color) 0%,
@@ -58,13 +63,14 @@
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
   text-shadow: 0 0 10px var(--highlight-color),
     0 0 20px var(--highlight-color-secondary);
   display: inline-block;
   transform-style: preserve-3d;
   transition: transform 0.5s, color 0.5s;
   font-family: "Orbitron", monospace;
+  white-space: nowrap; /* Prevent line breaks */
 }
 
 .countdown-time.changing {
@@ -95,46 +101,47 @@
 }
 
 .countdown-label {
-  font-size: 1rem;
+  font-size: 0.8rem; /* Smaller label font size */
   color: var(--text-color);
+  white-space: nowrap; /* Prevent line breaks */
 }
 
 @media (min-width: 1024px) {
   .countdown-time {
-    font-size: 3rem;
+    font-size: 1.5rem; /* Adjusted for larger screens */
   }
 
   .countdown-label {
-    font-size: 1.2rem;
+    font-size: 1rem; /* Adjusted for larger screens */
   }
 }
 
 @media (max-width: 1024px) {
   .countdown-time {
-    font-size: 1.5rem;
+    font-size: 1rem; /* Adjusted for medium screens */
   }
 
   .countdown-label {
-    font-size: 1rem;
+    font-size: 0.8rem; /* Adjusted for medium screens */
   }
 
   .countdown-element {
-    padding: 1rem;
+    padding: 0.5rem;
   }
 }
 
 @media (max-width: 640px) {
   .countdown-time {
-    font-size: 1rem;
+    font-size: 0.8rem; /* Adjusted for small screens */
   }
 
   .countdown-label {
-    font-size: 0.8rem;
+    font-size: 0.6rem; /* Adjusted for small screens */
   }
 
   .countdown-element {
-    margin-bottom: 0.5rem;
-    padding: 0.5rem;
+    margin-bottom: 0.25rem;
+    padding: 0.25rem;
   }
 }
 
