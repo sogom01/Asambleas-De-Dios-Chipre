@@ -19,22 +19,18 @@ document.addEventListener("DOMContentLoaded", function () {
         const now = new Date();
         let nextMeeting = null;
 
-        // Revisar cada reunión y determinar la más cercana
         meetingTimes.forEach(meeting => {
             const [hours, minutes] = meeting.time.split(":").map(Number);
             const meetingDate = new Date(now);
 
-            // Calcular el próximo día de la reunión
             const dayDiff = (dayMap[meeting.day] - now.getDay() + 7) % 7;
             meetingDate.setDate(now.getDate() + dayDiff);
             meetingDate.setHours(hours, minutes, 0, 0);
 
-            // Si la reunión calculada es en el pasado, agregar 7 días
             if (meetingDate <= now) {
                 meetingDate.setDate(meetingDate.getDate() + 7);
             }
 
-            // Establecer la próxima reunión si es la más cercana
             if (!nextMeeting || meetingDate < nextMeeting) {
                 nextMeeting = meetingDate;
             }
@@ -43,7 +39,45 @@ document.addEventListener("DOMContentLoaded", function () {
         return nextMeeting;
     }
 
+    function showLiveNotification() {
+        document.getElementById("countdown-title").style.display = "none";
+        document.getElementById("countdown-timer").style.display = "none";
+        const liveNotification = document.getElementById("live-notification");
+        liveNotification.classList.remove("hidden");
+
+        const liveEndTime = new Date().getTime() + 3600000;
+        localStorage.setItem('liveEndTime', liveEndTime);
+    }
+
+    function hideLiveNotification() {
+        document.getElementById("countdown-title").style.display = "block";
+        document.getElementById("countdown-timer").style.display = "flex";
+        const liveNotification = document.getElementById("live-notification");
+        liveNotification.classList.add("hidden");
+    }
+
+    function checkLiveNotification() {
+        const liveEndTime = localStorage.getItem('liveEndTime');
+        if (liveEndTime) {
+            const now = new Date().getTime();
+            const timeLeft = liveEndTime - now;
+            if (timeLeft > 0) {
+                showLiveNotification();
+                setTimeout(() => {
+                    hideLiveNotification();
+                    updateCountdown();
+                }, timeLeft);
+                return true;
+            } else {
+                localStorage.removeItem('liveEndTime');
+            }
+        }
+        return false;
+    }
+
     function updateCountdown() {
+        if (checkLiveNotification()) return;
+
         const nextMeetingDate = getNextMeetingDate().getTime();
         const elements = {
             days: document.getElementById("days").querySelector(".countdown-time"),
@@ -65,14 +99,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (distance <= 0) {
                 clearInterval(countdownInterval);
-                document.getElementById("countdown-title").style.display = "none";
-                document.getElementById("countdown-timer").style.display = "none";
-                const liveNotification = document.getElementById("live-notification");
-                liveNotification.classList.remove("hidden");
+                showLiveNotification();
                 setTimeout(() => {
-                    liveNotification.classList.add("hidden");
-                    document.getElementById("countdown-title").style.display = "block";
-                    document.getElementById("countdown-timer").style.display = "flex";
+                    hideLiveNotification();
                     updateCountdown();
                 }, 3600000); // 1 hour
                 return;
