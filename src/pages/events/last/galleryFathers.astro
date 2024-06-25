@@ -1,0 +1,80 @@
+---
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import "../../../styles/global.css";
+import Carousel from "../../../components/Carousel.astro";
+
+const images = [
+  { src: "/prayerFathers/1.webp", alt: "Foto Oración por los padres" },
+  { src: "/prayerFathers/2.webp", alt: "Foto Oración por los padres" },
+  { src: "/prayerFathers/3.webp", alt: "Foto Oración por los padres" },
+  { src: "/prayerFathers/4.webp", alt: "Foto Oración por los padres" },
+  { src: "/prayerFathers/5.webp", alt: "Foto Oración por los padres" },
+  { src: "/prayerFathers/6.webp", alt: "Foto Oración por los padres" },
+  { src: "/prayerFathers/7.webp", alt: "Foto Oración por los padres" },
+  { src: "/prayerFathers/8.webp", alt: "Foto Oración por los padres" },
+  { src: "/prayerFathers/9.webp", alt: "Foto Oración por los padres" },
+  { src: "/prayerFathers/10.webp", alt: "Foto Oración por los padres" },
+  { src: "/prayerFathers/11.webp", alt: "Foto Oración por los padres" },
+  { src: "/prayerFathers/12.webp", alt: "Foto Oración por los padres" },
+  { src: "/prayerFathers/13.webp", alt: "Foto Oración por los padres" },
+  { src: "/prayerFathers/14.webp", alt: "Foto Oración por los padres" },
+  { src: "/prayerFathers/15.webp", alt: "Foto Oración por los padres" },
+  { src: "/prayerFathers/16.webp", alt: "Foto Oración por los padres" },
+  // Agrega más imágenes aquí
+];
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.webp" />
+    <title>Galería del Evento - Iglesia Asambleas de Dios</title>
+    <meta
+      name="description"
+      content="Galería de fotos e información del evento pasado de la Iglesia Asambleas de Dios en Chipre, Manizales."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"
+    ></script>
+  </head>
+  <body
+    class="bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 text-white"
+  >
+    <Header />
+    <main
+      class="flex flex-col items-center min-h-screen bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 p-4"
+    >
+      <div class="w-full max-w-4xl mt-8">
+        <Carousel images={images} />
+      </div>
+      <div class="mt-8 text-center">
+        <p class="text-lg text-gray-300">
+          "Red Gospel" fue una jornada juvenil llena de energía, donde los
+          jóvenes se reunieron para celebrar y compartir su fe. A lo largo del
+          evento, hubo momentos de adoración, reflexión y enseñanza sobre el
+          evangelio de salvación, resaltando la importancia de vivir una vida
+          dedicada a Cristo.
+          <br /><br />
+          El evento contó con dinámicas, música en vivo y mensajes inspiradores que
+          motivaron a los asistentes a profundizar su relación con Dios y a llevar
+          el mensaje de salvación a otros. Fue una experiencia transformadora que
+          fortaleció la comunidad juvenil de nuestra iglesia.
+          <br /><br />
+          Agradecemos a todos los que participaron y colaboraron para que este evento
+          fuera un éxito. ¡Esperamos verlos en nuestras próximas actividades!
+        </p>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
