@@ -131,17 +131,20 @@
 }
 
 @media (max-width: 640px) {
+  .countdown-tittle {
+    font-size: 0.5rem; /* Adjusted for small screens */
+  }
   .countdown-time {
-    font-size: 0.8rem; /* Adjusted for small screens */
+    font-size: 0.2rem; /* Adjusted for small screens */
   }
 
   .countdown-label {
-    font-size: 0.6rem; /* Adjusted for small screens */
+    font-size: 0.1rem; /* Adjusted for small screens */
   }
 
   .countdown-element {
-    margin-bottom: 0.25rem;
-    padding: 0.25rem;
+    margin-bottom: 0.1rem;
+    padding: 0.3rem;
   }
 }
 
