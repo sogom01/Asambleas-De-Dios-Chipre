@@ -1,36 +1,63 @@
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
 
-.font-mono {
-  font-family: "Orbitron", monospace;
+:root {
+  --primary-color: #ff6b6b;
+  --secondary-color: #f94d00;
+  --background-color: #2c3e50;
+  --text-color: #f8f8f2;
+  --highlight-color: rgba(255, 107, 107, 0.7);
+  --highlight-color-secondary: rgba(249, 77, 0, 0.5);
+}
+
+.countdown-container {
+  background: radial-gradient(circle at center, #1e2a38, #000000);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+#countdown-title {
+  color: var(--text-color);
+  font-family: "Orbitron", sans-serif;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .countdown-element {
-  margin-bottom: 1rem; /* Margin between elements on smaller screens */
+  margin-bottom: 1rem;
+  flex: 1;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .countdown-time-wrapper {
-  perspective: 1000px; /* Perspective for the 3D effect */
+  perspective: 1000px;
 }
 
 .countdown-time {
-  font-size: 2.5rem; /* Font size for countdown time */
+  font-size: 2rem;
   background: linear-gradient(
     90deg,
-    rgba(255, 215, 0, 1) 0%,
-    rgba(255, 153, 0, 1) 100%
+    var(--primary-color) 0%,
+    var(--secondary-color) 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 0.5rem;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.7), 0 0 20px rgba(255, 153, 0, 0.5);
+  text-shadow: 0 0 10px var(--highlight-color),
+    0 0 20px var(--highlight-color-secondary);
   display: inline-block;
   transform-style: preserve-3d;
-  transition: transform 0.5s;
+  transition: transform 0.5s, color 0.5s;
   font-family: "Orbitron", monospace;
 }
 
 .countdown-time.changing {
-  animation: flip-up 0.5s;
+  animation: flip-up 0.5s, glow 1s infinite alternate;
 }
 
 @keyframes flip-up {
@@ -45,33 +72,53 @@
   }
 }
 
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px var(--highlight-color),
+      0 0 20px var(--highlight-color-secondary), 0 0 30px var(--primary-color);
+  }
+  100% {
+    text-shadow: 0 0 20px var(--highlight-color),
+      0 0 30px var(--highlight-color-secondary), 0 0 40px var(--primary-color);
+  }
+}
+
 .countdown-label {
-  font-size: 1.2rem; /* Font size for countdown labels */
-  color: #d4d4d8; /* Soft white color for labels */
+  font-size: 1rem;
+  color: var(--text-color);
 }
 
-@media (min-width: 640px) {
+@media (min-width: 1024px) {
   .countdown-time {
-    font-size: 3rem; /* Increase font size on larger screens */
+    font-size: 3rem;
   }
 
   .countdown-label {
-    font-size: 1.4rem; /* Increase font size on larger screens */
+    font-size: 1.2rem;
   }
 }
 
-@media (max-width: 639px) {
+@media (max-width: 1024px) {
   .countdown-time {
-    font-size: 1.5rem; /* Smaller font size for smaller screens */
+    font-size: 1.5rem;
   }
 
   .countdown-label {
-    font-size: 0.8rem; /* Smaller font size for labels on smaller screens */
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .countdown-time {
+    font-size: 1rem;
+  }
+
+  .countdown-label {
+    font-size: 0.8rem;
   }
 
   .countdown-element {
-    min-width: 70px; /* Ensure each element has enough width */
-    margin-bottom: 0.5rem; /* Ensure enough space between elements */
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -100,4 +147,13 @@
 
 #live-notification:hover {
   color: inherit;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

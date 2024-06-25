@@ -4,15 +4,15 @@ import "../styles/components/countdown.css";
 
 <section
   id="countdown"
-  class="relative bg-gradient-to-b from-gray-800 via-gray-900 to-black text-white py-5 mx-2 rounded-lg shadow-lg"
+  class="countdown-container relative py-8 px-6 rounded-lg shadow-lg max-w-4xl m-auto h-full"
 >
-  <h2 id="countdown-title" class="text-2xl font-normal text-center mb-0 px-4">
+  <h2 id="countdown-title" class="text-2xl font-bold text-center mb-4">
     Nuestra próxima reunión es en:
   </h2>
-  <div class="text-center text-lg italic" id="next-meeting-label"></div>
+  <div class="text-center text-lg italic mb-6" id="next-meeting-label"></div>
   <div
     id="countdown-timer"
-    class="flex justify-center items-center space-x-2 sm:space-x-8"
+    class="flex justify-center items-center flex-wrap"
     aria-live="polite"
   >
     <div class="countdown-element text-center">
@@ -52,7 +52,7 @@ import "../styles/components/countdown.css";
       ¡La reunión ha comenzado!
     </h2>
     <div
-      class="bg-red-600 text-white m-auto w-fit px-3 py-2 rounded shadow-lg transition transform hover:bg-red-700 text-lg"
+      class="bg-red-600 text-white m-auto w-fit px-4 py-2 rounded shadow-lg transition transform hover:bg-red-700 text-lg"
     >
       VER TRANSMISIÓN EN VIVO
     </div>
