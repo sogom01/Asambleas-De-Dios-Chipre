@@ -181,7 +181,15 @@
 }
 @media (max-width: 768px) {
   img {
-    margin-bottom: 5.5rem;
+    margin-top: 0rem;
+  }
+
+  nav {
+    margin-top: 2.5rem;
+  }
+
+  .header {
+    padding-bottom: 0rem;
   }
 
   .nav-links {
