@@ -42,7 +42,6 @@
 }
 
 .countdown-element {
-  margin-bottom: 0.5rem;
   flex: 1;
   animation: fadeIn 1s ease-in-out;
   padding: 0.25rem;
@@ -55,7 +54,7 @@
 }
 
 .countdown-time {
-  font-size: 1.2rem; /* Smaller countdown font size */
+  font-size: 1rem; /* Smaller countdown font size */
   background: linear-gradient(
     90deg,
     var(--primary-color) 0%,
