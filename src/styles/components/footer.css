@@ -1,0 +1,31 @@
+.container {
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.text-gold {
+  color: #d4af37;
+}
+
+.text-light-gray {
+  color: #d3d3d3;
+}
+
+.hover\:text-gold:hover {
+  color: #d4af37;
+}
+
+.flex-shrink-0 img {
+  max-height: 112px; /* Ensure the logo has a maximum height */
+}
+
+@media (max-width: 640px) {
+  footer {
+    text-align: center;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+}

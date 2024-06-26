@@ -1,42 +1,7 @@
 ---
+import "../styles/components/eventCard.css";
 const { image, title, date, link } = Astro.props;
 ---
-
-<style>
-  .event-card {
-    position: relative;
-    border-radius: 0.375rem;
-    overflow: hidden;
-    transition: transform 0.3s;
-  }
-
-  .event-card:hover {
-    transform: scale(1.05);
-  }
-
-  .event-card img {
-    width: 100%;
-    height: auto;
-    transition: transform 0.3s ease;
-  }
-
-  .event-card-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 0.2rem;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-
-  .event-card:hover .event-card-info {
-    opacity: 1;
-  }
-</style>
 
 <div class="event-card">
   <a href={link} aria-label={`Ver detalles del evento ${title}`}>
