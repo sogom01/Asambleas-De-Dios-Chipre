@@ -1,23 +1,10 @@
 .header {
   background: linear-gradient(to bottom, #333, #444, #555);
   color: white;
-  padding: 1rem 0;
-}
-
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 5rem 0;
 }
 
 .nav-links {
-  display: none;
-}
-
-.nav-list {
   display: flex;
   list-style: none;
   gap: 2rem;
@@ -193,9 +180,7 @@
   }
 
   .nav-links {
-    display: flex;
-    flex: 1;
-    justify-content: flex-start;
+    display: none;
   }
 
   .logo-container {
@@ -209,5 +194,15 @@
 
   .modal-grid {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 769px) {
+  .nav-links {
+    display: flex;
+  }
+
+  .mobile-nav {
+    display: none;
   }
 }

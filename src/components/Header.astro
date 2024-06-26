@@ -3,33 +3,16 @@ import "../styles/components/header.css";
 ---
 
 <header
-  class="header bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 text-white px-5 py-10"
+  class="header bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 text-white px-2 py-6"
 >
   <nav
-    class="container mx-auto flex flex-wrap items-center justify-between px-8 md:px-10"
+    class="container mx-auto flex flex-wrap items-center justify-around px-4"
   >
-    <!-- Logo centrado en móviles y a la derecha en escritorio -->
-    <div
-      class="w-full md:w-auto flex justify-center md:justify-end order-1 md:order-2 bg-transparent px-10 logo"
-    >
-      <a
-        href="/"
-        aria-label="Página principal"
-        class="flex items-center justify-center h-28 w-full md:h-40 mt-6"
-      >
-        <img
-          src="/logo.webp"
-          alt="Logo de la Iglesia"
-          class="h-28 md:h-32 w-auto"
-          loading="lazy"
-        />
-      </a>
-    </div>
     <!-- Navegación - solo visible en escritorio -->
     <div
-      class="hidden md:flex w-full md:w-auto justify-start md:justify-between order-2 md:order-1 nav-links"
+      class="hidden md:flex w-full md:w-auto justify-start md:justify-start order-1 md:order-1 nav-links"
     >
-      <ul class="flex space-x-10 text-lg font-medium ml-12">
+      <ul class="flex space-x-10 text-lg font-medium mt-6">
         <li>
           <a
             href="/"
@@ -66,6 +49,23 @@ import "../styles/components/header.css";
           >
         </li>
       </ul>
+    </div>
+    <!-- Logo centrado en móviles y a la derecha en escritorio -->
+    <div
+      class="w-full md:w-auto flex justify-center md: order-1 md:order-2 bg-transparent logo"
+    >
+      <a
+        href="/"
+        aria-label="Página principal"
+        class="flex justify-center h-28 w-full md:h-30"
+      >
+        <img
+          src="/logo.webp"
+          alt="Logo de la Iglesia"
+          class="h-28 md:h-32 w-auto"
+          loading="lazy"
+        />
+      </a>
     </div>
   </nav>
   <!-- Segunda barra de navegación solo para pantallas pequeñas con iconos y menú hamburguesa -->
@@ -123,7 +123,7 @@ import "../styles/components/header.css";
   <!-- Menú móvil lateral -->
   <div
     id="mobile-menu"
-    class="fixed inset-y-0 left-0 w-4/12 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 bg-opacity-90 hidden z-50"
+    class="fixed inset-y-0 left-0 w-6/12 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 bg-opacity-90 hidden z-50"
   >
     <div class="flex flex-col h-full">
       <div class="flex justify-end p-4">
