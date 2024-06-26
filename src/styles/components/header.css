@@ -1,7 +1,7 @@
 .header {
   background: linear-gradient(to bottom, #333, #444, #555);
   color: white;
-  padding: 5rem 0;
+  padding: 3rem 0 1rem 0;
 }
 
 .nav-links {
@@ -170,11 +170,6 @@
   img {
     margin-top: 0rem;
   }
-
-  nav {
-    margin-top: 2.5rem;
-  }
-
   .header {
     padding-bottom: 0rem;
   }
