@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const meetingTimes = [
-        { day: "Wednesday", time: "09:56" },
+        { day: "Wednesday", time: "10:12" },
         { day: "Saturday", time: "18:00" },
         { day: "Sunday", time: "10:00" },
     ];
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const liveNotification = document.getElementById("live-notification");
         liveNotification.classList.remove("hidden");
 
-        const liveEndTime = new Date().getTime() + 60;
+        const liveEndTime = new Date().getTime() + 3600;
         localStorage.setItem('liveEndTime', liveEndTime);
     }
 
