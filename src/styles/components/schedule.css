@@ -9,12 +9,13 @@
 }
 
 .modal-content {
-  background: #333;
   padding: 2rem;
   border-radius: 10px;
   position: relative;
   text-align: center;
   max-width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
 }
 
 .modal-close-button {
@@ -24,12 +25,15 @@
   background: none;
   border: none;
   color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 .modal-title {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 1rem;
+  color: white;
 }
 
 .modal-grid {
@@ -39,9 +43,15 @@
 }
 
 .modal-item {
-  background: #444;
-  padding: 1rem;
+  position: relative;
+  overflow: hidden;
   border-radius: 5px;
+}
+
+.modal-item-title,
+.modal-item-time {
+  position: relative;
+  z-index: 1; /* Ensure text is above the background */
 }
 
 .modal-item-title {
@@ -58,32 +68,4 @@
   .modal-grid {
     grid-template-columns: 1fr 1fr;
   }
-}
-
-.bg-miércoles,
-.bg-viernes,
-.bg-sábado,
-.bg-domingo {
-  position: relative;
-  color: white;
-  padding: 20px;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.bg-miércoles::before,
-.bg-viernes::before,
-.bg-sábado::before,
-.bg-domingo::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("/iglesia.webp");
-  background-size: cover;
-  background-position: center;
-  opacity: 0.5; /* Ajusta la opacidad según tu preferencia */
-  z-index: -1;
 }

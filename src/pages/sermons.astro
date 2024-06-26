@@ -5,7 +5,7 @@ import "../styles/global.css";
 
 const API_KEY = "AIzaSyDb5VVtVs1maGE67GIK9piR50zGfhyQhX8"; // Tu clave de API
 const CHANNEL_ID = "UCMB9X07ZWy8J5ict9e3PV6Q"; // ID del canal de YouTube
-const MAX_RESULTS = 15;
+const MAX_RESULTS = 16;
 
 let videos = [];
 
@@ -88,16 +88,15 @@ await fetchYouTubeVideos();
             <p class="text-white">Cargando videos...</p>
           )
         }
-        <div class="see-more-card">
-          <a
-            href={`https://www.youtube.com/channel/${CHANNEL_ID}/videos`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Ver más
-          </a>
-        </div>
       </div>
+      <a
+        href={`https://www.youtube.com/channel/${CHANNEL_ID}/videos`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="align-self-center mt-5"
+      >
+        <div class="see-more-card">Ver más</div>
+      </a>
     </main>
     <Footer />
   </body>
