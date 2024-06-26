@@ -3,10 +3,10 @@ import "../styles/components/header.css";
 ---
 
 <header
-  class="header bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 text-white"
+  class="header bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 text-white px-5 py-10"
 >
   <nav
-    class="container mx-auto flex flex-wrap items-center justify-between px-8 md:px-16"
+    class="container mx-auto flex flex-wrap items-center justify-between px-8 md:px-10"
   >
     <!-- Logo centrado en móviles y a la derecha en escritorio -->
     <div
@@ -15,7 +15,7 @@ import "../styles/components/header.css";
       <a
         href="/"
         aria-label="Página principal"
-        class="flex items-center justify-center h-28 w-full md:h-40"
+        class="flex items-center justify-center h-28 w-full md:h-40 mt-12"
       >
         <img
           src="/logo.webp"
@@ -54,18 +54,17 @@ import "../styles/components/header.css";
         <li>
           <a
             href="/sermons"
-            id="scheduleButton"
             class="relative hover:text-yellow-500 transition duration-300"
             >Prédicas</a
           >
         </li>
-        <!-- <li>
-          <a
-            href="/schedule"
+        <li>
+          <button
+            id="scheduleButton"
             class="relative hover:text-yellow-500 transition duration-300"
-            >Horarios</a
+            >Horarios</button
           >
-        </li> -->
+        </li>
       </ul>
     </div>
   </nav>
@@ -124,7 +123,7 @@ import "../styles/components/header.css";
   <!-- Menú móvil lateral -->
   <div
     id="mobile-menu"
-    class="fixed inset-y-0 left-0 w-7/12 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 bg-opacity-90 hidden z-50"
+    class="fixed inset-y-0 left-0 w-4/12 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 bg-opacity-90 hidden z-50"
   >
     <div class="flex flex-col h-full">
       <div class="flex justify-end p-4">
@@ -148,7 +147,7 @@ import "../styles/components/header.css";
           </svg>
         </button>
       </div>
-      <ul class="space-y-6 text-center font-medium mt-8 px-4">
+      <ul class="space-y-6 text-center font-medium mt-8 px-10">
         <li>
           <a
             href="/"
@@ -177,14 +176,64 @@ import "../styles/components/header.css";
             >Prédicas</a
           >
         </li>
-        <!-- <li>
-          <a
-            href="/schedule"
-            class="block text-white hover:text-yellow-500 transition duration-300"
-            >Horarios</a
+        <li>
+          <button
+            id="scheduleButtonMobile"
+            class="relative hover:text-yellow-500 transition duration-300"
+            >Horarios</button
           >
-        </li> -->
+        </li>
       </ul>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div
+    id="scheduleModal"
+    class="fixed inset-0 bg-black bg-opacity-80 hidden z-50 flex items-center justify-center"
+  >
+    <div
+      class="bg-gray-800 p-8 rounded-lg text-center w-11/12 md:w-2/3 lg:w-1/2 relative"
+    >
+      <button
+        id="closeModalButton"
+        class="absolute top-2 right-2 text-white focus:outline-none"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+      <h2 class="text-3xl font-bold mb-4 text-white">
+        Horarios de nuestras reuniones
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-gray-700 p-4 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold text-white">Miércoles</h3>
+          <p class="text-gray-300">7 PM</p>
+        </div>
+        <div class="bg-gray-700 p-4 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold text-white">Viernes (Ayuno)</h3>
+          <p class="text-gray-300">8 AM</p>
+        </div>
+        <div class="bg-gray-700 p-4 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold text-white">Sábado (Jóvenes)</h3>
+          <p class="text-gray-300">6 PM</p>
+        </div>
+        <div class="bg-gray-700 p-4 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold text-white">Domingos</h3>
+          <p class="text-gray-300">10 AM</p>
+        </div>
+      </div>
     </div>
   </div>
 </header>
