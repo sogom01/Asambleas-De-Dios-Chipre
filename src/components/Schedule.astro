@@ -2,17 +2,9 @@
 import "../styles/components/schedule.css";
 ---
 
-<div
-  id="scheduleModal"
-  class="fixed inset-0 bg-black bg-opacity-80 hidden z-50 flex items-center justify-center"
->
-  <div
-    class="bg-gray-800 p-8 rounded-lg text-center w-11/12 md:w-2/3 lg:w-1/2 relative"
-  >
-    <button
-      id="closeModalButton"
-      class="absolute top-2 right-2 text-white focus:outline-none"
-    >
+<div id="scheduleModal" class="modal flex items-center justify-center">
+  <div class="modal-content w-11/12 md:w-2/3 lg:w-1/2 relative">
+    <button id="closeModalButton" class="modal-close-button">
       <svg
         class="w-6 h-6"
         fill="none"
@@ -27,25 +19,29 @@ import "../styles/components/schedule.css";
           d="M6 18L18 6M6 6l12 12"></path>
       </svg>
     </button>
-    <h2 class="text-3xl font-bold mb-4 text-white">
-      Horarios de nuestras reuniones
-    </h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div class="bg-gray-700 p-4 rounded-lg shadow-md bg-miércoles">
-        <h3 class="text-xl font-semibold text-white">Miércoles</h3>
-        <p class="text-gray-300">7 PM</p>
+    <h2 class="modal-title">Horarios de nuestras reuniones</h2>
+    <div class="modal-grid">
+      <div class="modal-item bg-miércoles">
+        <div class="overlay"></div>
+        <h3 class="modal-item-title">Miércoles</h3>
+        <p class="modal-item-time">7 pm</p>
       </div>
-      <div class="bg-gray-700 p-4 rounded-lg shadow-md bg-viernes">
-        <h3 class="text-xl font-semibold text-white">Viernes (Ayuno)</h3>
-        <p class="text-gray-300">8 AM</p>
+      <div class="modal-item bg-viernes">
+        <div class="overlay"></div>
+        <h3 class="modal-item-title">Viernes</h3>
+        <h4 class="modal-item-title text-xs font-light">Ayuno</h4>
+        <p class="modal-item-time">8 am</p>
       </div>
-      <div class="bg- p-4 rounded-lg shadow-md bg-sábado">
-        <h3 class="text-xl font-semibold text-white">Sábado (Jóvenes)</h3>
-        <p class="text-gray-300">6 PM</p>
+      <div class="modal-item bg-sábado">
+        <div class="overlay"></div>
+        <h3 class="modal-item-title">Sábado</h3>
+        <h4 class="modal-item-title text-xs font-light">Jóvenes</h4>
+        <p class="modal-item-time">6 pm</p>
       </div>
-      <div class="bg-gray-700 p-4 rounded-lg shadow-md bg-domingo">
-        <h3 class="text-xl font-semibold text-white">Domingos</h3>
-        <p class="text-gray-300">10 AM</p>
+      <div class="modal-item bg-domingo">
+        <div class="overlay"></div>
+        <h3 class="modal-item-title">Domingos</h3>
+        <p class="modal-item-time">10 am</p>
       </div>
     </div>
   </div>
