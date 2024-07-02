@@ -1,8 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
     const scheduleButton = document.getElementById("scheduleButton");
+    const videoButton = document.getElementById("videoButton");
     const scheduleButtonMobile = document.getElementById("scheduleButtonMobile");
     const scheduleModal = document.getElementById("scheduleModal");
     const closeModalButton = document.getElementById("closeModalButton");
+    const closeModalButtonVideo = document.getElementById("closeModalButtonVideo");
 
     scheduleButton.addEventListener("click", () => {
         scheduleModal.classList.remove("hidden");
