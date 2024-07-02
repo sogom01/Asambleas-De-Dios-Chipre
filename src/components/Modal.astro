@@ -1,5 +1,5 @@
 ---
-const { open, onClose, videoSrc } = Astro.props;
+const { open, onClose, imgSrc } = Astro.props;
 ---
 
 <div
@@ -42,6 +42,9 @@ const { open, onClose, videoSrc } = Astro.props;
             ¡Ven y Visítanos!
           </h3>
           <div class="relative">
+            <!-- Componente para poner video en el modal -->
+
+            <!--
             <video
               id="modal-video"
               class="w-full h-auto rounded-lg"
@@ -60,6 +63,15 @@ const { open, onClose, videoSrc } = Astro.props;
             >
               <div id="progress-bar" class="h-1 bg-zinc-50"></div>
             </div>
+            -->
+
+            <!-- Este componente pone una imágen en el modal -->
+
+            <img
+              src={imgSrc}
+              alt="Anuncio Publicitario"
+              class="w-full h-auto rounded-lg"
+            />
           </div>
         </div>
       </div>
