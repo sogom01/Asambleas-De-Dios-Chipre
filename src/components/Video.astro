@@ -1,0 +1,31 @@
+---
+import "../styles/components/schedule.css";
+---
+
+<div id="videoModal" class="modal flex items-center hidden justify-center">
+  <!-- Si quiero que se despliegue en todo momento, quitar hidden -->
+  <div class="modal-content w-11/12 md:w-2/3 lg:w-1/2 relative">
+    <button id="closeModalButtonVideo" class="modal-close-button">
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+    <h2 class="modal-title">Vén y visítanos</h2>
+    <div class="modal-video-container">
+      <video controls class="w-full" loop autoplay muted>
+        <source src="/modal/1.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</div>

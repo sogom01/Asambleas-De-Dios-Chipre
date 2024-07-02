@@ -12,6 +12,14 @@ document.addEventListener("DOMContentLoaded", () => {
         scheduleModal.classList.add("hidden");
     });
 
+    videoButton.addEventListener("click", () => {
+        videoModal.classList.remove("hidden");
+    });
+
+    closeModalButtonVideo.addEventListener("click", () => {
+        videoModal.classList.add("hidden");
+    });
+
     window.addEventListener("click", (event) => {
         if (event.target === scheduleModal) {
             scheduleModal.classList.add("hidden");

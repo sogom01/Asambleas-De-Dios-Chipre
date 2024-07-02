@@ -1,0 +1,36 @@
+---
+import "../styles/components/header.css";
+import Video from "./Video.astro";
+---
+
+<button
+  id="videoButton"
+  class="fixed bottom-5 left-5 p-3 bg-gray-700 text-xl rounded-full opacity-80 flex items-center justify-center shadow-lg hover:bg-blue-700 transition duration-300 z-50 animate-bounce"
+>
+  📽️
+</button>
+
+<!-- Modal -->
+<Video />
+
+<style>
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 2s infinite;
+  }
+
+  .modal-content video {
+    width: 100%;
+  }
+</style>
+
+<script src="../js/header.js"></script>
