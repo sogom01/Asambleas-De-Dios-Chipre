@@ -42,15 +42,31 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    const mobileMenuButton = document.getElementById("mobile-menu-button");
-    const mobileMenu = document.getElementById("mobile-menu");
-    const closeMobileMenuButton = document.getElementById("close-menu-button");
+    document.addEventListener("DOMContentLoaded", () => {
+        const videoButton = document.getElementById("videoButton");
+        const videoModal = document.getElementById("videoModal");
+        const closeModalButtonVideo = document.getElementById("closeModalButtonVideo");
+        const videoElement = videoModal.querySelector("video");
 
-    mobileMenuButton.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-    });
+        videoButton.addEventListener("click", () => {
+            videoModal.classList.remove("hidden");
+            videoElement.play().catch(error => {
+                console.error("Error attempting to play video:", error);
+            });
+        });
 
-    closeMobileMenuButton.addEventListener("click", () => {
-        mobileMenu.classList.add("hidden");
+        closeModalButtonVideo.addEventListener("click", () => {
+            videoModal.classList.add("hidden");
+            videoElement.pause();
+        });
+
+        window.addEventListener("click", (event) => {
+            if (event.target === videoModal) {
+                videoModal.classList.add("hidden");
+                videoElement.pause();
+            }
+        });
     });
 });
+
+
