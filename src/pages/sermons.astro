@@ -5,36 +5,33 @@ import "../styles/global.css";
 import Bottom from "../components/Bottom.astro";
 
 const API_KEY = "AIzaSyDb5VVtVs1maGE67GIK9piR50zGfhyQhX8"; // Tu clave de API
-const CHANNEL_ID = "UCMB9X07ZWy8J5ict9e3PV6Q"; // ID del canal de YouTube
+const PLAYLIST_ID = "PLd5H3WeQcoq5IjpS0QsCkjKZrtRLdTaEU"; // ID de la lista de reproducción
 const MAX_RESULTS = 16;
 
 let videos = [];
 
-async function fetchYouTubeVideos() {
+async function fetchYouTubePlaylistVideos() {
   try {
     const response = await fetch(
-      `https://www.googleapis.com/youtube/v3/activities?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,contentDetails&maxResults=${MAX_RESULTS}`
+      `https://www.googleapis.com/youtube/v3/playlistItems?key=${API_KEY}&playlistId=${PLAYLIST_ID}&part=snippet&maxResults=${MAX_RESULTS}`
     );
     const data = await response.json();
     if (data.items && data.items.length > 0) {
-      videos = data.items
-        .filter((item) => item.contentDetails.upload)
-        .map((item) => ({
-          id: item.contentDetails.upload.videoId,
-          title: item.snippet.title,
-          thumbnail: item.snippet.thumbnails.high.url,
-          publishedAt: new Date(item.snippet.publishedAt).getTime(), // Convertir a milisegundos
-        }))
-        .sort((a, b) => b.publishedAt - a.publishedAt); // Comparar milisegundos
+      videos = data.items.map((item) => ({
+        id: item.snippet.resourceId.videoId,
+        title: item.snippet.title,
+        thumbnail: item.snippet.thumbnails.high.url,
+        publishedAt: new Date(item.snippet.publishedAt).getTime(), // Convertir a milisegundos
+      }));
     } else {
       console.error("No se encontraron videos en la respuesta de la API");
     }
   } catch (error) {
-    console.error("Error fetching YouTube videos:", error);
+    console.error("Error fetching YouTube playlist videos:", error);
   }
 }
 
-await fetchYouTubeVideos();
+await fetchYouTubePlaylistVideos();
 ---
 
 <html lang="es">
@@ -73,7 +70,7 @@ await fetchYouTubeVideos();
             videos.map((video) => (
               <div class="card">
                 <a
-                  href={`https://www.youtube.com/watch?v=${video.id}`}
+                  href={`https://www.youtube.com/watch?v=${video.id}&list=${PLAYLIST_ID}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -92,7 +89,7 @@ await fetchYouTubeVideos();
         }
       </div>
       <a
-        href={`https://www.youtube.com/channel/${CHANNEL_ID}/videos`}
+        href={`https://www.youtube.com/playlist?list=${PLAYLIST_ID}`}
         target="_blank"
         rel="noopener noreferrer"
         class="align-self-center mt-5"
