@@ -1,0 +1,78 @@
+---
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import "../../../styles/global.css";
+import Carousel from "../../../components/Carousel.astro";
+
+const images = [
+  { src: "/colombianPray/2.webp", alt: "Foto Santa Cena" },
+  { src: "/colombianPray/3.webp", alt: "Foto Santa Cena" },
+  { src: "/colombianPray/4.webp", alt: "Foto Santa Cena" },
+  { src: "/colombianPray/5.webp", alt: "Foto Santa Cena" },
+  { src: "/colombianPray/6.webp", alt: "Foto Santa Cena" },
+  { src: "/colombianPray/7.webp", alt: "Foto Santa Cena" },
+  { src: "/colombianPray/8.webp", alt: "Foto Santa Cena" },
+  { src: "/colombianPray/9.webp", alt: "Foto Santa Cena" },
+  { src: "/colombianPray/10.webp", alt: "Foto Santa Cena" },
+  { src: "/colombianPray/1.webp", alt: "Foto Santa Cena" },
+  // Agrega más imágenes aquí
+];
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <title>Galería Oración por colombia - Iglesia Asambleas de Dios</title>
+    <meta
+      name="description"
+      content="Galería de fotos e información del evento pasado de la Iglesia Asambleas de Dios en Chipre, Manizales."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"
+    ></script>
+  </head>
+  <body
+    class="bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 text-white"
+  >
+    <Header />
+    <main
+      class="flex flex-col items-center min-h-screen bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 p-4"
+    >
+      <h1 class="text-3xl font-bold text-center mt-4 text-white">
+        Oración por Colombia
+      </h1>
+      <div class="w-full max-w-4xl mt-6">
+        <Carousel images={images} />
+      </div>
+      <div class="mt-8 text-center">
+        <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+          La "Oración por Colombia" fue un encuentro de profundo significado
+          espiritual que nos unió en ferviente intercesión por nuestra nación.
+          Durante este evento, nos reunimos en unidad para elevar plegarias por
+          la paz, la reconciliación y el bienestar de nuestro país. Fue un
+          momento en el que cada corazón se unió en oración, buscando la guía y
+          la bendición de Dios sobre nuestras comunidades y nuestra tierra.
+          <br />
+          <br />
+          Este acto de fe colectiva no solo fue un llamado a reflexionar sobre nuestro
+          papel como agentes de cambio, inspirados por el amor y la misericordia
+          divina, sino que también fortaleció nuestra fe y nuestra determinación
+          para vivir conforme a los principios de amor, justicia y esperanza que
+          Cristo nos enseñó. Fue un tiempo de renovación espiritual, donde cada participante
+          experimentó la presencia transformadora de Dios de manera profunda y personal.
+        </p>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
