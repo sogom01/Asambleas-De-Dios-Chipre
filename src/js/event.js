@@ -1,25 +1,57 @@
 document.addEventListener("DOMContentLoaded", () => {
     const slider = document.getElementById("slider");
-    const indicators = document.querySelectorAll(".progress-fill");
+    const slides = document.querySelectorAll(".event-card");
     let currentSlide = 0;
-    const totalSlides = indicators.length;
+    const totalSlides = slides.length;
 
-    const updateSlider = () => {
+    const updateSlider = (instant = false) => {
+        if (instant) {
+            slider.style.transition = "none";
+        } else {
+            slider.style.transition = "transform 0.5s ease-in-out";
+        }
         slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-        indicators.forEach((indicator, index) => {
-            indicator.classList.toggle("bg-gray-400", index === currentSlide);
-            indicator.style.width = index === currentSlide ? "100%" : "0%";
+
+        slides.forEach((slide, index) => {
+            const progressShadow = slide.querySelector(".progress-shadow");
+            progressShadow.style.width = "0%"; // Reiniciar el progreso de la sombra
+            if (index === currentSlide) {
+                setTimeout(() => {
+                    progressShadow.style.transition = "width 5s linear";
+                    progressShadow.style.width = "100%";
+                }, 100); // Pequeño retraso para reiniciar la transición
+            }
         });
     };
 
     const nextSlide = () => {
-        currentSlide = (currentSlide + 1) % totalSlides;
-        updateSlider();
+        if (currentSlide >= totalSlides - 1) {
+            currentSlide = 0;
+            updateSlider(true);
+            setTimeout(() => {
+                slider.style.transition = "transform 0.5s ease-in-out";
+                currentSlide++;
+                updateSlider();
+            }, 20);
+        } else {
+            currentSlide++;
+            updateSlider();
+        }
     };
 
     const prevSlide = () => {
-        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-        updateSlider();
+        if (currentSlide <= 0) {
+            currentSlide = totalSlides - 1;
+            updateSlider(true);
+            setTimeout(() => {
+                slider.style.transition = "transform 0.5s ease-in-out";
+                currentSlide--;
+                updateSlider();
+            }, 20);
+        } else {
+            currentSlide--;
+            updateSlider();
+        }
     };
 
     document.getElementById("next").addEventListener("click", () => {
@@ -36,21 +68,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let slideInterval = setInterval(nextSlide, 5000);
 
-    let startX = null;
     slider.addEventListener("touchstart", (e) => {
-        startX = e.touches[0].clientX;
+        const startX = e.touches[0].clientX;
         clearInterval(slideInterval);
-    });
-
-    slider.addEventListener("touchmove", (e) => {
-        if (startX === null) return;
-        const currentX = e.touches[0].clientX;
-        const diffX = startX - currentX;
-        if (Math.abs(diffX) > 50) {
-            diffX > 0 ? nextSlide() : prevSlide();
-            startX = null;
-            slideInterval = setInterval(nextSlide, 5000);
-        }
+        slider.addEventListener("touchmove", (e) => {
+            const currentX = e.touches[0].clientX;
+            const diffX = startX - currentX;
+            if (Math.abs(diffX) > 50) {
+                diffX > 0 ? nextSlide() : prevSlide();
+                slideInterval = setInterval(nextSlide, 5000);
+            }
+        }, { once: true });
     });
 
     updateSlider();

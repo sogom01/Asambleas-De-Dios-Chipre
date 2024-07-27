@@ -6,58 +6,63 @@ const events = [
     imgSrc: "/colombianPray/1.webp",
     alt: "Anuncio",
     link: "/events/last/galleryColombianPray",
+    title: "Oración por Colombia",
   },
   {
     id: 2,
     imgSrc: "/img/Belgica.webp",
     alt: "Anuncio",
     link: "/ministries/missions/belgica",
+    title: "Oración misionera por Belgica",
   },
   {
     id: 3,
     imgSrc: "/prayerFathers/16.webp",
     alt: "Anuncio oracion por los padres",
     link: "/events/last/galleryFathers",
+    title: "Oración por los padres",
   },
   {
     id: 4,
-    imgSrc: "/encuentro2024/2.webp",
+    imgSrc: "/events/1.webp",
     alt: "Anuncio encuentro con jesus 2024",
     link: "/events/last/galleryEncuentro",
+    title: "Encuentro con Jesús 2024",
   },
   {
     id: 5,
     imgSrc: "/youths/1.webp",
     alt: "Anuncio",
     link: "/ministries/youths/youth",
+    title: "De Jovenes para Jovenes",
   },
   {
     id: 6,
     imgSrc: "/concert/7.webp",
     alt: "Anuncio concierto bautizados en fuego",
     link: "/events/last/galleryConcert",
+    title: "Concierto Bautizados en fuego",
   },
   {
     id: 7,
-    imgSrc: "/prayerMothers/3.webp",
+    imgSrc: "/events/3.webp",
     alt: "Anuncio oracion por las madres",
     link: "/events/last/galleryMothers",
+    title: "Oración por las madres",
   },
   {
     id: 8,
-    imgSrc: "/redGospel/4.webp",
+    imgSrc: "/events/2.webp",
     alt: "Anuncio jornada evangelistica juvenil red gospel",
     link: "/events/last/galleryRedGospel",
+    title: "Evento evangelístico Red Gospel",
   },
 ];
 ---
 
 <section id="events" class="bg-transparent text-white rounded-lg shadow-lg">
   <div class="relative overflow-hidden rounded-lg shadow-lg mx-auto">
-    <div
-      id="slider"
-      class="flex transition-transform duration-1000 ease-in-out"
-    >
+    <div id="slider" class="slider">
       {
         events.map((event) => (
           <div
@@ -68,22 +73,43 @@ const events = [
               <img
                 src={event.imgSrc}
                 alt={event.alt}
-                class="w-full h-full object-cover rounded-lg shadow-lg"
+                class="event-img w-full h-full object-cover rounded-lg shadow-lg"
                 loading="lazy"
               />
+              <div class="event-title-container">
+                <h3 class="event-title">{event.title}</h3>
+              </div>
+              <div class="progress-shadow" />
+            </a>
+          </div>
+        ))
+      }
+      {
+        events.slice(0, 1).map((event) => (
+          <div
+            class="event-card min-w-full transition-transform duration-500 transform hover:scale-105"
+            key={`${event.id}-clone`}
+          >
+            <a href={event.link} aria-label={`Detalles del ${event.alt}`}>
+              <img
+                src={event.imgSrc}
+                alt={event.alt}
+                class="event-img w-full h-full object-cover rounded-lg shadow-lg"
+                loading="lazy"
+              />
+              <div class="event-title-container">
+                <h3 class="event-title">{event.title}</h3>
+              </div>
+              <div class="progress-shadow" />
             </a>
           </div>
         ))
       }
     </div>
-    <button
-      id="prev"
-      class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-2 rounded-full hover:bg-gray-600 transition-all duration-300"
-      aria-label="Anterior"
-    >
+    <button id="prev" class="slider-button left-2" aria-label="Anterior">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class="h-6 w-6"
+        class="h-6 w-6 text-white"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -95,14 +121,10 @@ const events = [
           d="M15 19l-7-7 7-7"></path>
       </svg>
     </button>
-    <button
-      id="next"
-      class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-2 rounded-full hover:bg-gray-600 transition-all duration-300"
-      aria-label="Siguiente"
-    >
+    <button id="next" class="slider-button right-2" aria-label="Siguiente">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class="h-6 w-6"
+        class="h-6 w-6 text-white"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -114,23 +136,6 @@ const events = [
           d="M9 5l7 7-7 7"></path>
       </svg>
     </button>
-    <div
-      class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2 w-full px-4"
-    >
-      {
-        events.map((_, index) => (
-          <div
-            class="progress-bar h-1 flex-1 bg-gray-700 relative overflow-hidden rounded"
-            key={index}
-          >
-            <div
-              class={`progress-fill absolute top-0 left-0 h-full ${index === 0 ? "w-full bg-gray-400" : "w-0"}`}
-              style="transition: width 5s linear"
-            />
-          </div>
-        ))
-      }
-    </div>
   </div>
 </section>
 
