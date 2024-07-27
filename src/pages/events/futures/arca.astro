@@ -1,0 +1,91 @@
+---
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import "../../../styles/global.css"; // Asegúrate de que la ruta del archivo CSS sea correcta
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <title>Detalles del Evento - Iglesia Asambleas de Dios</title>
+    <meta
+      name="description"
+      content="Detalles del próximo evento de la Iglesia Asambleas de Dios en Chipre, Manizales."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body
+    class="bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 text-white"
+  >
+    <Header />
+    <main
+      class="flex flex-col items-center min-h-screen bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 p-4"
+    >
+      <article class="w-full max-w-4xl mt-8">
+        <img
+          src="/events/6.webp"
+          alt="Musical"
+          class="w-full rounded"
+          loading="lazy"
+        />
+        <div class="w-full max-w-4xl mt-8 text-center">
+          <h1 class="text-3xl font-bold text-center mt-6 mb-4 text-white">
+            Musical Día de la Familia
+          </h1>
+          <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+            Te invitamos cordialmente a nuestro Musical del Día de la Familia,
+            un evento lleno de alegría y celebración para toda la comunidad.
+            Este musical especial está inspirado en la obra de teatro y musica
+            de Marcos Vidal, y ha sido cuidadosamente organizado desde el mes de
+            enero por un dedicado equipo de voluntarios y artistas de nuestra
+            iglesia.
+            <br />
+            <br />
+            Durante el evento, podrás disfrutar de música inspiradora, presentaciones
+            artísticas y un mensaje de esperanza y amor. Este musical es una oportunidad
+            perfecta para compartir en familia y fortalecer nuestros lazos como comunidad.
+            <br />
+            <br />
+            Nos encantaría que nos acompañaras y vivieras con nosotros este momento
+            especial que hemos preparado con mucho amor y dedicación.
+            <br />
+            <br />
+            ¡No faltes! Será una experiencia inolvidable.
+          </p>
+          <div class="text-left p-4 bg-gray-800 rounded">
+            <h2 class="text-2xl font-bold mb-4 text-white">
+              Detalles de interés:
+            </h2>
+            <p class="text-lg text-gray-300 mb-2">
+              <strong>Fecha:</strong> 11 de agosto
+            </p>
+            <p class="text-lg text-gray-300 mb-2">
+              <strong>Horario:</strong> 10:00 a.m.
+            </p>
+            <a
+              href="https://www.google.com/maps/place/Iglesia+Cristiana+Chipre+Asambleas+De+Dios/@5.0762186,-75.5291487,17z/data=!3m1!4b1!4m6!3m5!1s0x8e476fe21a7a6799:0x2fedc7fb65424c77!8m2!3d5.0762186!4d-75.5265738!16s%2Fg%2F11byckj2dg?entry=ttu"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-gray-300"
+            >
+              <p class="text-lg text-gray-300 mb-2">
+                <strong>Lugar:</strong>
+                Iglesia Asambleas de Dios, Chipre, Manizales
+              </p>
+            </a>
+          </div>
+        </div>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>
