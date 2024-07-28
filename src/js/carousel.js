@@ -28,24 +28,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function nextImage() {
-        currentIndex = (currentIndex + 1) % totalImages;
-        updateCarousel();
-        if (currentIndex === totalImages - 1) {
+        if (currentIndex >= totalImages - 1) {
+            currentIndex = 0;
+            updateCarousel(true);
             setTimeout(() => {
                 currentIndex = 1;
-                updateCarousel(true);
-            }, 500);
+                updateCarousel();
+            }, 50);
+        } else {
+            currentIndex++;
+            updateCarousel();
         }
     }
 
     function prevImage() {
-        currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-        updateCarousel();
-        if (currentIndex === 0) {
+        if (currentIndex <= 0) {
+            currentIndex = totalImages - 1;
+            updateCarousel(true);
             setTimeout(() => {
                 currentIndex = totalImages - 2;
-                updateCarousel(true);
-            }, 500);
+                updateCarousel();
+            }, 50);
+        } else {
+            currentIndex--;
+            updateCarousel();
         }
     }
 
