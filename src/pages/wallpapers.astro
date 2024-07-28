@@ -1,0 +1,125 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Bottom from "../components/Bottom.astro";
+import "../styles/global.css";
+import "../styles/wallpapers.css";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <title>Fondos de Pantalla - Iglesia Asambleas de Dios</title>
+    <meta
+      name="description"
+      content="Descarga fondos de pantalla de la Iglesia cristiana Asambleas de Dios en Chipre, Manizales."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body
+    class="bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 text-white"
+  >
+    <Header />
+    <Bottom />
+    <main
+      class="flex flex-col items-center min-h-screen bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 p-4"
+    >
+      <h1 class="text-3xl font-bold text-center mt-6 text-white">
+        Fondos de Pantalla
+      </h1>
+
+      <!-- Sección para fondos de pantalla de PC -->
+      <section class="w-full max-w-6xl mt-6 p-4">
+        <h2 class="text-xl font-bold mb-4 text-white">
+          Fondos de Pantalla para PC
+        </h2>
+        <div
+          class="wallpaper-grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          <div class="wallpaper-card">
+            <img
+              src="/wallpapers/1.webp"
+              alt="Fondo de pantalla 1"
+              class="w-full h-auto rounded-lg shadow-lg"
+            />
+            <a href="/wallpapers/1.webp" download class="download-btn"
+              >Descargar</a
+            >
+          </div>
+          <div class="wallpaper-card">
+            <img
+              src="/wallpapers/2.webp"
+              alt="Fondo de pantalla 2"
+              class="w-full h-auto rounded-lg shadow-lg"
+            />
+            <a href="/wallpapers/2.webp" download class="download-btn"
+              >Descargar</a
+            >
+          </div>
+          <div class="wallpaper-card">
+            <img
+              src="/wallpapers/3.webp"
+              alt="Fondo de pantalla 3"
+              class="w-full h-auto rounded-lg shadow-lg"
+            />
+            <a href="/wallpapers/3.webp" download class="download-btn"
+              >Descargar</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección para fondos de pantalla de celular -->
+      <section class="w-full max-w-6xl mt-6 p-4">
+        <h2 class="text-xl font-bold mb-4 text-white">
+          Fondos de Pantalla para Celular
+        </h2>
+        <div
+          class="wallpaper-grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          <div class="wallpaper-card">
+            <img
+              src="/wallpapers/4.webp"
+              alt="Fondo de pantalla 4"
+              class="w-full h-auto rounded-lg shadow-lg"
+            />
+            <a href="/wallpapers/4.webp" download class="download-btn"
+              >Descargar</a
+            >
+          </div>
+          <div class="wallpaper-card">
+            <img
+              src="/wallpapers/5.webp"
+              alt="Fondo de pantalla 5"
+              class="w-full h-auto rounded-lg shadow-lg"
+            />
+            <a href="/wallpapers/5.webp" download class="download-btn"
+              >Descargar</a
+            >
+          </div>
+          <div class="wallpaper-card">
+            <img
+              src="/wallpapers/6.webp"
+              alt="Fondo de pantalla 6"
+              class="w-full h-auto rounded-lg shadow-lg"
+            />
+            <a href="/wallpapers/6.webp" download class="download-btn"
+              >Descargar</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+    <Footer />
+    <!-- Cargar JavaScript de forma asíncrona -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"
+      async></script>
+  </body>
+</html>
