@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextButton = document.getElementById("nextButton");
     let currentIndex = 1;
     const totalImages = carouselInner.children.length;
-    let startX, moveX, endX;
 
     function updateCarousel(instant = false) {
         if (instant) {
@@ -70,25 +69,15 @@ document.addEventListener("DOMContentLoaded", () => {
         slideInterval = setInterval(nextImage, 5000);
     }
 
-    carouselInner.addEventListener("touchstart", (e) => {
-        startX = e.touches[0].clientX;
+    // Integrar Hammer.js para manejo de gestos
+    const hammer = new Hammer(carouselInner);
+    hammer.on("swipeleft", () => {
+        nextImage();
+        resetInterval();
     });
-
-    carouselInner.addEventListener("touchmove", (e) => {
-        moveX = e.touches[0].clientX;
-    });
-
-    carouselInner.addEventListener("touchend", () => {
-        endX = moveX || startX;
-        const diffX = startX - endX;
-        if (Math.abs(diffX) > 50) {
-            if (diffX > 0) {
-                nextImage();
-            } else {
-                prevImage();
-            }
-            resetInterval();
-        }
+    hammer.on("swiperight", () => {
+        prevImage();
+        resetInterval();
     });
 
     let slideInterval = setInterval(nextImage, 5000);
