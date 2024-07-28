@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentSlide = 0;
     const totalSlides = slides.length;
 
+    let startX, moveX, endX;
+
     const updateSlider = (instant = false) => {
         if (instant) {
             slider.style.transition = "none";
@@ -69,16 +71,25 @@ document.addEventListener("DOMContentLoaded", () => {
     let slideInterval = setInterval(nextSlide, 5000);
 
     slider.addEventListener("touchstart", (e) => {
-        const startX = e.touches[0].clientX;
-        clearInterval(slideInterval);
-        slider.addEventListener("touchmove", (e) => {
-            const currentX = e.touches[0].clientX;
-            const diffX = startX - currentX;
-            if (Math.abs(diffX) > 50) {
-                diffX > 0 ? nextSlide() : prevSlide();
-                slideInterval = setInterval(nextSlide, 5000);
+        startX = e.touches[0].clientX;
+    });
+
+    slider.addEventListener("touchmove", (e) => {
+        moveX = e.touches[0].clientX;
+    });
+
+    slider.addEventListener("touchend", () => {
+        endX = moveX || startX;
+        const diffX = startX - endX;
+        if (Math.abs(diffX) > 50) {
+            if (diffX > 0) {
+                nextSlide();
+            } else {
+                prevSlide();
             }
-        }, { once: true });
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 5000);
+        }
     });
 
     updateSlider();

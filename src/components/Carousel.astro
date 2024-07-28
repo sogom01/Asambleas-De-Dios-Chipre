@@ -5,18 +5,50 @@ const { images } = Astro.props;
 
 <div class="carousel">
   <div class="carousel-inner" id="carousel-inner">
+    <!-- Duplicar la última imagen al inicio -->
+    <div class="carousel-item">
+      <img
+        src={images[images.length - 1].src}
+        alt={images[images.length - 1].alt}
+        class="w-full h-full object-cover rounded-lg shadow-lg"
+        loading="lazy"
+      />
+      <div class="carousel-title-container">
+        <h3 class="carousel-title">{images[images.length - 1].title}</h3>
+      </div>
+      <div class="progress-shadow"></div>
+    </div>
+
     {
       images.map((image, index) => (
-        <div class="carousel-item">
+        <div class="carousel-item" key={index}>
           <img
             src={image.src}
             alt={image.alt}
-            class="w-full h-full object-cover"
+            class="w-full h-full object-cover rounded-lg shadow-lg"
             loading="lazy"
           />
+          <div class="carousel-title-container">
+            <h3 class="carousel-title">{image.title}</h3>
+          </div>
+          <div class="progress-shadow" />
         </div>
       ))
     }
+
+    <!-- Duplicar la primera imagen al final -->
+    <div class="carousel-item">
+      <img
+        src={images[0].src}
+        alt={images[0].alt}
+        class="w-full h-full object-cover rounded-lg shadow-lg"
+        loading="lazy"
+      />
+      <div class="carousel-title-container">
+        <h3 class="carousel-title">{images[0].title}</h3>
+      </div>
+      <div class="progress-shadow"></div>
+    </div>
   </div>
   <button
     class="carousel-button left"
@@ -50,15 +82,6 @@ const { images } = Astro.props;
         d="M9 5l7 7-7 7"></path>
     </svg>
   </button>
-  <div class="carousel-indicators">
-    {
-      images.map((_, index) => (
-        <div class="carousel-indicator" id={`indicator-${index}`}>
-          <div class="fill" />
-        </div>
-      ))
-    }
-  </div>
 </div>
 
 <script src="../js/carousel.js"></script>

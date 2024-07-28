@@ -2,13 +2,6 @@
 import "../styles/components/event.css";
 const events = [
   {
-    id: 1,
-    imgSrc: "/events/6.webp",
-    alt: "Anuncio",
-    link: "/events/futures/arca",
-    title: "Musical El Arca de salvación",
-  },
-  {
     id: 2,
     imgSrc: "/colombianPray/1.webp",
     alt: "Anuncio",
@@ -73,7 +66,7 @@ const events = [
       {
         events.map((event) => (
           <div
-            class="event-card min-w-full transition-transform duration-500 transform hover:scale-105"
+            class="event-card min-w-full transition-transform duration-500 transform"
             key={event.id}
           >
             <a href={event.link} aria-label={`Detalles del ${event.alt}`}>
@@ -94,7 +87,7 @@ const events = [
       {
         events.slice(0, 1).map((event) => (
           <div
-            class="event-card min-w-full transition-transform duration-500 transform hover:scale-105"
+            class="event-card min-w-full transition-transform duration-500 transform"
             key={`${event.id}-clone`}
           >
             <a href={event.link} aria-label={`Detalles del ${event.alt}`}>
