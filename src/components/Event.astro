@@ -4,65 +4,65 @@ const events = [
   {
     id: 2,
     imgSrc: "/colombianPray/1.webp",
-    alt: "Anuncio",
+    alt: "Anuncio de oración por Colombia",
     link: "/events/last/galleryColombianPray",
     title: "Oración por Colombia",
   },
   {
     id: 3,
     imgSrc: "/img/Belgica.webp",
-    alt: "Anuncio",
+    alt: "Anuncio de oración misionera por Bélgica",
     link: "/ministries/missions/belgica",
-    title: "Oración misionera por Belgica",
+    title: "Oración misionera por Bélgica",
   },
   {
     id: 4,
     imgSrc: "/prayerFathers/16.webp",
-    alt: "Anuncio oracion por los padres",
+    alt: "Anuncio de oración por los padres",
     link: "/events/last/galleryFathers",
     title: "Oración por los padres",
   },
   {
     id: 5,
     imgSrc: "/events/1.webp",
-    alt: "Anuncio encuentro con jesus 2024",
+    alt: "Anuncio del encuentro con Jesús 2024",
     link: "/events/last/galleryEncuentro",
     title: "Encuentro con Jesús 2024",
   },
   {
     id: 6,
     imgSrc: "/youths/1.webp",
-    alt: "Anuncio",
+    alt: "Anuncio de De Jóvenes para Jóvenes",
     link: "/ministries/youths/youth",
-    title: "De Jovenes para Jovenes",
+    title: "De Jóvenes para Jóvenes",
   },
   {
     id: 7,
     imgSrc: "/concert/7.webp",
-    alt: "Anuncio concierto bautizados en fuego",
+    alt: "Anuncio del concierto Bautizados en Fuego",
     link: "/events/last/galleryConcert",
-    title: "Concierto Bautizados en fuego",
+    title: "Concierto Bautizados en Fuego",
   },
   {
     id: 8,
     imgSrc: "/events/3.webp",
-    alt: "Anuncio oracion por las madres",
+    alt: "Anuncio de oración por las madres",
     link: "/events/last/galleryMothers",
     title: "Oración por las madres",
   },
   {
     id: 9,
     imgSrc: "/events/2.webp",
-    alt: "Anuncio jornada evangelistica juvenil red gospel",
+    alt: "Anuncio de jornada evangelística juvenil Red Gospel",
     link: "/events/last/galleryRedGospel",
     title: "Evento evangelístico Red Gospel",
   },
   {
     id: 1,
-    imgSrc: "/events/5.webp",
-    alt: "Anuncio musical el arca de salvacion",
+    imgSrc: "/events/4.webp",
+    alt: "Anuncio del musical El Arca de Salvación",
     link: "/events/futures/arca",
-    title: "Musical El arca de Salvación",
+    title: "Musical El Arca de Salvación",
   },
 ];
 ---
@@ -76,7 +76,10 @@ const events = [
             class="event-card min-w-full transition-transform duration-500 transform"
             key={event.id}
           >
-            <a href={event.link} aria-label={`Detalles del ${event.alt}`}>
+            <a
+              href={event.link}
+              aria-label={`Detalles del evento: ${event.alt}`}
+            >
               <img
                 src={event.imgSrc}
                 alt={event.alt}
@@ -97,7 +100,10 @@ const events = [
             class="event-card min-w-full transition-transform duration-500 transform"
             key={`${event.id}-clone`}
           >
-            <a href={event.link} aria-label={`Detalles del ${event.alt}`}>
+            <a
+              href={event.link}
+              aria-label={`Detalles del evento: ${event.alt}`}
+            >
               <img
                 src={event.imgSrc}
                 alt={event.alt}
@@ -113,7 +119,11 @@ const events = [
         ))
       }
     </div>
-    <button id="prev" class="slider-button left-2" aria-label="Anterior">
+    <button
+      id="prev"
+      class="slider-button left-2"
+      aria-label="Ver evento anterior"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="h-6 w-6 text-white"
@@ -128,7 +138,11 @@ const events = [
           d="M15 19l-7-7 7-7"></path>
       </svg>
     </button>
-    <button id="next" class="slider-button right-2" aria-label="Siguiente">
+    <button
+      id="next"
+      class="slider-button right-2"
+      aria-label="Ver siguiente evento"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="h-6 w-6 text-white"
