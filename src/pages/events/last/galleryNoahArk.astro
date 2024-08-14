@@ -1,0 +1,85 @@
+---
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import "../../../styles/global.css";
+import Carousel from "../../../components/Carousel.astro";
+
+const images = [
+  { src: "/noahArk/5.webp", alt: "Foto Arca de noe" },
+  { src: "/noahArk/1.webp", alt: "Foto Arca de noe" },
+  { src: "/noahArk/2.webp", alt: "Foto Arca de noe" },
+  { src: "/noahArk/3.webp", alt: "Foto Arca de noe" },
+  { src: "/noahArk/4.webp", alt: "Foto Arca de noe" },
+  { src: "/noahArk/6.webp", alt: "Foto Arca de noe" },
+  { src: "/noahArk/7.webp", alt: "Foto Arca de noe" },
+  { src: "/noahArk/8.webp", alt: "Foto Arca de noe" },
+  { src: "/noahArk/9.webp", alt: "Foto Arca de noe" },
+  { src: "/noahArk/10.webp", alt: "Foto Arca de noe" },
+
+  // Agrega más imágenes aquí
+];
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <title>Galería Musical Arca de Noé - Iglesia Asambleas de Dios</title>
+    <meta
+      name="description"
+      content="Galería de fotos e información del evento pasado de la Iglesia Asambleas de Dios en Chipre, Manizales."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"
+    ></script>
+  </head>
+  <body
+    class="bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 text-white"
+  >
+    <Header />
+    <main
+      class="flex flex-col items-center min-h-screen bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 p-4"
+    >
+      <h1 class="text-3xl font-bold text-center mt-4 text-white">
+        Musical Arca de Noé
+      </h1>
+      <div class="w-full max-w-4xl mt-6">
+        <Carousel images={images} />
+      </div>
+      <div class="mt-8 text-center">
+        <p class="text-lg text-gray-300">
+          El 11 de agosto, nuestra iglesia fue el escenario de un evento
+          memorable: el musical "Arca de Noé". Este evento, realizado en el
+          marco del Día de la Familia, fue una experiencia llena de emoción y
+          fe, donde se representó la historia bíblica del Arca de Noé a través
+          de música, teatro y danza.
+          <br /><br />
+          El musical contó con la participación de miembros de todas las edades,
+          quienes trabajaron arduamente para traer a la vida esta poderosa narración.
+          Desde los niños hasta los adultos, cada uno de los participantes mostró
+          su dedicación y talento en una producción que capturó los corazones de
+          la congregación.
+          <br /><br />
+          La puesta en escena no solo fue un deleite visual, sino también una profunda
+          reflexión sobre la obediencia, la fe y la confianza en Dios. El evento
+          concluyó con una oración especial, donde la congregación se unió para dar
+          gracias por la enseñanza y la bendición recibida.
+          <br /><br />
+          Agradecemos a todos los que asistieron y a aquellos que dedicaron su tiempo
+          y esfuerzo para hacer de este musical un éxito. ¡Esperamos continuar compartiendo
+          juntos más momentos especiales como este en nuestra comunidad!
+        </p>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>

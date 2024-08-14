@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const prevButton = document.getElementById("prevButton");
     const nextButton = document.getElementById("nextButton");
     let currentIndex = 1;
-    const totalImages = carouselInner.children.length;
+    const totalImages = carouselInner.children.length - 2; // Excluir los duplicados
 
     function updateCarousel(instant = false) {
         if (instant) {
@@ -27,13 +27,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function nextImage() {
-        if (currentIndex >= totalImages - 1) {
-            currentIndex = 0;
-            updateCarousel(true);
+        if (currentIndex >= totalImages) {
+            currentIndex++;
+            updateCarousel();
             setTimeout(() => {
                 currentIndex = 1;
-                updateCarousel();
-            }, 50);
+                updateCarousel(true);
+            }, 500); // Dar tiempo a la transición para completar
         } else {
             currentIndex++;
             updateCarousel();
@@ -42,12 +42,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function prevImage() {
         if (currentIndex <= 0) {
-            currentIndex = totalImages - 1;
-            updateCarousel(true);
+            currentIndex--;
+            updateCarousel();
             setTimeout(() => {
-                currentIndex = totalImages - 2;
-                updateCarousel();
-            }, 50);
+                currentIndex = totalImages;
+                updateCarousel(true);
+            }, 500); // Dar tiempo a la transición para completar
         } else {
             currentIndex--;
             updateCarousel();
