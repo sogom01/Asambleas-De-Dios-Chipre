@@ -1,0 +1,104 @@
+---
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import "../../../styles/global.css";
+import Carousel from "../../../components/Carousel.astro";
+
+const images = [
+  { src: "/cultoNavideno/2.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/3.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/4.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/5.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/6.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/7.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/8.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/9.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/10.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/12.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/13.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/14.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/15.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/16.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/17.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/18.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/19.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/20.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/21.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/22.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/23.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/24.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/25.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/26.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/27.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/28.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/29.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/30.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/31.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/32.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/33.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/34.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/35.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/36.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/37.webp", alt: "Foto Santa Cena" },
+  { src: "/cultoNavideno/38.webp", alt: "Foto Santa Cena" },
+  // Agrega más imágenes aquí
+];
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <title>Galería culto navideño - Iglesia Asambleas de Dios</title>
+    <meta
+      name="description"
+      content="Galería de fotos e información del evento pasado de la Iglesia Asambleas de Dios en Chipre, Manizales."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"
+    ></script>
+  </head>
+  <body
+    class="bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 text-white"
+  >
+    <Header />
+    <main
+      class="flex flex-col items-center min-h-screen bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 p-4"
+    >
+      <h1 class="text-3xl font-bold text-center mt-4 text-white">
+        Culto navideño
+      </h1>
+      <div class="w-full max-w-4xl mt-6">
+        <Carousel images={images} />
+      </div>
+      <div class="mt-8 text-center">
+        <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+          El "Culto de Navidad" fue un evento especial lleno de gozo y
+          significado espiritual, donde como congregación nos reunimos para
+          celebrar el nacimiento de nuestro Salvador, Jesucristo. Este espacio
+          fue una oportunidad para compartir el mensaje transformador de Dios,
+          reflexionando sobre el amor, la esperanza y la paz que Jesús trajo al
+          mundo con su llegada.
+          <br />
+          <br />
+          Durante el culto, vivimos momentos de adoración, gratitud y comunión, fortaleciendo
+          nuestra fe y unidad como familia en Cristo. Al final, cada familia recibió
+          un detalle navideño como expresión de amor y agradecimiento, recordándonos
+          el verdadero significado de dar: el amor incondicional que Dios nos mostró
+          al enviar a su Hijo. Fue una celebración inolvidable que llenó nuestros
+          corazones de alegría y renovó nuestro compromiso de vivir en su luz y amor.
+        </p>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>

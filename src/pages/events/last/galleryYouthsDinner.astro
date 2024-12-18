@@ -1,0 +1,101 @@
+---
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import "../../../styles/global.css";
+import Carousel from "../../../components/Carousel.astro";
+
+const images = [
+  { src: "/cenaNavidenaJovenes/2.webp", alt: "Foto Santa Cena" },
+  { src: "/cenaNavidenaJovenes/3.webp", alt: "Foto Santa Cena" },
+  { src: "/cenaNavidenaJovenes/4.webp", alt: "Foto Santa Cena" },
+  { src: "/cenaNavidenaJovenes/5.webp", alt: "Foto Santa Cena" },
+  { src: "/cenaNavidenaJovenes/6.webp", alt: "Foto Santa Cena" },
+  { src: "/cenaNavidenaJovenes/7.webp", alt: "Foto Santa Cena" },
+  { src: "/cenaNavidenaJovenes/8.webp", alt: "Foto Santa Cena" },
+  { src: "/cenaNavidenaJovenes/9.webp", alt: "Foto Santa Cena" },
+  { src: "/cenaNavidenaJovenes/10.webp", alt: "Foto Santa Cena" },
+  { src: "/cenaNavidenaJovenes/12.webp", alt: "Foto Santa Cena" },
+  { src: "/cenaNavidenaJovenes/13.webp", alt: "Foto Santa Cena" },
+  { src: "/cenaNavidenaJovenes/14.webp", alt: "Foto Santa Cena" },
+  { src: "/cenaNavidenaJovenes/15.webp", alt: "Foto Santa Cena" },
+  { src: "/cenaNavidenaJovenes/16.webp", alt: "Foto Santa Cena" },
+  { src: "/cenaNavidenaJovenes/17.webp", alt: "Foto Santa Cena" },
+  { src: "/cenaNavidenaJovenes/18.webp", alt: "Foto Santa Cena" },
+  { src: "/cenaNavidenaJovenes/19.webp", alt: "Foto Santa Cena" },
+  { src: "/cenaNavidenaJovenes/20.webp", alt: "Foto Santa Cena" },
+  { src: "/cenaNavidenaJovenes/21.webp", alt: "Foto Santa Cena" },
+  { src: "/cenaNavidenaJovenes/22.webp", alt: "Foto Santa Cena" },
+  { src: "/cenaNavidenaJovenes/23.webp", alt: "Foto Santa Cena" },
+  { src: "/cenaNavidenaJovenes/24.webp", alt: "Foto Santa Cena" },
+  { src: "/cenaNavidenaJovenes/25.webp", alt: "Foto Santa Cena" },
+  { src: "/cenaNavidenaJovenes/26.webp", alt: "Foto Santa Cena" },
+  { src: "/cenaNavidenaJovenes/27.webp", alt: "Foto Santa Cena" },
+  { src: "/cenaNavidenaJovenes/28.webp", alt: "Foto Santa Cena" },
+  // Agrega más imágenes aquí
+];
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <title>
+      Galería cena navideña De Jóvenes para Jóvenes - Iglesia Asambleas de Dios
+    </title>
+    <meta
+      name="description"
+      content="Galería de fotos e información del evento pasado de la Iglesia Asambleas de Dios en Chipre, Manizales."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"
+    ></script>
+  </head>
+  <body
+    class="bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 text-white"
+  >
+    <Header />
+    <main
+      class="flex flex-col items-center min-h-screen bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 p-4"
+    >
+      <h1 class="text-3xl font-bold text-center mt-4 text-white">
+        Cena navideña De Jóvenes para Jóvenes
+      </h1>
+      <div class="w-full max-w-4xl mt-6">
+        <Carousel images={images} />
+      </div>
+      <div class="mt-8 text-center">
+        <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+          La "Cena Navideña del Ministerio de Jóvenes" fue un encuentro lleno de
+          gratitud, compañerismo y profunda reflexión espiritual. Este evento,
+          diseñado especialmente para los jóvenes, nos permitió celebrar juntos
+          agradecer por su guía y fidelidad durante todo el año. Fue una noche
+          donde recordamos el ejemplo de humildad de nuestro Salvador,
+          reflexionando sobre cómo podemos imitar su carácter en nuestra vida
+          diaria.
+          <br />
+          <br />
+          Durante la velada, la predicación nos inspiró a valorar la sencillez y
+          el amor con el que Jesús vino al mundo, animándonos a vivir con corazones
+          humildes y agradecidos, también recordamos los temas que tratamos durante
+          el año para asi poder tener presente a que estamos llamados. A través de
+          la cena, la adoración y las actividades cuidadosamente preparadas, compartimos
+          momentos significativos que fortalecieron nuestros lazos como ministerio
+          y comunidad. Fue un tiempo especial de renovación espiritual, donde cada
+          joven pudo experimentar la paz y la alegría que solo Cristo puede brindar.
+          Sin duda, esta celebración quedará grabada como un recordatorio de nuestro
+          compromiso de ser luz en nuestras familias y en nuestra sociedad.
+        </p>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
