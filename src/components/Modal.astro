@@ -40,22 +40,20 @@ const { open, onClose } = Astro.props;
       class="text-sm bg-transparent p-8 md:p-12 rounded-lg text-center sm:text-base"
     >
       <h3 class="text-sm font-bold text-red-700 mb-4 sm:text-lg">
-        🎄 ¡Feliz Navidad y Próspero Año Nuevo! 🎄
+        🎄 ¡Feliz Navidad y Año Nuevo! 🎄
       </h3>
       <p class="text-sm text-gray-700 mb-6 sm:text-base">
         Pedimos al Dios todopoderoso que bendiga sus hogares y conceda un año
         nuevo lleno de bendiciones y que podamos seguir juntos en un mismo
-        sentir y que el amor de Dios este en sus corazones.
+        sentir y que el amor de Dios esté en sus corazones.
       </p>
       <p class="text-sm text-gray-700 sm:text-base">
-        Amados hermanos les recordamos que no habrá reuniones los sábados
+        Amados hermanos, les recordamos que no habrá reuniones los
         <span class="font-bold"
-          >Sábado 28 de Diciembre y 4 de Enero del año 2025
-        </span> y tampoco
-        <span class="font-bold">Miércoles 1 de Enero del año 2025 </span>
-        ¡Nos vemos pronto para seguir celebrando juntos!
-        <br />
-        <br />
+          >Sábados 28 de Diciembre y 4 de Enero del año 2025</span
+        > y tampoco el
+        <span class="font-bold">Miércoles 1 de Enero del año 2025</span>. ¡Nos
+        vemos pronto para seguir celebrando juntos!
       </p>
       <!-- Logo de la iglesia -->
       <div class="flex justify-center items-center">
@@ -85,20 +83,11 @@ const { open, onClose } = Astro.props;
     animation: appear 0.3s ease-out;
   }
 
-  @keyframes bounce {
-    0%,
-    100% {
-      transform: translateY(-5%);
-      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-    }
-    50% {
-      transform: translateY(0);
-      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-    }
-  }
-
-  .animate-bounce {
-    animation: bounce 2s infinite;
+  #fireworks-canvas {
+    background-color: transparent;
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
   }
 </style>
 
@@ -121,71 +110,46 @@ const { open, onClose } = Astro.props;
       drift: 0,
       ticks: 100,
     });
-
-    // Destellos secundarios
-    setTimeout(() => {
-      confetti({
-        particleCount: 15,
-        spread: 100,
-        origin: { x: Math.random(), y: Math.random() * 0.6 + 0.2 },
-        colors: colors,
-        startVelocity: 25,
-        gravity: 0.3,
-        scalar: 0.5,
-        drift: 0.2,
-        ticks: 50,
-      });
-    }, 200);
   }
 
   let fireworksInterval;
 
-  // Configurar el modal
   document.addEventListener("DOMContentLoaded", () => {
     const closeButton = document.getElementById("close-button");
     const modalBackdrop = document.getElementById("modal-backdrop");
     const modal = document.getElementById("modal");
+    const canvas = document.getElementById("fireworks-canvas");
+    const ctx = canvas.getContext("2d");
 
-    // Función para iniciar los fuegos artificiales
-    function startFireworks() {
-      // Lanzar primer fuego artificial
-      createFirework();
-
-      // Programar fuegos artificiales con intervalos variables
-      fireworksInterval = setInterval(() => {
-        if (Math.random() > 0.5) {
-          // 50% de probabilidad
-          createFirework();
-        }
-      }, 1000); // Intervalo más largo entre fuegos artificiales
+    function clearCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
 
-    // Función para detener los fuegos artificiales
+    function startFireworks() {
+      if (fireworksInterval) return; // Evitar duplicados
+      createFirework();
+      fireworksInterval = setInterval(createFirework, 1000);
+    }
+
     function stopFireworks() {
       if (fireworksInterval) {
         clearInterval(fireworksInterval);
+        fireworksInterval = null;
+        clearCanvas();
       }
     }
 
-    // Función para cerrar el modal
     function closeModal() {
-      modal?.classList.add("hidden");
+      modal.classList.add("hidden");
       stopFireworks();
     }
 
-    // Eventos de cierre
     closeButton?.addEventListener("click", closeModal);
     modalBackdrop?.addEventListener("click", closeModal);
 
-    // Iniciar efectos cuando el modal está visible
-    if (!modal?.classList.contains("hidden")) {
+    if (!modal.classList.contains("hidden")) {
       startFireworks();
     }
-
-    // Limpiar intervalos cuando se desmonte el componente
-    return () => {
-      stopFireworks();
-    };
   });
 </script>
 
